@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Modal from 'lib/ui/Modal';
-import PrimaryButton from 'lib/ui/forms/PrimaryButton';
-import SecondaryButton from 'lib/ui/forms/SecondaryButton';
+import Modal from './Modal';
+import PrimaryButton from './forms/PrimaryButton';
+import SecondaryButton from './forms/SecondaryButton';
 
 const ConfirmModal = ({
   confirmButtonLabel,

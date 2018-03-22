@@ -4,8 +4,8 @@ import isEmpty from 'lodash/isEmpty';
 import isNil from 'lodash/isNil';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Checkbox from 'lib/ui/forms/Checkbox';
 import loadingGif from 'images/loading.gif';
+import Checkbox from './forms/Checkbox';
 
 class Table extends Component {
   render() {

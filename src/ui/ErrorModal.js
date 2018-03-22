@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Modal from 'lib/ui/Modal';
-import PrimaryButton from 'lib/ui/forms/PrimaryButton';
+import Modal from './Modal';
+import PrimaryButton from './forms/PrimaryButton';
 
 const ErrorModal = ({ message, title, onClose }) => (
   <Modal isOpen onClose={onClose}>

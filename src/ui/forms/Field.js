@@ -48,7 +48,9 @@ export const getComponent = type => Types[type];
 
 class Field extends Component {
   render() {
-    const { label, bold, subField, children } = this.props;
+    const {
+      label, bold, subField, children,
+    } = this.props;
     const fieldClassNames = classNames(
       'py1',
       'flex',

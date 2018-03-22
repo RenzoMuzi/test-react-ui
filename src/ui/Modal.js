@@ -42,7 +42,9 @@ class Modal extends Component {
   };
 
   render() {
-    const { isOpen, children, positionClassName, wide } = this.props;
+    const {
+      isOpen, children, positionClassName, wide,
+    } = this.props;
 
     const containerClassName = classNames(
       'c-modal__container',

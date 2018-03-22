@@ -6,7 +6,9 @@ import SecondaryButton from './SecondaryButton';
 
 class EditAttributeModal extends Component {
   render() {
-    const { isOpen, title, children, onSubmit } = this.props;
+    const {
+      isOpen, title, children, onSubmit,
+    } = this.props;
 
     return (
       isOpen && (

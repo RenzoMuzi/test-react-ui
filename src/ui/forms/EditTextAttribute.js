@@ -24,7 +24,9 @@ class EditTextAttribute extends Component {
   };
 
   render() {
-    const { maxLength, title, onSubmit, isOpen, closeModal } = this.props;
+    const {
+      maxLength, title, onSubmit, isOpen, closeModal,
+    } = this.props;
     const { text } = this.state;
 
     return (

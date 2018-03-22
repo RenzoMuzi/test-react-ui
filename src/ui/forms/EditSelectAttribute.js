@@ -12,7 +12,9 @@ class EditSelectAttribute extends Component {
   }
 
   render() {
-    const { options, title, onClose, onSubmit } = this.props;
+    const {
+      options, title, onClose, onSubmit,
+    } = this.props;
     const { value } = this.state;
 
     return (

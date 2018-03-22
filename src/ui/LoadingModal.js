@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Modal from 'lib/ui/Modal';
 import loadingGif from 'images/loading.gif';
+import Modal from './Modal';
 
 const LoadingModal = ({ isLoading, text }) => (
   <Modal isOpen={isLoading}>

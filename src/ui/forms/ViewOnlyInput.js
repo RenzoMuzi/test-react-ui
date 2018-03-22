@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import * as valuesUtils from 'lib/utils/values';
+import * as valuesUtils from 'utils/values';
 
 class ViewOnlyInput extends Component {
   render() {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 
-export class Dropdown extends Component {
+class CustomDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,15 +83,19 @@ export class Dropdown extends Component {
   }
 }
 
-Dropdown.defaultProps = {
+CustomDropdown.defaultProps = {
   className: '',
+  label: '',
 };
 
-Dropdown.propTypes = {
-  label: PropTypes.string.isRequired,
+CustomDropdown.propTypes = {
+  label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  options: PropTypes.object.isRequired,
+  options: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]).isRequired,
   className: PropTypes.string,
 };
 
-export default onClickOutside(Dropdown);
+export default onClickOutside(CustomDropdown);

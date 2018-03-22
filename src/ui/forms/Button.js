@@ -2,7 +2,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Button = ({ className, disabled, label, onClick }) => (
+const Button = ({
+  className, disabled, label, onClick,
+}) => (
   <button
     disabled={disabled}
     className={classNames('pc-btn', className)}

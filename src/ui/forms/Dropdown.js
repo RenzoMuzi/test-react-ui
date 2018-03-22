@@ -10,8 +10,7 @@ import has from 'lodash/has';
 import isEmpty from 'lodash/isEmpty';
 import isEqual from 'lodash/isEqual';
 import invoke from 'lodash/invoke';
-import { withPopover } from 'lib/ui/Popover';
-
+import { withPopover } from '../Popover';
 import ViewOnlyText from './ViewOnlyText';
 
 const txCreator = (key, length, ctx) => prevState => {
@@ -90,8 +89,22 @@ class Dropdown extends Component {
     );
   }
 
+  renderSeparator(index) {
+    const className = classNames('dropdown-hr');
+    return <hr key={index} className={className} />;
+  }
+
+  renderTitle(title, index) {
+    const className = classNames('dropdown-title p1');
+    return (
+      <div key={index} className={className}>
+        {title.toUpperCase()}
+      </div>
+    );
+  }
+
   renderOption(option, index, indented) {
-    const { label, optionLabel, disabled } = option;
+    const { separator, title, label, optionLabel, disabled } = option;
     const { activeOption } = this.state;
     const isActive = activeOption === index;
     const optionClassName = classNames(
@@ -101,6 +114,14 @@ class Dropdown extends Component {
       { pl3: indented },
       { active: isActive },
     );
+
+    if (separator) {
+      return this.renderSeparator(index);
+    }
+
+    if (title) {
+      return this.renderTitle(title, index);
+    }
 
     return (
       <div
@@ -145,11 +166,11 @@ class Dropdown extends Component {
     const dropdownOptions = Array.isArray(options)
       ? options.map((option, i) => this.renderOption(option, i + 1))
       : flatMap(options, ({ label, value }, i) => [
-          this.renderOption(headerOption(label), i + 1),
-          ...value.map((option, ndex) =>
-            this.renderOption(option, i + ndex + 1, true),
-          ),
-        ]);
+        this.renderOption(headerOption(label), i + 1),
+        ...value.map((option, ndex) =>
+          this.renderOption(option, i + ndex + 1, true),
+        ),
+      ]);
     return [
       this.renderOption({ label: 'Select...', value: null, code: null }, 0),
       ...dropdownOptions,
@@ -213,7 +234,9 @@ Dropdown.propTypes = {
   options: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.shape({
-        label: PropTypes.string.isRequired,
+        label: PropTypes.string,
+        title: PropTypes.string,
+        separator: PropTypes.bool,
         optionLabel: PropTypes.array,
         value: PropTypes.oneOfType([
           PropTypes.number,
