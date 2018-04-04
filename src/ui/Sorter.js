@@ -4,15 +4,11 @@ import classNames from 'classnames';
 import { compose, withHandlers } from 'recompose';
 import update from 'react-addons-update';
 import find from 'lodash/find';
-import compact from 'lodash/compact';
 import Icon from './Icon';
 import CustomDropdown from './CustomDropdown';
 
 const SortChicklet = ({
-  name,
-  asc,
-  onChange,
-  onDelete,
+  name, asc, onChange, onDelete,
 }) => (
   <div className="orange-primary bg-orange-highlight inline-block">
     <Icon className="pointer px1" type={asc ? 'angle-up' : 'angle-down'} onClick={onChange} />
@@ -48,8 +44,8 @@ const Sorter = ({
         selectClasses="sandy-brown border-none px2 fs-14"
         noIcon
         value=""
-        onChange={(label) => onSelectOption(find(dropdownOptions, ['label', label]))}
-        options={compact(dropdownOptions.map(option => !find(sorting, ['label', option.label]) && option.label))}
+        onChange={index => onSelectOption(dropdownOptions[index])}
+        options={dropdownOptions.filter(option => !find(sorting, ['label', option.label]))}
       />
     </div>
   </div>
@@ -82,7 +78,7 @@ export default compose(
     onSelectOption: ({ sorting, onSortChange }) => value => onSortChange([...sorting, value]),
     onSelectedOptionsChange: ({ sorting, onSortChange }) => (value, index) =>
       onSortChange(update(sorting, { $splice: [[index, 1, value]] })),
-    deleteSelectedOption: ({ sorting, onSortChange }) => (index) =>
+    deleteSelectedOption: ({ sorting, onSortChange }) => index =>
       onSortChange(update(sorting, { $splice: [[index, 1]] })),
   }),
 )(Sorter);

@@ -20,8 +20,7 @@ const txCreator = (key, length, ctx) => prevState => {
   const condition = isIncrement ? newIndex > length - 1 : newIndex < 0;
   const resetValue = isIncrement ? 0 : length - 1;
 
-  const activeOption =
-    prevState.activeOption === null || condition ? resetValue : newIndex;
+  const activeOption = prevState.activeOption === null || condition ? resetValue : newIndex;
 
   invoke(ctx[`option${activeOption}`], 'scrollIntoView', {
     behavior: 'instant',
@@ -72,9 +71,7 @@ class Dropdown extends Component {
           }}
           className="flex flex-center justify-between bg-gradiant-white-gray border border-gray rounded p1 pointer"
           onFocus={() => this.setState({ isOpen: true })}
-          onMouseDown={() =>
-            this.setState(prevState => ({ isOpen: !prevState.isOpen }))
-          }
+          onMouseDown={() => this.setState(prevState => ({ isOpen: !prevState.isOpen }))}
           onKeyDown={this.handleKeyPress}
         >
           {this.renderSelectedValue()}
@@ -104,7 +101,9 @@ class Dropdown extends Component {
   }
 
   renderOption(option, index, indented) {
-    const { separator, title, label, optionLabel, disabled } = option;
+    const {
+      separator, title, label, optionLabel, disabled,
+    } = option;
     const { activeOption } = this.state;
     const isActive = activeOption === index;
     const optionClassName = classNames(
@@ -153,8 +152,7 @@ class Dropdown extends Component {
     const selectedOption =
       options instanceof Array
         ? find(options, ['value', value])
-        : find(allOptions, ['value', value]) ||
-          find(allOptions, ['label', value]);
+        : find(allOptions, ['value', value]) || find(allOptions, ['label', value]);
 
     return selectedOption ? selectedOption.label : 'Select...';
   }
@@ -167,9 +165,7 @@ class Dropdown extends Component {
       ? options.map((option, i) => this.renderOption(option, i + 1))
       : flatMap(options, ({ label, value }, i) => [
         this.renderOption(headerOption(label), i + 1),
-        ...value.map((option, ndex) =>
-          this.renderOption(option, i + ndex + 1, true),
-        ),
+        ...value.map((option, ndex) => this.renderOption(option, i + ndex + 1, true)),
       ]);
     return [
       this.renderOption({ label: 'Select...', value: null, code: null }, 0),
@@ -193,10 +189,7 @@ class Dropdown extends Component {
 
   handleKeyPress = event => {
     const { options } = this.props;
-    const allOptions = [
-      { label: 'Select...', value: null, code: null },
-      ...options,
-    ];
+    const allOptions = [{ label: 'Select...', value: null, code: null }, ...options];
 
     switch (event.key) {
       case 'ArrowUp':

@@ -34,9 +34,7 @@ class CustomDropdown extends Component {
           tabIndex={0}
           className={selectClassName}
           onFocus={() => this.setState({ isOpen: true })}
-          onMouseDown={() =>
-            this.setState(prevState => ({ isOpen: !prevState.isOpen }))
-          }
+          onMouseDown={() => this.setState(prevState => ({ isOpen: !prevState.isOpen }))}
         >
           {label}
         </div>
@@ -85,16 +83,13 @@ class CustomDropdown extends Component {
 
 CustomDropdown.defaultProps = {
   className: '',
-  label: '',
+  label: 'add sorting',
 };
 
 CustomDropdown.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  options: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]).isRequired,
+  options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   className: PropTypes.string,
 };
 

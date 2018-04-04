@@ -1,4 +1,4 @@
-ui/
-utils/
-index.js
+./ui/
+./utils/
+./index.js
 node_modules/**
