@@ -8,9 +8,11 @@ import Icon from './Icon';
 import CustomDropdown from './CustomDropdown';
 
 const SortChicklet = ({
-  name, asc, onChange, onDelete,
+  name, asc, onChange, onDelete, className,
 }) => (
-  <div className="orange-primary bg-orange-highlight inline-block">
+  <div
+    className={classNames('mr1 rounded orange-primary bg-orange-highlight inline-block', className)}
+  >
     <Icon className="pointer px1" type={asc ? 'angle-up' : 'angle-down'} onClick={onChange} />
     <span>{name}</span>
     <Icon className="pointer px1" type="times" onClick={onDelete} />
@@ -19,6 +21,7 @@ const SortChicklet = ({
 
 const Sorter = ({
   className,
+  chickletClassName,
   dropdownOptions,
   dropdownText,
   sorting,
@@ -35,6 +38,7 @@ const Sorter = ({
         asc={option.asc}
         onChange={() => onSelectedOptionsChange({ ...option, asc: !option.asc }, index)}
         onDelete={() => deleteSelectedOption(index)}
+        className={chickletClassName}
       />
     ))}
     <div>
@@ -51,20 +55,27 @@ const Sorter = ({
   </div>
 );
 
+SortChicklet.defaultProps = {
+  className: '',
+};
+
 SortChicklet.propTypes = {
   name: PropTypes.string.isRequired,
   asc: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 Sorter.defaultProps = {
   dropdownText: 'add sorting',
   className: '',
+  chickletClassName: '',
 };
 
 Sorter.propTypes = {
   className: PropTypes.string,
+  chickletClassName: PropTypes.string,
   dropdownOptions: PropTypes.array.isRequired,
   dropdownText: PropTypes.string,
   sorting: PropTypes.array.isRequired,
