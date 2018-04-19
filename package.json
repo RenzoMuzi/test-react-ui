@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --colors",
+    "build:watch": "webpack --watch --progress --colors",
     "lint": "eslint src/",
     "test": "echo No tests found"
   },

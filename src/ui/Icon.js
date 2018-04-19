@@ -15,11 +15,12 @@ const Icon = ({
 Icon.defaultProps = {
   className: '',
   style: {},
+  size: 12,
 };
 
 Icon.propTypes = {
   type: PropTypes.string.isRequired,
-  size: PropTypes.number.isRequired,
+  size: PropTypes.number,
   className: PropTypes.string,
   style: PropTypes.object,
 };
