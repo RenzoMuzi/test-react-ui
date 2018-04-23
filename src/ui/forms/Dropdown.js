@@ -56,7 +56,12 @@ class Dropdown extends Component {
   };
 
   render() {
-    const { inputRef, viewOnly } = this.props;
+    const {
+      inputRef,
+      viewOnly,
+      className,
+      containerClass,
+    } = this.props;
     const { isOpen } = this.state;
 
     if (viewOnly) {
@@ -64,21 +69,21 @@ class Dropdown extends Component {
     }
 
     return (
-      <div ref={inputRef} className="relative full-width fs12">
+      <div ref={inputRef} className={classNames('relative full-width fs12', containerClass)}>
         <div
           ref={ref => {
             this.selectDiv = ref;
           }}
-          className="flex flex-center justify-between bg-gradiant-white-gray border border-gray rounded p1 pointer"
+          className={classNames('flex flex-center justify-between border rounded pointer', className)}
           onFocus={() => this.setState({ isOpen: true })}
           onMouseDown={() => this.setState(prevState => ({ isOpen: !prevState.isOpen }))}
           onKeyDown={this.handleKeyPress}
         >
           {this.renderSelectedValue()}
-          <i className="inline-block fa fa-caret-down fa-lg gray pl1" />
+          <i className="inline-block fa fa-caret-down fa-lg pl1" />
         </div>
         {isOpen && (
-          <div className="absolute bg-white z3 full-width border border-gray rounded max-height-4 overflow-y-scroll">
+          <div className="absolute bg-white z3 full-width border border-gray gray-primary rounded max-height-4 overflow-y-scroll">
             {this.renderDropdown()}
           </div>
         )}
@@ -89,6 +94,11 @@ class Dropdown extends Component {
   renderSeparator(index) {
     const className = classNames('dropdown-hr');
     return <hr key={index} className={className} />;
+  }
+
+  renderDropdownTitle() {
+    const { title } = this.props;
+    return title || 'Select...';
   }
 
   renderTitle(title, index) {
@@ -154,11 +164,11 @@ class Dropdown extends Component {
         ? find(options, ['value', value])
         : find(allOptions, ['value', value]) || find(allOptions, ['label', value]);
 
-    return selectedOption ? selectedOption.label : 'Select...';
+    return selectedOption ? selectedOption.label : this.renderDropdownTitle();
   }
 
   renderDropdown() {
-    const { options } = this.props;
+    const { options, includeBlank } = this.props;
     const headerOption = label => ({ label, value: label, disabled: true });
 
     const dropdownOptions = Array.isArray(options)
@@ -167,8 +177,12 @@ class Dropdown extends Component {
         this.renderOption(headerOption(label), i + 1),
         ...value.map((option, ndex) => this.renderOption(option, i + ndex + 1, true)),
       ]);
+    const blankOption = includeBlank ?
+      this.renderOption({ label: this.renderDropdownTitle(), value: null, code: null }, 0)
+      : [];
+
     return [
-      this.renderOption({ label: 'Select...', value: null, code: null }, 0),
+      ...blankOption,
       ...dropdownOptions,
     ];
   }
@@ -188,8 +202,9 @@ class Dropdown extends Component {
   }
 
   handleKeyPress = event => {
-    const { options } = this.props;
-    const allOptions = [{ label: 'Select...', value: null, code: null }, ...options];
+    const { options, includeBlank } = this.props;
+    const blankOption = includeBlank ? { label: 'Select...', value: null, code: null } : {};
+    const allOptions = [...blankOption, ...options];
 
     switch (event.key) {
       case 'ArrowUp':
@@ -218,7 +233,11 @@ class Dropdown extends Component {
 Dropdown.defaultProps = {
   inputRef: () => {},
   onChange: () => {},
+  className: '',
+  containerClass: '',
+  title: null,
   value: null,
+  includeBlank: true,
   viewOnly: false,
 };
 
@@ -247,6 +266,10 @@ Dropdown.propTypes = {
     PropTypes.string,
     PropTypes.bool,
   ]),
+  title: PropTypes.string,
+  includeBlank: PropTypes.bool,
+  className: PropTypes.string,
+  containerClass: PropTypes.string,
   viewOnly: PropTypes.bool,
   onChange: PropTypes.func,
 };

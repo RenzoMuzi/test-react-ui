@@ -11,7 +11,7 @@ const SortChicklet = ({
   name, asc, onChange, onDelete, className,
 }) => (
   <div
-    className={classNames('mr1 rounded orange-primary bg-orange-highlight inline-block', className)}
+    className={classNames('mr1 mb1 mt1 rounded orange-primary bg-orange-highlight inline-block', className)}
   >
     <Icon className="pointer px1" type={asc ? 'angle-up' : 'angle-down'} onClick={onChange} />
     <span>{name}</span>
@@ -30,7 +30,7 @@ const Sorter = ({
   deleteSelectedOption,
 }) => (
   <div className={classNames('flex items-center lh-21', className)}>
-    <span className="px1">Sort By</span>
+    <span className="pr1">Sort By</span>
     {sorting.map((option, index) => (
       <SortChicklet
         key={option.value}
