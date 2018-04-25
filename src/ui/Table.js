@@ -80,7 +80,7 @@ class Table extends Component {
 
     const columnWidth = this.calculateColumnWidthStyle(flexSize, tableFlexSize);
 
-    const className = classNames('uppercase', 'p1', 'fs13', {
+    const className = classNames('uppercase', 'py1', 'fs13', {
       'align-top': alignTop,
     });
 
@@ -98,17 +98,23 @@ class Table extends Component {
   }
 
   renderBody() {
-    const { records, removeAction, selectAction } = this.props;
+    const {
+      records, removeAction, selectAction, highlightFunc, highlightClass,
+    } = this.props;
 
     return (
       <tbody>
-        {records.map((record, index) => (
-          <tr key={index} className="border-top border-gray-50 pl1">
-            {selectAction && this.renderSelectActionCell(record, index)}
-            {this.renderRowCells(record)}
-            {removeAction && this.renderDeleteActionCell(record, index)}
-          </tr>
-        ))}
+        {records.map((record, index) => {
+          const rowClass = highlightFunc && highlightFunc(record) ? highlightClass : '';
+
+          return (
+            <tr key={index} className={classNames('border-top border-gray-50 pl1', rowClass)}>
+              {selectAction && this.renderSelectActionCell(record, index)}
+              {this.renderRowCells(record)}
+              {removeAction && this.renderDeleteActionCell(record, index)}
+            </tr>
+          );
+        })}
         {isEmpty(records) && this.renderEmptyState()}
       </tbody>
     );
@@ -219,6 +225,8 @@ Table.defaultProps = {
   onDelete: () => {},
   onSelectAllChange: () => {},
   onSelectChange: () => {},
+  highlightFunc: () => {},
+  highlightClass: '',
   loading: false,
 };
 
@@ -236,6 +244,8 @@ Table.propTypes = {
   onDelete: PropTypes.func,
   onSelectAllChange: PropTypes.func,
   onSelectChange: PropTypes.func,
+  highlightFunc: PropTypes.func,
+  highlightClass: PropTypes.string,
   modal: PropTypes.bool,
   loading: PropTypes.bool,
 };
