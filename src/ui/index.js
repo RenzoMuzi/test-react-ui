@@ -10,4 +10,4 @@ export Modal from './Modal';
 export Popover from './Popover';
 export Sorter from './Sorter';
 export Table from './Table';
-export Tabs from './Tabs';
+export Tabs, { Tab } from './Tabs';
