@@ -22,7 +22,7 @@ class CustomDropdown extends Component {
     const { isOpen } = this.state;
 
     const selectClassName = classNames(
-      ' pt0 pb0 flex flex-center justify-between orange-primary px1 rounded pointer border-none',
+      'pt0 pb0 flex flex-center justify-between orange-primary px1 rounded pointer border-none',
       { 'orange-primary-active': isOpen },
       className,
     );
@@ -39,7 +39,7 @@ class CustomDropdown extends Component {
           {label}
         </div>
         {isOpen && (
-          <div className="absolute bg-white width-150px z3 border border-gray rounded max-height-4">
+          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-4 overflow-y-scroll">
             {this.renderDropdown()}
           </div>
         )}
@@ -49,7 +49,7 @@ class CustomDropdown extends Component {
 
   renderOption(key, label, index) {
     const { activeOption } = this.state;
-    const optionClassName = classNames('p1 custom-select-option pointer', {
+    const optionClassName = classNames('p1 nowrap custom-select-option pointer', {
       active: activeOption === index,
     });
 

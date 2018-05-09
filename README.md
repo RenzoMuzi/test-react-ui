@@ -1,4 +1,5 @@
 # PW UI
+
 Prescribe Wellness UI Library
 
 ## Build
@@ -6,7 +7,7 @@ Prescribe Wellness UI Library
 ```
 git clone git@github.com:moove-it/pw-ui.git
 cd pw-ui
-npm install
+npm install --python=/usr/bin/python2.7
 npm run build
 ```
 

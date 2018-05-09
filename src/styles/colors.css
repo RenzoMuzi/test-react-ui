@@ -1,0 +1,62 @@
+.orange-primary {
+  color: var(--orange-primary);
+}
+
+.gray-primary {
+  color: var(--gray-primary);
+}
+
+.gray-header {
+  background-color: var(--gray-header);
+}
+
+.gray-secondary {
+  color: var(--gray-secondary);
+}
+
+.green-success {
+  color: var(--green-success);
+}
+
+.color-crimson {
+  color: var(--crimson);
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.sky-blue {
+  color: var(--sky-blue);
+}
+
+.bg-orange {
+  background-color: var(--orange-primary);
+}
+
+.bg-gray {
+  background-color: var(--gray-background);
+}
+
+.bg-orange-highlight {
+  background: var(--orange-highlight);
+}
+
+.bg-sky-blue {
+  background: var(--sky-blue);
+}
+
+.bg-white-muted {
+  background: var(--white)90;
+}
+.bg-gradiant-white-gray {
+  background: linear-gradient(var(--white), var(--gray-background));
+}
+
+.color-inherit {
+  color: inherit;
+}

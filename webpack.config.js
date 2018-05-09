@@ -1,15 +1,18 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackCleanPlugin = require('webpack-clean');
 
 module.exports = {
   mode: 'development',
   entry: {
-    'ui/index': './src/ui/index.js',
-    'ui/forms/index': './src/ui/forms/index.js',
-    'utils/index': './src/utils/index.js',
+    'ui/index.js': './src/ui/index.js',
+    'ui/forms/index.js': './src/ui/forms/index.js',
+    'utils/index.js': './src/utils/index.js',
+    styles: './src/styles/index.css',
   },
   output: {
     path: path.join(__dirname, './'),
-    filename: '[name].js',
+    filename: '[name]',
     library: 'index',
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -26,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -43,4 +46,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+    new WebpackCleanPlugin(['styles']),
+  ],
 };

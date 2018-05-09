@@ -83,7 +83,7 @@ class Dropdown extends Component {
           <i className="inline-block fa fa-caret-down fa-lg pl1" />
         </div>
         {isOpen && (
-          <div className="absolute bg-white z3 full-width border border-gray gray-primary rounded max-height-4 overflow-y-scroll">
+          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-4 overflow-y-scroll">
             {this.renderDropdown()}
           </div>
         )}
@@ -117,7 +117,7 @@ class Dropdown extends Component {
     const { activeOption } = this.state;
     const isActive = activeOption === index;
     const optionClassName = classNames(
-      'p1',
+      'p1 nowrap',
       { 'custom-select-option pointer': !disabled },
       { gray: disabled },
       { pl3: indented },
