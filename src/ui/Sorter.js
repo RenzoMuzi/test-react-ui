@@ -7,11 +7,17 @@ import find from 'lodash/find';
 import Icon from './Icon';
 import CustomDropdown from './CustomDropdown';
 
+const filterOptions = (available, selected) =>
+  available.filter(option => !find(selected, ['value', option.value]));
+
 const SortChicklet = ({
   name, asc, onChange, onDelete, className,
 }) => (
   <div
-    className={classNames('mr1 mb1 mt1 rounded orange-primary bg-orange-highlight nowrap', className)}
+    className={classNames(
+      'mr1 mb1 mt1 rounded orange-primary bg-orange-highlight nowrap',
+      className,
+    )}
   >
     <Icon className="pointer px1" type={asc ? 'angle-up' : 'angle-down'} onClick={onChange} />
     <span>{name}</span>
@@ -28,32 +34,37 @@ const Sorter = ({
   onSelectOption,
   onSelectedOptionsChange,
   deleteSelectedOption,
-}) => (
-  <div className={classNames('flex flex-wrap items-center lh-21', className)}>
-    <span className="pr1 nowrap">Sort By</span>
-    {sorting.map((option, index) => (
-      <SortChicklet
-        key={option.value}
-        name={option.label}
-        asc={option.asc}
-        onChange={() => onSelectedOptionsChange({ ...option, asc: !option.asc }, index)}
-        onDelete={() => deleteSelectedOption(index)}
-        className={chickletClassName}
-      />
-    ))}
-    <div>
-      <CustomDropdown
-        defaultValue={dropdownText}
-        selectStyle={{ paddingTop: 0, paddingBottom: 0 }}
-        selectClasses="sandy-brown border-none px2 fs-14"
-        noIcon
-        value=""
-        onChange={index => onSelectOption(dropdownOptions[index])}
-        options={dropdownOptions.filter(option => !find(sorting, ['label', option.label]))}
-      />
+}) => {
+  const filteredOptions = filterOptions(dropdownOptions, sorting);
+  return (
+    <div className={classNames('flex flex-wrap items-center lh-21', className)}>
+      <span className="pr1 nowrap">Sort By</span>
+      {sorting.map((option, index) => (
+        <SortChicklet
+          key={option.value}
+          name={option.label}
+          asc={option.asc}
+          onChange={() => onSelectedOptionsChange({ ...option, asc: !option.asc }, index)}
+          onDelete={() => deleteSelectedOption(index)}
+          className={chickletClassName}
+        />
+      ))}
+      {filteredOptions.length > 0 && (
+        <div>
+          <CustomDropdown
+            defaultValue={dropdownText}
+            selectStyle={{ paddingTop: 0, paddingBottom: 0 }}
+            selectClasses="sandy-brown border-none px2 fs-14"
+            noIcon
+            value=""
+            onChange={index => onSelectOption(filteredOptions[index])}
+            options={filteredOptions}
+          />
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 SortChicklet.defaultProps = {
   className: '',
