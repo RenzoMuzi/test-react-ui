@@ -22,7 +22,7 @@ class CustomDropdown extends Component {
     const { isOpen } = this.state;
 
     const selectClassName = classNames(
-      'pt0 pb0 flex flex-center justify-between orange-primary px1 rounded pointer border-none',
+      'pt0 pb0 flex flex-center justify-between orange-primary no-outline rounded pointer border-none',
       { 'orange-primary-active': isOpen },
       className,
     );
