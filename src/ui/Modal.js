@@ -43,7 +43,7 @@ class Modal extends Component {
 
   render() {
     const {
-      isOpen, children, positionClassName, wide,
+      isOpen, children, positionClassName, wide, styleClass,
     } = this.props;
 
     const containerClassName = classNames(
@@ -60,6 +60,7 @@ class Modal extends Component {
       'border-gray',
       'width-100-sm',
       'width-70-md',
+      styleClass,
     );
 
     return (
@@ -111,6 +112,7 @@ Modal.defaultProps = {
   wide: false,
   children: null,
   onClose: () => {},
+  styleClass: '',
 };
 
 Modal.propTypes = {
@@ -119,6 +121,7 @@ Modal.propTypes = {
   wide: PropTypes.bool,
   children: PropTypes.node,
   onClose: PropTypes.func,
+  styleClass: PropTypes.string,
 };
 
 export default Modal;
