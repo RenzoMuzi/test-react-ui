@@ -81,6 +81,8 @@ class CustomDropdown extends Component {
   }
 }
 
+CustomDropdown.displayName = 'CustomDropdown';
+
 CustomDropdown.defaultProps = {
   className: '',
   label: 'add sorting',

@@ -35,6 +35,8 @@ const ConfirmModal = ({
   </Modal>
 );
 
+ConfirmModal.displayName = 'ConfirmModal';
+
 ConfirmModal.defaultProps = {
   confirmButtonLabel: '',
   description: '',

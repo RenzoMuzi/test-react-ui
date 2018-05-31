@@ -12,6 +12,8 @@ const Icon = ({
   />
 );
 
+Icon.displayName = 'Icon';
+
 Icon.defaultProps = {
   className: '',
   style: {},

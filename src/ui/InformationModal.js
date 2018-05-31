@@ -27,6 +27,8 @@ const InformationModal = ({
   </Modal>
 );
 
+InformationModal.displayName = 'InformationModal';
+
 InformationModal.defaultProps = {
   title: '',
   onClose: () => {},

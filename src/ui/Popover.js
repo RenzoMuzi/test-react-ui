@@ -218,6 +218,8 @@ export const withPopover = WrappedComponent => {
   return wrapper;
 };
 
+Popover.displayName = 'Popover';
+
 Popover.propTypes = { content: PropTypes.string.isRequired };
 
 export default Popover;

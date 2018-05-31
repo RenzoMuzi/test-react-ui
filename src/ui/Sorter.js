@@ -66,6 +66,8 @@ const Sorter = ({
   );
 };
 
+SortChicklet.displayName = 'SortChicklet';
+
 SortChicklet.defaultProps = {
   className: '',
 };
@@ -77,6 +79,8 @@ SortChicklet.propTypes = {
   onDelete: PropTypes.func.isRequired,
   className: PropTypes.string,
 };
+
+Sorter.displayName = 'Sorter';
 
 Sorter.defaultProps = {
   dropdownText: 'add sorting',

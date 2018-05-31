@@ -90,6 +90,8 @@ class Input extends Component {
   }
 }
 
+Input.displayName = 'Input';
+
 Input.defaultProps = {
   autoFocus: false,
   className: '',

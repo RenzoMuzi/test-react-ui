@@ -11,7 +11,7 @@ setOptions({
 });
 
 setDefaults({
-  header: false,
+  header: true,
   inline: true,
 });
 

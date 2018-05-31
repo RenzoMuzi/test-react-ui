@@ -24,6 +24,8 @@ const ErrorModal = ({
   </Modal>
 );
 
+ErrorModal.displayName = 'ErrorModal';
+
 ErrorModal.defaultProps = {
   message: '',
   title: '',

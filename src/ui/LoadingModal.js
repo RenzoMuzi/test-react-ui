@@ -12,6 +12,8 @@ const LoadingModal = ({ isLoading, text }) => (
   </Modal>
 );
 
+LoadingModal.displayName = 'LoadingModal';
+
 LoadingModal.defaultProps = { isLoading: true };
 
 LoadingModal.propTypes = {

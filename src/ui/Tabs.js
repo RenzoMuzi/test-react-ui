@@ -109,6 +109,8 @@ export const Tab = ({ className, children }) => (
   <div className={className}>{React.Children.toArray(children)}</div>
 );
 
+SubtabTitle.displayName = 'SubtabTitle';
+
 SubtabTitle.defaultProps = { onClick: () => {} };
 
 SubtabTitle.propTypes = {
@@ -142,7 +144,7 @@ Tabs.propTypes = {
   onTabChange: PropTypes.func,
 };
 
-TabTitle.defaultProps = { onClick: () => {} };
+TabTitle.displayName = 'TabTitle';
 
 TabTitle.defaultProps = { onClick: () => {} };
 

@@ -124,6 +124,8 @@ class ActionsButton extends Component {
   }
 }
 
+ActionsButton.displayName = 'ActionsButton';
+
 ActionsButton.defaultProps = {
   checkedEncounters: [],
   allEncounters: [],

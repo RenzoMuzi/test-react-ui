@@ -10,6 +10,8 @@ const SecondaryButton = props => (
   />
 );
 
+SecondaryButton.displayName = 'SecondaryButton';
+
 SecondaryButton.propTypes = Button.propTypes;
 
 export default SecondaryButton;

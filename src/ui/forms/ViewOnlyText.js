@@ -18,6 +18,8 @@ class ViewOnlyText extends Component {
   }
 }
 
+ViewOnlyText.displayName = 'ViewOnlyText';
+
 ViewOnlyText.defaultProps = { value: null };
 
 ViewOnlyText.propTypes = {

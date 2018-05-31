@@ -78,6 +78,8 @@ class Field extends Component {
   }
 }
 
+Field.displayName = 'Field';
+
 Field.defaultProps = {
   bold: false,
   subField: false,

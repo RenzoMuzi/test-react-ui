@@ -48,6 +48,8 @@ class EditTextAttribute extends Component {
   }
 }
 
+EditTextAttribute.displayName = 'EditTextAttribute';
+
 EditTextAttribute.defaultProps = {
   maxLength: null,
   title: '',
