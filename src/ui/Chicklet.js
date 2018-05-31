@@ -6,15 +6,19 @@ const Chicklet = ({ children, className, onClick }) => (
   <div
     onClick={() => onClick()}
     className={classNames('mr1 rounded', className)}
-    style={{ padding: 2 }}
   >
     {children}
   </div>
 );
 
+Chicklet.displayName = 'Chicklet';
+
 Chicklet.propTypes = {
+  /** Chicklet Content */
   children: PropTypes.node.isRequired,
+  /** onClick Handler */
   onClick: PropTypes.func,
+  /** Custom CSS class name */
   className: PropTypes.string,
 };
 

@@ -121,6 +121,8 @@ class EditableText extends Component {
   }
 }
 
+EditableText.displayName = 'EditableText';
+
 EditableText.defaultProps = {
   text: '',
   placeholder: '',
@@ -129,9 +131,13 @@ EditableText.defaultProps = {
 };
 
 EditableText.propTypes = {
+  /** Text value */
   text: PropTypes.string,
+  /** Placeholder text */
   placeholder: PropTypes.string,
+  /** Specifies wether is editable or not */
   isEditable: PropTypes.bool,
+  /** onChange event handler */
   onChange: PropTypes.func,
 };
 

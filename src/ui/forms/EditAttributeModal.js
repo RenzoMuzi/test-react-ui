@@ -46,10 +46,15 @@ EditAttributeModal.defaultProps = {
 };
 
 EditAttributeModal.propTypes = {
+  /** Shows or hides the modal */
   isOpen: PropTypes.bool,
+  /** Modal's content */
   children: PropTypes.node,
+  /** Modal's title */
   title: PropTypes.string,
+  /** onClose callback function */
   onClose: PropTypes.func,
+  /** onSubmit callback function */
   onSubmit: PropTypes.func,
 };
 

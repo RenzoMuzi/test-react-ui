@@ -37,6 +37,7 @@ module.exports = {
     'react/prefer-stateless-function': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'react/jsx-wrap-multilines': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'react/sort-comp': [
       'error',
       {

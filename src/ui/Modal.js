@@ -12,15 +12,16 @@ class Modal extends Component {
   }
 
   componentDidMount() {
-    const { isOpen } = this.props;
+    const { isOpen, allowScrolling } = this.props;
 
-    if (isOpen) {
+    if (isOpen && !allowScrolling) {
       this.hideBodyOverflow();
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { isOpen } = this.props;
+    const { isOpen, allowScrolling } = this.props;
+    if (allowScrolling) return;
 
     if (!prevProps.isOpen && isOpen) {
       this.hideBodyOverflow();
@@ -113,15 +114,24 @@ Modal.defaultProps = {
   children: null,
   onClose: () => {},
   styleClass: '',
+  allowScrolling: false,
 };
 
 Modal.propTypes = {
+  /** Modal is shown or not */
   isOpen: PropTypes.bool,
+  /** CSS class to determine modal positioning */
   positionClassName: PropTypes.string,
+  /** Modal can be wider or not */
   wide: PropTypes.bool,
+  /** Modal content */
   children: PropTypes.node,
+  /** handler when modal closes */
   onClose: PropTypes.func,
+  /** CSS class for modal styles */
   styleClass: PropTypes.string,
+  /** Allows scrolling on main container body when modal is open */
+  allowScrolling: PropTypes.bool,
 };
 
 export default Modal;

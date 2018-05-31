@@ -1,0 +1,97 @@
+.textarea {
+  font-family: inherit;
+  font-size: inherit;
+  display: block;
+  resize: none;
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  border: 1px solid var(--gray-border);
+  border-radius: 3px;
+  box-sizing: border-box;
+
+  &:focus {
+    outline-color: var(--orange-primary);
+  }
+}
+
+.input {
+  font-family: inherit;
+  font-size: inherit;
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding: 5px;
+  border: 1px solid var(--gray-border);
+  margin-top: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.input.with-prefix {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.input-prefix {
+  padding: 8px;
+  height: 32px;
+  border: 1px solid var(--gray-border);
+  border-radius: 3px;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-sizing: border-box;
+}
+
+input[type='checkbox'].checkbox {
+  margin: 0px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 22px;
+  margin-bottom: 0px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--gray-border);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--white);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--orange-primary);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--orange-primary-hover);
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}

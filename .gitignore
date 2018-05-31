@@ -6,3 +6,4 @@ node_modules/
 *.log
 *.idea/
 styles.css
+styles.css.map

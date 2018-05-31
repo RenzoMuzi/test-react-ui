@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import Modal from './Modal';
 import PrimaryButton from './forms/PrimaryButton';
 
-const ErrorModal = ({ message, title, onClose }) => (
-  <Modal isOpen onClose={onClose}>
+const ErrorModal = ({
+  message, title, onClose, allowScrolling,
+}) => (
+  <Modal isOpen onClose={onClose} allowScrolling={allowScrolling}>
     <div className="p2 m1 flex justify-between">
       <span className="fs20 weight-700 gray-primary">{title}</span>
       <i
@@ -26,12 +28,18 @@ ErrorModal.defaultProps = {
   message: '',
   title: '',
   onClose: () => {},
+  allowScrolling: false,
 };
 
 ErrorModal.propTypes = {
+  /** content shown in modal */
   message: PropTypes.node,
+  /** Modal title */
   title: PropTypes.string,
+  /** Handler when modal closes */
   onClose: PropTypes.func,
+  /** Allows scrolling on main container body when modal is open */
+  allowScrolling: PropTypes.bool,
 };
 
 export default ErrorModal;

@@ -1,5 +1,47 @@
+/* basscss component classes */
+@import 'basscss-btn';
+@import 'basscss-btn-primary';
+
+/* basscss utility classes */
+@import 'basscss';
+@import 'basscss-colors';
+@import 'basscss-border-colors';
+@import 'basscss-background-colors';
+@import 'basscss-border';
+@import 'basscss-lighten';
+@import 'basscss-type-scale';
+@import 'basscss-typography';
+@import 'basscss-layout';
+@import 'basscss-align';
+@import 'basscss-margin';
+@import 'basscss-padding';
+@import 'basscss-flexbox';
+@import 'basscss-position';
+@import 'basscss-hide';
+
 @import '../../variables.css';
 @import './colors.css';
 @import './sizes.css';
 @import './borders.css';
 @import './buttons.css';
+@import './table.css';
+@import './forms.css';
+@import './extra-padding.css';
+
+/* Fonts */
+@import '/gilroy-font-family';
+
+:root {
+  --button-font-weight: normal;
+  --space-1: 14px;
+  --space-2: 28px;
+  --space-3: 56px;
+  --space-4: 112px;
+}
+
+
+#root {
+  font-family: 'Gilroy', Helvetica, Arial, sans-serif;
+  color: var(--gray-primary);
+  line-height: normal;
+}

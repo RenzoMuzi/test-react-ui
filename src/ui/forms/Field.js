@@ -6,13 +6,13 @@ import pick from 'lodash/pick';
 import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
 import Input from './Input';
-import Textarea from './Textarea';
+import TextArea from './Textarea';
 import ToggleSwitch from './ToggleSwitch';
 
 const Types = {
   select: Dropdown,
   text: Input,
-  textarea: Textarea,
+  textarea: TextArea,
   checkbox: Checkbox,
   switch: ToggleSwitch,
 };

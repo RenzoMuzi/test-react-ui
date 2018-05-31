@@ -231,22 +231,39 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
+  /** Enables top aligning for table cells */
   alignTop: PropTypes.bool,
+  /** List of the columns that form the table */
   columns: PropTypes.array,
+  /** Defines what to show when there are no records */
   emptyState: PropTypes.func,
+  /** List that defines the rows of the table */
   records: PropTypes.array,
+  /** Rows can be removed or not */
   removeAction: PropTypes.bool,
+  /** Rows can be selected or not */
   selectAction: PropTypes.bool,
+  /** List of currently selected records */
   selectedRecords: PropTypes.arrayOf(PropTypes.bool),
+  /** Determines how the cell content is rendered */
   cell: PropTypes.func.isRequired,
+  /** Determines how the headers will be rendered */
   columnHeader: PropTypes.func,
+  /** Table can be modified or not */
   viewOnly: PropTypes.bool,
+  /** Handler when a row is removed */
   onDelete: PropTypes.func,
+  /** Handler when the option to select all is checked */
   onSelectAllChange: PropTypes.func,
+  /** Handler when a row is selected */
   onSelectChange: PropTypes.func,
+  /** Determines the condition for a row to be highlighted */
   highlightFunc: PropTypes.func,
+  /** CSS class for highlighted rows */
   highlightClass: PropTypes.string,
+  /** Table is included in a modal or not */
   modal: PropTypes.bool,
+  /** Table content is loading or not */
   loading: PropTypes.bool,
 };
 

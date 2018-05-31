@@ -10,6 +10,7 @@ import has from 'lodash/has';
 import isEmpty from 'lodash/isEmpty';
 import isEqual from 'lodash/isEqual';
 import invoke from 'lodash/invoke';
+import 'font-awesome/css/font-awesome.css';
 import { withPopover } from '../Popover';
 import ViewOnlyText from './ViewOnlyText';
 
@@ -20,7 +21,8 @@ const txCreator = (key, length, ctx) => prevState => {
   const condition = isIncrement ? newIndex > length - 1 : newIndex < 0;
   const resetValue = isIncrement ? 0 : length - 1;
 
-  const activeOption = prevState.activeOption === null || condition ? resetValue : newIndex;
+  const activeOption =
+    prevState.activeOption === null || condition ? resetValue : newIndex;
 
   invoke(ctx[`option${activeOption}`], 'scrollIntoView', {
     behavior: 'instant',
@@ -57,10 +59,7 @@ class Dropdown extends Component {
 
   render() {
     const {
-      inputRef,
-      viewOnly,
-      className,
-      containerClass,
+      inputRef, viewOnly, className, containerClass,
     } = this.props;
     const { isOpen } = this.state;
 
@@ -69,14 +68,22 @@ class Dropdown extends Component {
     }
 
     return (
-      <div ref={inputRef} className={classNames('relative full-width fs12', containerClass)}>
+      <div
+        ref={inputRef}
+        className={classNames('relative full-width fs12', containerClass)}
+      >
         <div
           ref={ref => {
             this.selectDiv = ref;
           }}
-          className={classNames('flex flex-center justify-between border rounded pointer', className)}
+          className={classNames(
+            'flex flex-center justify-between border rounded pointer',
+            className,
+          )}
           onFocus={() => this.setState({ isOpen: true })}
-          onMouseDown={() => this.setState(prevState => ({ isOpen: !prevState.isOpen }))}
+          onMouseDown={() =>
+            this.setState(prevState => ({ isOpen: !prevState.isOpen }))
+          }
           onKeyDown={this.handleKeyPress}
         >
           {this.renderSelectedValue()}
@@ -162,7 +169,8 @@ class Dropdown extends Component {
     const selectedOption =
       options instanceof Array
         ? find(options, ['value', value])
-        : find(allOptions, ['value', value]) || find(allOptions, ['label', value]);
+        : find(allOptions, ['value', value]) ||
+          find(allOptions, ['label', value]);
 
     return selectedOption ? selectedOption.label : this.renderDropdownTitle();
   }
@@ -175,16 +183,18 @@ class Dropdown extends Component {
       ? options.map((option, i) => this.renderOption(option, i + 1))
       : flatMap(options, ({ label, value }, i) => [
         this.renderOption(headerOption(label), i + 1),
-        ...value.map((option, ndex) => this.renderOption(option, i + ndex + 1, true)),
+        ...value.map((option, ndex) =>
+          this.renderOption(option, i + ndex + 1, true),
+        ),
       ]);
-    const blankOption = includeBlank ?
-      this.renderOption({ label: this.renderDropdownTitle(), value: null, code: null }, 0)
+    const blankOption = includeBlank
+      ? this.renderOption(
+        { label: this.renderDropdownTitle(), value: null, code: null },
+        0,
+      )
       : [];
 
-    return [
-      ...blankOption,
-      ...dropdownOptions,
-    ];
+    return [...blankOption, ...dropdownOptions];
   }
 
   renderAsViewOnly() {
@@ -203,7 +213,9 @@ class Dropdown extends Component {
 
   handleKeyPress = event => {
     const { options, includeBlank } = this.props;
-    const blankOption = includeBlank ? { label: 'Select...', value: null, code: null } : {};
+    const blankOption = includeBlank
+      ? { label: 'Select...', value: null, code: null }
+      : {};
     const allOptions = [...blankOption, ...options];
 
     switch (event.key) {
@@ -242,7 +254,9 @@ Dropdown.defaultProps = {
 };
 
 Dropdown.propTypes = {
+  /** Reference to dropdown */
   inputRef: PropTypes.func,
+  /** Dropdown options */
   options: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.shape({
@@ -260,18 +274,28 @@ Dropdown.propTypes = {
     ),
     PropTypes.object,
   ]).isRequired,
+  /** Current selected value */
   value: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
     PropTypes.string,
     PropTypes.bool,
   ]),
+  /** Dropdown title */
   title: PropTypes.string,
+  /** Can include a title or not */
   includeBlank: PropTypes.bool,
+  /** CSS Class names */
   className: PropTypes.string,
+  /** CSS Class names for the dropdown container */
   containerClass: PropTypes.string,
+  /** Value can be modified or not */
   viewOnly: PropTypes.bool,
+  /** onChange event handler */
   onChange: PropTypes.func,
 };
 
-export default withPopover(enhanceWithClickOutside(Dropdown));
+const enhancedDropdown = withPopover(enhanceWithClickOutside(Dropdown));
+enhancedDropdown.displayName = 'Dropdown';
+
+export default enhancedDropdown;

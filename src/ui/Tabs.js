@@ -117,6 +117,8 @@ SubtabTitle.propTypes = {
   onClick: PropTypes.func,
 };
 
+Tabs.displayName = 'Tabs';
+
 Tabs.defaultProps = {
   className: null,
   subtab: false,
@@ -126,11 +128,17 @@ Tabs.defaultProps = {
 };
 
 Tabs.propTypes = {
+  /** Active tab */
   active: PropTypes.string.isRequired,
+  /** Custom CSS class name */
   className: PropTypes.string,
+  /** Has subtabs or not */
   subtab: PropTypes.bool,
+  /** Tabs are distributed on the container width */
   spaced: PropTypes.bool,
+  /** Tab components */
   children: PropTypes.node,
+  /** onchange event handler */
   onTabChange: PropTypes.func,
 };
 
@@ -144,13 +152,17 @@ TabTitle.propTypes = {
   onClick: PropTypes.func,
 };
 
+Tab.displayName = 'Tab';
+
 Tab.defaultProps = {
   children: null,
   className: null,
 };
 
 Tab.propTypes = {
+  /** Custom CSS class name */
   className: PropTypes.string,
+  /** Tab content */
   children: PropTypes.node,
 };
 

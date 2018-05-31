@@ -17,6 +17,8 @@ class Checkbox extends Component {
   }
 }
 
+Checkbox.displayName = 'Checkbox';
+
 Checkbox.defaultProps = {
   value: false,
   viewOnly: false,
@@ -24,8 +26,11 @@ Checkbox.defaultProps = {
 };
 
 Checkbox.propTypes = {
+  /** Checked value */
   value: PropTypes.bool,
+  /** Specifies wether is checkeable or not */
   viewOnly: PropTypes.bool,
+  /** onChange event handler */
   onChange: PropTypes.func,
 };
 

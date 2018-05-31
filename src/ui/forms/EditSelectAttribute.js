@@ -42,6 +42,7 @@ EditSelectAttribute.defaultProps = {
 };
 
 EditSelectAttribute.propTypes = {
+  /** Dropdown options */
   options: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.shape({
@@ -57,14 +58,18 @@ EditSelectAttribute.propTypes = {
     ),
     PropTypes.object,
   ]).isRequired,
+  /** Modal's title */
   title: PropTypes.string,
+  /** Current selected value */
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
     PropTypes.bool,
   ]),
+  /** onClose callback function */
   onClose: PropTypes.func,
+  /** onSubmit callback function */
   onSubmit: PropTypes.func,
 };
 

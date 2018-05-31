@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { withPopover } from '../Popover';
 import ViewOnlyText from './ViewOnlyText';
 
-class Textarea extends Component {
+export class Textarea extends Component {
   handleOnChange = e => {
     const { target: { value } } = e;
     const { validRegex, onChange } = this.props;
@@ -88,4 +88,7 @@ Textarea.propTypes = {
   autoFocus: PropTypes.bool,
 };
 
-export default withPopover(Textarea);
+const textareaWithPopover = withPopover(Textarea);
+textareaWithPopover.displayName = 'Textarea';
+
+export default textareaWithPopover;

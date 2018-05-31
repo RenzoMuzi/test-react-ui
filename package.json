@@ -7,6 +7,8 @@
     "build": "webpack --progress --colors",
     "build:watch": "webpack --watch --progress --colors",
     "lint": "eslint src/",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o docs",
     "test": "echo No tests found"
   },
   "repository": {
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/moove-it/pw-ui#readme",
   "dependencies": {
+    "@sambego/storybook-state": "^1.0.7",
     "basscss": "^8.0.4",
     "basscss-background-colors": "^2.1.0",
     "basscss-base-forms": "^2.0.2",
@@ -40,10 +43,10 @@
     "numeral": "^2.0.6",
     "open": "0.0.5",
     "prop-types": "^15.6.1",
-    "react": "^16.2.0",
+    "react": "^16.4.0",
     "react-addons-update": "^15.6.2",
     "react-click-outside": "^3.0.1",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.4.0",
     "react-gtm-module": "^1.0.7",
     "react-moment-proptypes": "^1.5.0",
     "react-notification-system-redux": "^1.2.0",
@@ -54,6 +57,12 @@
     "url-parse": "^1.2.0"
   },
   "devDependencies": {
+    "@dump247/storybook-state": "^1.5.0",
+    "@storybook/addon-actions": "^4.0.0-alpha.8",
+    "@storybook/addon-info": "^4.0.0-alpha.8",
+    "@storybook/addon-knobs": "^4.0.0-alpha.8",
+    "@storybook/addon-options": "^4.0.0-alpha.8",
+    "@storybook/react": "^4.0.0-alpha.8",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
@@ -65,9 +74,10 @@
     "babel-preset-stage-0": "^6.24.1",
     "compression-webpack-plugin": "^1.1.10",
     "css-loader": "^0.28.10",
+    "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-standard-react": "^6.0.0",
     "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
     "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.9.0",
@@ -77,19 +87,19 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint": "^4.18.1",
     "file-loader": "^1.1.10",
     "html-webpack-plugin": "^3.0.3",
     "mini-css-extract-plugin": "^0.4.0",
+    "postcss": "^6.0.19",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.1",
-    "postcss": "^6.0.19",
     "regenerator-runtime": "^0.11.1",
     "resolve-url-loader": "^2.2.1",
+    "style-loader": "^0.21.0",
     "url-loader": "^0.6.2",
+    "webpack": "^4.8.1",
     "webpack-clean": "^1.2.1",
-    "webpack-cli": "^2.0.9",
-    "webpack": "^4.8.1"
+    "webpack-cli": "^2.0.9"
   }
 }

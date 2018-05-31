@@ -17,8 +17,13 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
+  devtool: 'source-map',
   resolve: {
-    modules: [path.resolve('./src'), path.resolve('./node_modules')],
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./public'),
+      path.resolve('./node_modules'),
+    ],
   },
   module: {
     rules: [
@@ -28,7 +33,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
+        test: /\.s?[ac]ss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {

@@ -12,8 +12,9 @@ const ConfirmModal = ({
   message,
   onClose,
   onConfirm,
+  allowScrolling,
 }) => (
-  <Modal isOpen={isOpen} onClose={onClose}>
+  <Modal isOpen={isOpen} onClose={onClose} allowScrolling={allowScrolling}>
     <div className="p2 m1 flex justify-between">
       <span className="fs20 weight-700 gray-primary">Are you sure?</span>
       <i
@@ -41,15 +42,24 @@ ConfirmModal.defaultProps = {
   message: '',
   onClose: () => {},
   onConfirm: () => {},
+  allowScrolling: false,
 };
 
 ConfirmModal.propTypes = {
+  /** Label for confirmation button */
   confirmButtonLabel: PropTypes.string,
+  /** Text description shown in modal after message */
   description: PropTypes.string,
+  /** Modal is open or not */
   isOpen: PropTypes.bool,
+  /** Text shown in modal */
   message: PropTypes.string,
+  /**  handler when modal closes */
   onClose: PropTypes.func,
+  /** handler when confirmation button is clicked */
   onConfirm: PropTypes.func,
+  /** Allows scrolling on main container body when modal is open */
+  allowScrolling: PropTypes.bool,
 };
 
 export default ConfirmModal;
