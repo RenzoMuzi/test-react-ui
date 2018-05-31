@@ -211,6 +211,8 @@ class Table extends Component {
   }
 }
 
+Table.displayName = 'Table';
+
 Table.defaultProps = {
   alignTop: false,
   columnHeader: () => {},

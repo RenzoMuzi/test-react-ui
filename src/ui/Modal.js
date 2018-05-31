@@ -107,6 +107,8 @@ class Modal extends Component {
   }
 }
 
+Modal.displayName = 'Modal';
+
 Modal.defaultProps = {
   isOpen: false,
   positionClassName: null,

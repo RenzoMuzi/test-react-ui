@@ -37,6 +37,8 @@ class EditAttributeModal extends Component {
   };
 }
 
+EditAttributeModal.displayName = 'EditAttributeModal';
+
 EditAttributeModal.defaultProps = {
   isOpen: false,
   children: null,

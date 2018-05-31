@@ -62,6 +62,8 @@ export class Textarea extends Component {
   }
 }
 
+Textarea.displayName = 'Textarea';
+
 Textarea.defaultProps = {
   className: '',
   maxLength: 120,

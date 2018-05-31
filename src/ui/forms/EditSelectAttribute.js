@@ -34,6 +34,8 @@ class EditSelectAttribute extends Component {
   }
 }
 
+EditSelectAttribute.displayName = 'EditSelectAttribute';
+
 EditSelectAttribute.defaultProps = {
   title: '',
   value: '',

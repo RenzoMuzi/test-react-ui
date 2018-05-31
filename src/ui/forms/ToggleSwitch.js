@@ -29,6 +29,8 @@ class ToggleSwitch extends Component {
   }
 }
 
+ToggleSwitch.displayName = 'ToggleSwitch';
+
 ToggleSwitch.defaultProps = {
   value: false,
   viewOnly: false,
