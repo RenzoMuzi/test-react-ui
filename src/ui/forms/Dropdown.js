@@ -90,7 +90,7 @@ class Dropdown extends Component {
           <i className="inline-block fa fa-caret-down fa-lg pl1" />
         </div>
         {isOpen && (
-          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-4 overflow-y-scroll">
+          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-5 overflow-y-scroll">
             {this.renderDropdown()}
           </div>
         )}
@@ -119,16 +119,17 @@ class Dropdown extends Component {
 
   renderOption(option, index, indented) {
     const {
-      separator, title, label, optionLabel, disabled,
+      separator, title, label, optionLabel, disabled, optionClassName,
     } = option;
     const { activeOption } = this.state;
     const isActive = activeOption === index;
-    const optionClassName = classNames(
+    const className = classNames(
       'p1 nowrap',
       { 'custom-select-option pointer': !disabled },
       { gray: disabled },
       { pl3: indented },
       { active: isActive },
+      { optionClassName },
     );
 
     if (separator) {
@@ -145,7 +146,7 @@ class Dropdown extends Component {
           this[`option${index}`] = ref;
         }}
         key={index}
-        className={optionClassName}
+        className={className}
         onClick={() => !disabled && this.handleOnChange(option)}
         onMouseMove={() => this.setState({ activeOption: index })}
       >
