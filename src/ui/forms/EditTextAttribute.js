@@ -51,12 +51,19 @@ class EditTextAttribute extends Component {
 EditTextAttribute.displayName = 'EditTextAttribute';
 
 EditTextAttribute.defaultProps = {
+  /** Maximum characters count */
   maxLength: null,
+  /** Modal title */
   title: '',
+  /** Text to be edited */
   text: '',
+  /** Regex to be satisfied */
   validRegex: null,
+  /** Shows or hides the modal */
   isOpen: false,
+  /** onSubmit callback function */
   onSubmit: () => {},
+  /** closeModal callback function */
   closeModal: () => {},
 };
 
