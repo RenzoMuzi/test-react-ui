@@ -87,9 +87,13 @@ Field.defaultProps = {
 };
 
 Field.propTypes = {
+  /** Field label description */
   label: PropTypes.string.isRequired,
+  /** Indicates if label is bold */
   bold: PropTypes.bool,
+  /** Indicates if is a sub field */
   subField: PropTypes.bool,
+  /** Field content */
   children: PropTypes.node,
 };
 
