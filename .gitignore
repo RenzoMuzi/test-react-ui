@@ -1,5 +1,5 @@
-ui/
-utils/
+/ui/
+/utils/
 node_modules/
 .env
 .DS_Store
