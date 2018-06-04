@@ -108,17 +108,29 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  /** CSS class to customize the component */
   className: PropTypes.string,
+  /** Reference to be handled from parent */
   inputRef: PropTypes.func,
+  /** Maximum amount of characters */
   maxLength: PropTypes.number,
+  /** Placeholder value */
   placeholder: PropTypes.string,
+  /** Input value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Regex to be satisfied */
   validRegex: PropTypes.object,
+  /** Enables or disables the Input */
   viewOnly: PropTypes.bool,
+  /** Input's onBlur handler */
   onBlur: PropTypes.func,
+  /** Input's onChange handler */
   onChange: PropTypes.func,
+  /** Submit callback funciton */
   onSubmit: PropTypes.func,
+  /** Input's autofocus */
   autoFocus: PropTypes.bool,
+  /** Renders a prefix */
   prefix: PropTypes.string,
 };
 
