@@ -21,9 +21,12 @@ class ViewOnlyInput extends Component {
 
 ViewOnlyInput.displayName = 'ViewOnlyInput';
 
-ViewOnlyInput.defaultProps = { value: null };
+ViewOnlyInput.defaultProps = {
+  value: null,
+};
 
 ViewOnlyInput.propTypes = {
+  /** Input's value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

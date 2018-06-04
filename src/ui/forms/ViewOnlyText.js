@@ -20,9 +20,12 @@ class ViewOnlyText extends Component {
 
 ViewOnlyText.displayName = 'ViewOnlyText';
 
-ViewOnlyText.defaultProps = { value: null };
+ViewOnlyText.defaultProps = {
+  value: null,
+};
 
 ViewOnlyText.propTypes = {
+  /** Text value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

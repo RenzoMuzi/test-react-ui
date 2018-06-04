@@ -31,6 +31,6 @@ stories.add(
         autoFocus={boolean('autoFocus', false)}
         prefix={text('prefix', '')}
       />
-    ))
+    )),
   ),
 );
