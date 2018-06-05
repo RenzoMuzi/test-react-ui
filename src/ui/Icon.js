@@ -21,9 +21,13 @@ Icon.defaultProps = {
 };
 
 Icon.propTypes = {
+  /** Icon shape/type */
   type: PropTypes.string.isRequired,
+  /** Icon size */
   size: PropTypes.number,
+  /** CSS classes for custom styles */
   className: PropTypes.string,
+  /** Javascript object for custom styles */
   style: PropTypes.object,
 };
 

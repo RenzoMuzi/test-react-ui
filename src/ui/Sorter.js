@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { compose, withHandlers } from 'recompose';
 import update from 'react-addons-update';
 import find from 'lodash/find';
 import Icon from './Icon';
@@ -31,11 +30,15 @@ const Sorter = ({
   dropdownOptions,
   dropdownText,
   sorting,
-  onSelectOption,
-  onSelectedOptionsChange,
-  deleteSelectedOption,
+  onSortChange,
 }) => {
   const filteredOptions = filterOptions(dropdownOptions, sorting);
+  const onSelectOption = value => onSortChange([...sorting, value]);
+  const onSelectedOptionsChange = (value, index) =>
+    onSortChange(update(sorting, { $splice: [[index, 1, value]] }));
+  const deleteSelectedOption = index =>
+    onSortChange(update(sorting, { $splice: [[index, 1]] }));
+
   return (
     <div className={classNames('flex flex-wrap items-center lh-21', className)}>
       <span className="pr1 nowrap">Sort By</span>
@@ -52,7 +55,7 @@ const Sorter = ({
       {filteredOptions.length > 0 && (
         <div>
           <CustomDropdown
-            defaultValue={dropdownText}
+            label={dropdownText}
             selectStyle={{ paddingTop: 0, paddingBottom: 0 }}
             selectClasses="sandy-brown border-none px2 fs-14"
             noIcon
@@ -89,22 +92,18 @@ Sorter.defaultProps = {
 };
 
 Sorter.propTypes = {
+  /** CSS class to customize the sorter */
   className: PropTypes.string,
+  /** CSS class to customize the chicklet */
   chickletClassName: PropTypes.string,
+  /** Dropdown options */
   dropdownOptions: PropTypes.array.isRequired,
+  /** Dropdown label */
   dropdownText: PropTypes.string,
+  /** Current sorting items */
   sorting: PropTypes.array.isRequired,
-  onSelectOption: PropTypes.func.isRequired,
-  onSelectedOptionsChange: PropTypes.func.isRequired,
-  deleteSelectedOption: PropTypes.func.isRequired,
+  /** onSortChange callback function */
+  onSortChange: PropTypes.func.isRequired,
 };
 
-export default compose(
-  withHandlers({
-    onSelectOption: ({ sorting, onSortChange }) => value => onSortChange([...sorting, value]),
-    onSelectedOptionsChange: ({ sorting, onSortChange }) => (value, index) =>
-      onSortChange(update(sorting, { $splice: [[index, 1, value]] })),
-    deleteSelectedOption: ({ sorting, onSortChange }) => index =>
-      onSortChange(update(sorting, { $splice: [[index, 1]] })),
-  }),
-)(Sorter);
+export default Sorter;

@@ -89,9 +89,13 @@ CustomDropdown.defaultProps = {
 };
 
 CustomDropdown.propTypes = {
+  /** Dropdown's label */
   label: PropTypes.string,
+  /** Dropdown's onChange callback function */
   onChange: PropTypes.func.isRequired,
+  /** Dropdown's options */
   options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  /** CSS classes for custom styles */
   className: PropTypes.string,
 };
 

@@ -38,8 +38,11 @@ ToggleSwitch.defaultProps = {
 };
 
 ToggleSwitch.propTypes = {
+  /** Switch value */
   value: PropTypes.bool,
+  /** Disables edition */
   viewOnly: PropTypes.bool,
+  /** onChange callback function */
   onChange: PropTypes.func,
 };
 

@@ -78,19 +78,29 @@ Textarea.defaultProps = {
 };
 
 Textarea.propTypes = {
+  /** CSS class to customize the component */
   className: PropTypes.string,
+  /** Reference to be handled from parent */
   inputRef: PropTypes.func,
+  /** Maximum characters count */
   maxLength: PropTypes.number,
+  /** Placeholder text */
   placeholder: PropTypes.string,
+  /** Text value */
   value: PropTypes.string,
+  /** Regex to be satisfied */
   validRegex: PropTypes.object,
+  /** Disables edition */
   viewOnly: PropTypes.bool,
+  /** onChange textarea's handler */
   onChange: PropTypes.func,
+  /** onSubmit textarea's handler */
   onSubmit: PropTypes.func,
+  /** Enables auto focus */
   autoFocus: PropTypes.bool,
 };
 
-const textareaWithPopover = withPopover(Textarea);
-textareaWithPopover.displayName = 'Textarea';
+const TextareaWithPopover = withPopover(Textarea);
+TextareaWithPopover.displayName = 'Textarea';
 
-export default textareaWithPopover;
+export default TextareaWithPopover;

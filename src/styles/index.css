@@ -27,6 +27,7 @@
 @import './table.css';
 @import './forms.css';
 @import './extra-padding.css';
+@import './popover.css';
 
 /* Fonts */
 @import '/gilroy-font-family';
