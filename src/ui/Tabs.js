@@ -67,18 +67,32 @@ class Tabs extends PureComponent {
     const tabs = React.Children.toArray(children);
 
     const activeChildrenTab = React.cloneElement(tabs[activeTab]);
-    const tabTitles = tabs.map(this.renderTabTitle);
+    const leftTabTitles = tabs
+      .filter(tab => !tab.props.right)
+      .map(this.renderTabTitle);
+
+    const rightTabTitles = tabs
+      .filter(tab => tab.props.right)
+      .map(this.renderTabTitle);
 
     return (
       <div>
-        <ul className="m0 list-reset flex border-bottom border-gray">
+        <ul className="m0 list-reset flex border-bottom border-gray justify-between">
           <div
             className={classNames('flex inline-block full-width', {
               'justify-between': spaced,
             })}
             style={{ marginBottom: '-1px' }}
           >
-            {tabTitles}
+            {leftTabTitles}
+          </div>
+          <div
+            className={classNames('flex inline-block full-width', {
+              'justify-between': spaced,
+            })}
+            style={{ marginBottom: '-1px' }}
+          >
+            {rightTabTitles}
           </div>
         </ul>
         {activeChildrenTab}

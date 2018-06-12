@@ -32,6 +32,9 @@ stories.add(
       <Tab name="Last Tab" title="Last Tab">
         Hello world!
       </Tab>
+      <Tab name="Right Tab" title="Right Tab" right>
+        Right Tab!
+      </Tab>
     </Tabs>
   )),
 );
