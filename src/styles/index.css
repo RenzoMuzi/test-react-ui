@@ -28,6 +28,8 @@
 @import './forms.css';
 @import './extra-padding.css';
 @import './popover.css';
+@import './fonts.css';
+@import './cursors.css';
 
 /* Fonts */
 @import '/gilroy-font-family';
