@@ -3,11 +3,11 @@
 }
 
 .border-gray-50 {
-  border-color: color(var(--gray-border) a(50%));
+  border-color: color-mod(var(--gray-border) a(50%));
 }
 
 .border-gray-light {
-  border-color: color(var(--gray-background));
+  border-color: color-mod(var(--gray-background));
 }
 
 .border-bottom-medium {
@@ -63,7 +63,7 @@
 .gray-hover-border:hover {
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-color: color(var(--gray-primary) a(80%));
+  border-color: color-mod(var(--gray-primary) a(80%));
 }
 
 

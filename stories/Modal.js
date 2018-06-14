@@ -23,6 +23,7 @@ stories.add(
       isOpen={boolean('isOpen', true)}
       allowScrolling
     >
+      <img src="http://i0.kym-cdn.com/photos/images/newsfeed/000/191/645/d8d.jpg"/>
       <p className="p2 center">
         {text('Modal text', 'Modal content text')}
       </p>
