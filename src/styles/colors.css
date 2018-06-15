@@ -60,3 +60,7 @@
 .color-inherit {
   color: inherit;
 }
+
+.hover-orange-primary:hover {
+  color: var(--orange-primary);
+}
