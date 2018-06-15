@@ -13,6 +13,7 @@ import invoke from 'lodash/invoke';
 import 'font-awesome/css/font-awesome.css';
 import { withPopover } from '../Popover';
 import ViewOnlyText from './ViewOnlyText';
+import Icon from '../Icon';
 
 const txCreator = (key, length, ctx) => prevState => {
   const delta = key === 'ArrowDown' ? 1 : -1;
@@ -87,7 +88,11 @@ class Dropdown extends Component {
           onKeyDown={this.handleKeyPress}
         >
           {this.renderSelectedValue()}
-          <i className="inline-block fa fa-caret-down fa-lg pl1" />
+          <Icon
+            type="caret-down"
+            size={16}
+            className="inline-block fa-lg pl1"
+          />
         </div>
         {isOpen && (
           <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-5 overflow-y-scroll">

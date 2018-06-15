@@ -7,3 +7,5 @@ node_modules/
 *.idea/
 styles.css
 styles.css.map
+styles-font-awesome.css
+styles-font-awesome.css.map

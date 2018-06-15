@@ -9,6 +9,7 @@ module.exports = {
     'ui/forms/index.js': './src/ui/forms/index.js',
     'utils/index.js': './src/utils/index.js',
     styles: './src/styles/index.css',
+    'styles-font-awesome': './src/styles/font-awesome-fonts.scss',
   },
   output: {
     path: path.join(__dirname, './'),
@@ -33,21 +34,38 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.s?[ac]ss$/,
+        test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
         loader: 'url-loader',
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=10000',
+        test: /.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'public/fonts/[name].[ext]',
+            publicPath: '../../node_modules/pw-ui',
+          },
+        }],
       },
       {
         test: /\.otf$/,
-        loader:
-          'url-loader?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]',
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 65000,
+            mimetype: 'application/octet-stream',
+            name: 'public/fonts/[name].[ext]',
+          },
+        }],
       },
     ],
   },
@@ -55,6 +73,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new WebpackCleanPlugin(['styles']),
+    new WebpackCleanPlugin(['styles', 'styles-font-awesome']),
   ],
 };
