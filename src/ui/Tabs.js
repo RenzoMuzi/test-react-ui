@@ -73,7 +73,7 @@ class Tabs extends PureComponent {
 
     const rightTabTitles = tabs
       .filter(tab => tab.props.right)
-      .map(this.renderTabTitle);
+      .map((tab, index) => this.renderTabTitle(tab, index + leftTabTitles.length));
 
     return (
       <div>
