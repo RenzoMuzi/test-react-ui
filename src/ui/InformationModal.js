@@ -6,9 +6,9 @@ import Modal from './Modal';
 import PrimaryButton from './forms/PrimaryButton';
 
 const InformationModal = ({
-  title, body, onClose, allowScrolling,
+  isOpen, title, body, onClose, allowScrolling,
 }) => (
-  <Modal isOpen onClose={onClose} allowScrolling={allowScrolling}>
+  <Modal isOpen={isOpen} onClose={onClose} allowScrolling={allowScrolling}>
     <div className="p2 flex justify-between">
       <span className="fs16 weight-700 gray-primary">{title}</span>
       <i
@@ -30,12 +30,15 @@ const InformationModal = ({
 InformationModal.displayName = 'InformationModal';
 
 InformationModal.defaultProps = {
+  isOpen: true,
   title: '',
   onClose: () => {},
   allowScrolling: false,
 };
 
 InformationModal.propTypes = {
+  /** Modal is shown or not */
+  isOpen: PropTypes.bool,
   /** Modal title */
   title: PropTypes.string,
   /** Modal content */

@@ -5,9 +5,9 @@ import Modal from './Modal';
 import PrimaryButton from './forms/PrimaryButton';
 
 const ErrorModal = ({
-  message, title, onClose, allowScrolling,
+  isOpen, message, title, onClose, allowScrolling,
 }) => (
-  <Modal isOpen onClose={onClose} allowScrolling={allowScrolling}>
+  <Modal isOpen={isOpen} onClose={onClose} allowScrolling={allowScrolling}>
     <div className="p2 m1 flex justify-between">
       <span className="fs20 weight-700 gray-primary">{title}</span>
       <i
@@ -27,6 +27,7 @@ const ErrorModal = ({
 ErrorModal.displayName = 'ErrorModal';
 
 ErrorModal.defaultProps = {
+  isOpen: true,
   message: '',
   title: '',
   onClose: () => {},
@@ -34,6 +35,8 @@ ErrorModal.defaultProps = {
 };
 
 ErrorModal.propTypes = {
+  /** Modal is shown or not */
+  isOpen: PropTypes.bool,
   /** content shown in modal */
   message: PropTypes.node,
   /** Modal title */

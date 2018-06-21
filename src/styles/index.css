@@ -30,6 +30,7 @@
 @import './popover.css';
 @import './fonts.css';
 @import './cursors.css';
+@import './modal.css';
 
 /* Fonts */
 @import '/gilroy-font-family';
