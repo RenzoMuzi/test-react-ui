@@ -1,3 +1,7 @@
 .min-full-width {
   min-width: 100%;
 }
+
+.width-32px {
+  width: 32px;
+}
