@@ -34,7 +34,7 @@ class Tabs extends PureComponent {
     super(props);
 
     const { children, active } = props;
-    this.tabNames = children.map(tab => tab.props.name);
+    this.tabNames = React.Children.map(children, tab => tab.props.name);
 
     this.state = {
       activeTab: active ? Math.max(this.tabNames.indexOf(active), 0) : 0,
@@ -43,7 +43,7 @@ class Tabs extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     const { children, active } = nextProps;
-    this.tabNames = children.map(tab => tab.props.name);
+    this.tabNames = React.Children.map(children, tab => tab.props.name);
 
     if (active) {
       this.setState({ activeTab: Math.max(this.tabNames.indexOf(active), 0) });
