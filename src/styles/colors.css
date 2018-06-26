@@ -51,8 +51,9 @@
 }
 
 .bg-white-muted {
-  background: var(--white)90;
+  background: var(--white-muted);
 }
+
 .bg-gradiant-white-gray {
   background: linear-gradient(var(--white), var(--gray-background));
 }

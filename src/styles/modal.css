@@ -35,3 +35,21 @@
   bottom: 0;
   left: 0;
 }
+
+@media (--breakpoint-sm) {
+  .c-modal-width {
+    width: 100%;
+  }
+}
+
+@media (--breakpoint-md) {
+  .c-modal-width {
+    width: 70%;
+  }
+}
+
+@media (--breakpoint-lg) {
+  .c-modal-width {
+    width: 40%;
+  }
+}

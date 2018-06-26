@@ -44,7 +44,7 @@ class Modal extends Component {
 
   render() {
     const {
-      isOpen, children, positionClassName, wide, styleClass,
+      isOpen, children, positionClassName, styleClass,
     } = this.props;
 
     const containerClassName = classNames(
@@ -54,13 +54,10 @@ class Modal extends Component {
 
     const modalClassName = classNames(
       'c-modal',
-      { 'width-35': !wide },
-      { 'width-40': wide },
+      'c-modal-width',
       'bg-white',
       'border',
       'border-gray',
-      'width-100-sm',
-      'width-70-md',
       styleClass,
     );
 
@@ -112,7 +109,6 @@ Modal.displayName = 'Modal';
 Modal.defaultProps = {
   isOpen: false,
   positionClassName: null,
-  wide: false,
   children: null,
   onClose: () => {},
   styleClass: '',
@@ -124,8 +120,6 @@ Modal.propTypes = {
   isOpen: PropTypes.bool,
   /** CSS class to determine modal positioning */
   positionClassName: PropTypes.string,
-  /** Modal can be wider or not */
-  wide: PropTypes.bool,
   /** Modal content */
   children: PropTypes.node,
   /** handler when modal closes */
