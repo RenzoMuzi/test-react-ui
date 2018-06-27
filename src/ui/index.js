@@ -7,6 +7,7 @@ export Icon from './Icon';
 export InformationModal from './InformationModal';
 export LoadingModal from './LoadingModal';
 export Modal from './Modal';
+export Pagination from './Pagination';
 export Popover from './Popover';
 export Sorter from './Sorter';
 export Table from './Table';
