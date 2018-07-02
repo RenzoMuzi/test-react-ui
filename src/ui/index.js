@@ -12,3 +12,4 @@ export Sorter from './Sorter';
 export Table from './Table';
 export FilteredBy from './FilteredBy';
 export Tabs, { Tab } from './Tabs';
+export List from './List';
