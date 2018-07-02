@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import enhanceWithClickOutside from 'react-click-outside';
+import onClickOutside from 'react-onclickoutside';
 import classNames from 'classnames';
 import find from 'lodash/find';
 import flatMap from 'lodash/flatMap';
@@ -301,7 +301,7 @@ Dropdown.propTypes = {
   onChange: PropTypes.func,
 };
 
-const enhancedDropdown = withPopover(enhanceWithClickOutside(Dropdown));
+const enhancedDropdown = withPopover(onClickOutside(Dropdown));
 enhancedDropdown.displayName = 'Dropdown';
 
 export default enhancedDropdown;

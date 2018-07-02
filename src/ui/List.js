@@ -91,7 +91,7 @@ class List extends Component {
     return records && records.length ? (
       records.map(record => (
         <div key={record.PatientId}>
-          <div className="flex border-bottom border-gray-light fit px0">
+          <div className="border-bottom border-gray-light fit px0">
             <div className="md-flex flex-auto">
               <div>
                 <div className="sm-col p1 fs14">
@@ -130,8 +130,8 @@ class List extends Component {
                 </div>
               ))}
             </div>
+            {renderAdditionalInfo && renderAdditionalInfo({ record })}
           </div>
-          {renderAdditionalInfo && renderAdditionalInfo({ record })}
         </div>
       ))
     ) : (
