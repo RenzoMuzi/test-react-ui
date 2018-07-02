@@ -39,7 +39,7 @@ class CustomDropdown extends Component {
           {label}
         </div>
         {isOpen && (
-          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-4 overflow-y-scroll">
+          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-4 overflow-scroll">
             {this.renderDropdown()}
           </div>
         )}

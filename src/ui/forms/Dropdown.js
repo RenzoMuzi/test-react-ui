@@ -91,11 +91,11 @@ class Dropdown extends Component {
           <Icon
             type="caret-down"
             size={16}
-            className="inline-block fa-lg pl1"
+            className="inline-block fa-lg pl1 gray-border-color"
           />
         </div>
         {isOpen && (
-          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-5 overflow-y-scroll">
+          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-1 overflow-scroll">
             {this.renderDropdown()}
           </div>
         )}

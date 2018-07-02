@@ -14,6 +14,10 @@
   color: var(--gray-secondary);
 }
 
+.gray-border-color {
+  color: var(--gray-border);
+}
+
 .green-success {
   color: var(--green-success);
 }

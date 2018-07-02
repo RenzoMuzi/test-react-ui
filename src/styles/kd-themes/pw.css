@@ -1,0 +1,298 @@
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
+.uneditable-input:focus {
+  border-color: rgba(242, 130, 0, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 130, 0, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 130, 0, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 130, 0, 0.6);
+}
+
+.c-kd > div {
+  position: relative;
+}
+
+.c-base-select {
+  position: relative;
+  margin-bottom: 5px;
+}
+.c-base-select select {
+  background: #ffffff;
+  font-size: 12px;
+  color: #686865;
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #DDDDDD;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c-base-select:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  pointer-events: none;
+  background: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(0deg);
+  border-width: 5px 5px 0 5px;
+  border-color: #DDDDDD transparent transparent transparent;
+  border-style: solid;
+}
+
+.c-base-select select:focus {
+  border-color: rgba(242, 130, 0, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 130, 0, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 130, 0, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 130, 0, 0.6);
+}
+.c-base-select select::-ms-expand {
+  display: none;
+}
+
+.c-kd,
+.o-layout {
+  margin-bottom: 15px;
+}
+
+.o-kd-autocomplete-input,
+.c-kd__input,
+.o-kd-select-string {
+  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #686865;
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 3px;
+  box-sizing: border-box;
+  height: 42px;
+}
+
+.c-kd-select-number__unit {
+  position: absolute;
+  right: 0px;
+  font-weight: 300;
+  bottom: 0px;
+  padding: 14px 15px;
+  border-left: 1px solid #DDDDDD;
+}
+
+.o-kd-autocomplete-input:focus,
+.o-kd-autocomplete-input:active {
+  outline: none;
+}
+.o-kd-autocomplete-input:focus {
+  outline: none;
+}
+.o-kd-autocomplete-input input::-ms-clear {
+  display: none;
+}
+input[type='text']::-ms-clear {
+  display: none;
+}
+.c-kd-autocomplete {
+  position: relative;
+}
+.o-options {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  border: 0;
+  vertical-align: baseline;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+.o-options__left-label {
+  color: #686865;
+  font-weight: 600;
+}
+.o-options__right-label {
+  color: #686865;
+  text-align: right;
+}
+.o-options__info-option div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+.o-options__info-option,
+.o-options__option {
+  padding: 7.5px 15px;
+  font-size: 12px;
+  border: none;
+}
+.o-options__option {
+  border: none;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+}
+.u-hidden {
+  display: none;
+}
+.o-options__option-active {
+  color: rgba(242, 130, 0, 0.8);
+  background-color: #fafbfa;
+}
+.o-options__option-active span {
+  color: rgba(242, 130, 0, 0.8);
+}
+.c-kd-autocomplete-option__title {
+  font-weight: 500;
+}
+.u-disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Datepicker */
+.react-datepicker-popper .react-datepicker {
+  border-radius: 2px;
+  padding: 13px;
+  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 5px 21px 0 rgba(0, 0, 0, 0.2);
+}
+
+.react-datepicker__month-container .react-datepicker__header {
+  border: none;
+  background: none;
+  font-weight: 300;
+}
+
+.react-datepicker__navigation {
+  display: none;
+}
+
+.react-datepicker__week .react-datepicker__day {
+  border: none;
+  background: none;
+  color: #686865;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.react-datepicker__week .react-datepicker__day--disabled {
+  border: none;
+  background: none;
+  color: #e6e6e6;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.react-datepicker__week .react-datepicker__day:hover {
+  border: none;
+  color: #686865;
+  background: #DDDDDD;
+  border-radius: 2px;
+}
+
+.react-datepicker__week .react-datepicker__day--selected, .react-datepicker__week .react-datepicker__day--today.react-datepicker__day--selected {
+  border: none;
+  color: #ffffff;
+  background: #F7956F;
+  border-radius: 2px;
+}
+
+.react-datepicker__week .react-datepicker__day--today {
+  border: none;
+  color: #ffb380;
+  background: #ffffff;
+}
+
+/* Fix date picker position */
+.react-datepicker-popper {
+  z-index: 999999 !important;
+  position: absolute !important;
+  transform: translate(-50%, 0) !important;
+  top: auto !important;
+  left: 50% !important;
+  will-change: transform !important;
+}
+
+.react-datepicker__month-dropdown-container--select {
+  margin-right: 5px;
+}
+
+.react-datepicker__month-select, .react-datepicker__year-select {
+  height: 20px;
+  border: none;
+  background: #ffffff;
+  color: #686865;
+  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 13px
+}
+
+.react-datepicker__header__dropdown--select {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDDDDD;
+  margin-bottom: 10px;
+}
+
+.o-search-icon--with-loading {
+  background-image: url('../../../public/images/loading.gif');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
+}
+
+.o-search-icon--with-loading-for-chicklet-none {
+  background-image: url('../../../public/images/loading.gif');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
+}
+
+.o-search-icon--with-loading-for-chicklet-none-empty {
+  background-image: url('../../../public/images/loading.gif');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
+}
+
+.c-kd-autocomplete {
+  position: relative;
+  width: 100%;
+}
+
+.pwDrugSearch li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

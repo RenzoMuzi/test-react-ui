@@ -95,3 +95,8 @@ input:focus + .slider {
 input:checked + .slider:before {
   transform: translateX(14px);
 }
+
+.custom-select-option.active {
+  color: white;
+  background-color: var(--orange-primary);
+}

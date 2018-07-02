@@ -9,6 +9,7 @@ module.exports = {
     'ui/forms/index.js': './src/ui/forms/index.js',
     'utils/index.js': './src/utils/index.js',
     styles: './src/styles/index.css',
+    'kd-styles': './src/styles/kd-themes/pw.css',
     'styles-font-awesome': './src/styles/font-awesome-fonts.scss',
   },
   output: {
@@ -73,6 +74,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new WebpackCleanPlugin(['styles', 'styles-font-awesome']),
+    new WebpackCleanPlugin(['styles', 'styles-font-awesome', 'kd-styles']),
   ],
 };

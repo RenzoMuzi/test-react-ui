@@ -1,5 +1,4 @@
 import React from 'react';
-import update from 'immutability-helper';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import mPropTypes from 'react-moment-proptypes';
@@ -8,22 +7,39 @@ import head from 'lodash/head';
 
 import Icon from './Icon';
 
-const OperatorToLabelMap = {
-  Lte: 'Before',
-  Gte: 'After',
-  Eq: 'On',
+const OperatorToLabelMap = (isDate) => ({
+  Eq: '',
+  NotEq: '≠',
+  Gt: isDate ? 'Before' : '>',
+  Lt: isDate ? 'After' : '<',
+  Lte: '≤',
+  Gte: '≥',
   Between: 'Between',
-};
+});
 
-const getChickletValue = value => {
+const convertValue = value => {
   const safeValue = Array.isArray(value) ? head(value) : value;
-  return moment.isMoment(safeValue) ? moment(safeValue).format('MM/DD/YYYY') : safeValue;
+
+  switch (safeValue) {
+    case 'true':
+      return 'Yes';
+    case 'false':
+      return 'No';
+    default:
+      return safeValue;
+  }
 };
 
-const getChickletLabel = (operator, value) => (
+const getChickletValue = (value, isDate) => {
+  const safeValue = convertValue(value);
+
+  return isDate || moment.isMoment(safeValue) ? moment(safeValue).format('MM/DD/YYYY') : safeValue;
+};
+
+const getChickletLabel = (operator, value, isDate) => (
   operator === 'Between'
-    ? `${getChickletValue(value[0])} - ${getChickletValue(value[1])}`
-    : `${OperatorToLabelMap[operator]} ${getChickletValue(value)}`
+    ? `${getChickletValue(value[0], isDate)} - ${getChickletValue(value[1], isDate)}`
+    : `${OperatorToLabelMap(isDate)[operator]} ${getChickletValue(value, isDate)}`
 );
 
 const possibleValueTypes = [
@@ -41,7 +57,7 @@ const allPossibleValueTypes = PropTypes
   );
 
 const FilterChicklet = ({
-  label, operator, value, onDelete, className,
+  label, operator, value, type, onDelete, className,
 }) => (
   <div
     className={classNames(
@@ -49,14 +65,15 @@ const FilterChicklet = ({
       className,
     )}
   >
-    <span className="bold px1">{label} </span>
-    <span>{getChickletLabel(operator, value)}</span>
+    <span className="bold px1">{label}:</span>
+    <span>{getChickletLabel(operator, value, type === 'Date')}</span>
     <Icon className="pointer px1" type="times" onClick={onDelete} />
   </div>
 );
 
 FilterChicklet.defaultProps = {
   operator: 'Eq',
+  type: '',
   onDelete: () => {},
   className: '',
 };
@@ -65,6 +82,7 @@ FilterChicklet.propTypes = {
   label: PropTypes.string.isRequired,
   operator: PropTypes.string,
   value: allPossibleValueTypes.isRequired,
+  type: PropTypes.string,
   onDelete: PropTypes.func,
   className: PropTypes.string,
 };
@@ -76,11 +94,12 @@ const FilteredBy = ({
     <span className="pr1 nowrap">Filtered By</span>
     {filters.map((option, index) => (
       <FilterChicklet
-        key={option.value}
+        key={option.label}
         label={option.label}
         operator={option.operator}
         value={option.value}
-        onDelete={() => onChange(update(filters, { $splice: [[index, 1]] }))}
+        type={option.type}
+        onDelete={() => onChange(option, index)}
         className={chickletClassName}
       />
     ))}
@@ -103,6 +122,7 @@ FilteredBy.propTypes = {
       label: PropTypes.string.isRequired,
       operator: PropTypes.string,
       value: allPossibleValueTypes.isRequired,
+      type: PropTypes.string,
     }),
   ),
 };
