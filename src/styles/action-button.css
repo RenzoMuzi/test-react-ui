@@ -1,0 +1,11 @@
+.action-button-item:hover {
+  color: white;
+  background-color: var(--orange-primary);
+}
+
+.action-button-separator {
+  height: 1px;
+  background-color: var(--gray-border);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
