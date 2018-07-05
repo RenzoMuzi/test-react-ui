@@ -1,3 +1,6 @@
+/* 3rd party component css */
+@import 'react-day-picker/lib/style.css';
+
 /* basscss component classes */
 @import 'basscss-btn';
 @import 'basscss-btn-primary';
@@ -33,6 +36,7 @@
 @import './cursors.css';
 @import './modal.css';
 @import './layout.css';
+@import './shadows.css';
 
 /* Fonts */
 @import '/gilroy-font-family';
