@@ -5,3 +5,53 @@
 .width-32px {
   width: 32px;
 }
+
+@for $i from 20 to 800 by 20 {
+  .width-important-$i {
+    width: $(i)px !important;
+  }
+
+  .min-width-important-$i {
+    min-width: $(i)px !important;
+  }
+
+  .max-width-important-$i {
+    max-width: $(i)px !important;
+  }
+
+  .height-important-$i {
+    height: $(i)px !important;
+  }
+
+  .min-height-important-$i {
+    min-height: $(i)px !important;
+  }
+
+  .max-height-important-$i {
+    max-height: $(i)px !important;
+  }
+
+  .width-$i {
+    width: $(i)px;
+  }
+
+  .min-width-$i {
+    min-width: $(i)px;
+  }
+
+  .max-width-$i {
+    max-width: $(i)px;
+  }
+
+  .height-$i {
+    height: $(i)px;
+  }
+
+  .min-height-$i {
+    min-height: $(i)px;
+  }
+
+  .max-height-$i {
+    max-height: $(i)px
+  }
+}

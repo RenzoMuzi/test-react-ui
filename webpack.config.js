@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackCleanPlugin = require('webpack-clean');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -13,7 +14,7 @@ module.exports = {
     'styles-font-awesome': './src/styles/font-awesome-fonts.scss',
   },
   output: {
-    path: path.join(__dirname, './'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name]',
     library: 'index',
     libraryTarget: 'umd',
@@ -48,25 +49,29 @@ module.exports = {
       },
       {
         test: /.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: 'public/fonts/[name].[ext]',
-            publicPath: '../../node_modules/pw-ui',
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'public/fonts/[name].[ext]',
+              publicPath: '../../node_modules/pw-ui',
+            },
           },
-        }],
+        ],
       },
       {
         test: /\.otf$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 65000,
-            mimetype: 'application/octet-stream',
-            name: 'public/fonts/[name].[ext]',
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 65000,
+              mimetype: 'application/octet-stream',
+              name: 'public/fonts/[name].[ext]',
+            },
           },
-        }],
+        ],
       },
     ],
   },
@@ -74,6 +79,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new WebpackCleanPlugin(['styles', 'styles-font-awesome', 'kd-styles']),
+    new CopyWebpackPlugin([
+      { from: 'package.json', to: 'package.json' },
+      { from: 'variables.css', to: 'variables.css' },
+    ]),
+    new WebpackCleanPlugin([
+      'dist/styles',
+      'dist/styles-font-awesome',
+      'dist/kd-styles',
+    ]),
   ],
 };

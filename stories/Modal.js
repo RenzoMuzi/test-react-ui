@@ -22,34 +22,36 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <div>
-        <button
-          type="button"
-          onClick={() => store.set({ isOpen: true })}
-        >
+        <button type="button" onClick={() => store.set({ isOpen: true })}>
           Open modal
         </button>
         <Modal
           isOpen={boolean('isOpen', store.state.isOpen)}
+          position={text('position', 'center')}
           allowScrolling
-          >
-            <div className="flex flex-column">
-              <div>
-                <button
-                  type="button"
-                  className="m2"
-                  onClick={() => store.set({ isOpen: false })}
-                >
-                  Close modal
-                </button>
-              </div>
-                <img src="http://i0.kym-cdn.com/photos/images/newsfeed/000/191/645/d8d.jpg"/>
+        >
+          <div className="flex flex-column">
+            <div>
+              <button
+                type="button"
+                className="m2"
+                onClick={() => store.set({ isOpen: false })}
+              >
+                Close modal
+              </button>
             </div>
-            <p className="p2 center">
-              {text('Modal text', 'Modal content text')}
-            </p>
-          </Modal>
+            <img
+              alt="Cats"
+              src="http://i0.kym-cdn.com/photos/images/newsfeed/000/191/645/d8d.jpg"
+              height="400"
+            />
+          </div>
+          <p className="p2 center">
+            {text('Modal text', 'Modal content text')}
+          </p>
+        </Modal>
       </div>
-    ))
+    )),
   ),
 );
 
@@ -62,10 +64,7 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <div>
-        <button
-          type="button"
-          onClick={() => store.set({ isOpen: true })}
-        >
+        <button type="button" onClick={() => store.set({ isOpen: true })}>
           Open modal
         </button>
         <ConfirmModal
@@ -78,7 +77,7 @@ stories.add(
           allowScrolling
         />
       </div>
-    ))
+    )),
   ),
 );
 
@@ -91,10 +90,7 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <div>
-        <button
-          type="button"
-          onClick={() => store.set({ isOpen: true })}
-        >
+        <button type="button" onClick={() => store.set({ isOpen: true })}>
           Open modal
         </button>
         <ErrorModal
@@ -105,7 +101,7 @@ stories.add(
           allowScrolling
         />
       </div>
-    ))
+    )),
   ),
 );
 
@@ -118,10 +114,7 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <div>
-        <button
-          type="button"
-          onClick={() => store.set({ isOpen: true })}
-        >
+        <button type="button" onClick={() => store.set({ isOpen: true })}>
           Open modal
         </button>
         <InformationModal
@@ -132,7 +125,7 @@ stories.add(
           allowScrolling
         />
       </div>
-    ))
+    )),
   ),
 );
 
@@ -145,10 +138,7 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <div>
-        <button
-          type="button"
-          onClick={() => store.set({ isOpen: true })}
-        >
+        <button type="button" onClick={() => store.set({ isOpen: true })}>
           Open modal
         </button>
         <LoadingModal
@@ -156,6 +146,6 @@ stories.add(
           text={text('text', 'Loading data')}
         />
       </div>
-    ))
+    )),
   ),
 );

@@ -1,10 +1,14 @@
 src
 node_modules
+stories
+docs
 .circleci
 .babelrc
-.eslingignore
+.eslintignore
 .eslintrc.js
 .gitignore
 .prettierrc
-.postcss.config.js
+postcss.config.js
+.storybook
 webpack.config.js
+.package-lock.json

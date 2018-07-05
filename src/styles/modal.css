@@ -14,6 +14,46 @@
   z-index: 1;
   width: 100%;
 }
+
+.c-modal__container-right {
+  position: absolute;
+  right: 0;
+  left: initial;
+  width: initial;
+  height: initial;
+}
+
+.c-modal__container-bottom {
+  position: absolute;
+  bottom: 0;
+  top: initial;
+  width: initial;
+  height: initial;
+}
+
+.c-modal__container-left {
+  position: absolute;
+  right: initial;
+  left: 10;
+  width: initial;
+  height: initial;
+}
+
+.c-modal__container-top {
+  position: absolute;
+  bottom: initial;
+  top: 10;
+  width: initial;
+  height: initial;
+}
+
+.c-modal__container-right > .c-modal,
+.c-modal__container-left > .c-modal,
+.c-modal__container-top > .c-modal,
+.c-modal__container-bottom > .c-modal {
+  margin: 0px;
+}
+
 .c-modal__viewport {
   position: fixed;
   top: 0;

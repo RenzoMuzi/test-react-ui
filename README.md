@@ -8,13 +8,14 @@ Prescribe Wellness UI Library
 git clone git@github.com:moove-it/pw-ui.git
 cd pw-ui
 npm install
-npm run build
+npm run build # If you want to build only
+npm run build:watch # If you want to try changes immediately
 ```
 
 ## Adding module via source code
 
 ```
-npm install -S ../pw-ui
+npm install -S ../pw-ui/dist
 ```
 
 ## Storybook

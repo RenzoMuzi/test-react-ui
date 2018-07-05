@@ -44,21 +44,33 @@ class Modal extends Component {
 
   render() {
     const {
-      isOpen, children, positionClassName, styleClass,
+      isOpen,
+      children,
+      positionClassName,
+      styleClass,
+      position,
     } = this.props;
 
     const containerClassName = classNames(
       'c-modal__container',
       positionClassName,
+      {
+        'c-modal__container-left': position.includes('left'),
+        'c-modal__container-right': position.includes('right'),
+        'c-modal__container-top': position.includes('top'),
+        'c-modal__container-bottom': position.includes('bottom'),
+      },
     );
 
     const modalClassName = classNames(
       'c-modal',
-      'c-modal-width',
       'bg-white',
       'border',
       'border-gray',
       styleClass,
+      {
+        'c-modal-width': !position || position === 'center',
+      },
     );
 
     return (
@@ -113,6 +125,7 @@ Modal.defaultProps = {
   onClose: () => {},
   styleClass: '',
   allowScrolling: false,
+  position: 'center',
 };
 
 Modal.propTypes = {
@@ -128,6 +141,8 @@ Modal.propTypes = {
   styleClass: PropTypes.string,
   /** Allows scrolling on main container body when modal is open */
   allowScrolling: PropTypes.bool,
+  /** Modal position, center, left-bottom, right-bottom, left-top, right-top */
+  position: PropTypes.string,
 };
 
 export default Modal;
