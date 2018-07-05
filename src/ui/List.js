@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Checkbox } from './forms';
 import loadingGif from '../images/loading.gif';
-
+import ListDropdown from './ListDropdown';
 import { formatPercent, formatCurrency, formatDate, formatDefault } from '../utils/values';
 
 class List extends Component {
@@ -23,8 +23,14 @@ class List extends Component {
   renderSecondTitleHeader = title =>
     title.map(t => (t.headerName.length > 1 ? t.headerName[1] : ''))[0];
 
-  renderColumnValues = (record, column) =>
-    column.map(c => this.renderValue(record[c.key], c.format, c.prefix)).join('/');
+  renderColumnValues = (record, column, columnIndex) => {
+    const { dropdown } = this.props;
+    const value = column.map(c => this.renderValue(record[c.key], c.format, c.prefix)).join('/');
+    if (columnIndex === 0 && dropdown && dropdown.length > 0) {
+      return <ListDropdown value={value} dropdown={dropdown} />;
+    }
+    return value;
+  };
 
   renderValue = (value, format, prefix) => {
     switch (format) {
@@ -52,6 +58,7 @@ class List extends Component {
       <div
         className={classNames('sm-col sm-col-5 p1 fs11', {
           center: index !== 0,
+          'sm-col-10': index === 0,
           'bg-orange-highlight': column.highlighted,
         })}
         key={index}
@@ -105,7 +112,7 @@ class List extends Component {
                 <div
                   className={classNames('p1', {
                     'sm-col sm-col-5 center': columnIndex !== 0,
-                    'md-col md-col-5': columnIndex === 0,
+                    'md-col md-col-10': columnIndex === 0,
                     'bg-orange-highlight': column.highlighted,
                   })}
                   key={columnIndex}
@@ -117,7 +124,7 @@ class List extends Component {
                     </div>
                   )}
                   <div className="weight-300 fs18">
-                    {this.renderColumnValues(record, column.title)}
+                    {this.renderColumnValues(record, column.title, columnIndex)}
                   </div>
                   {column.subtitle.length > 0 && (
                     <div className="weight-200 fs12">
@@ -166,11 +173,14 @@ List.propTypes = {
   zeroStateText: PropTypes.string,
   /** Loading */
   isLoading: PropTypes.bool,
+  /** Actions displayed in the first column */
+  dropdown: PropTypes.array,
 };
 
 List.defaultProps = {
   records: [],
   selectedRecords: [],
+  dropdown: [],
   onAllChange: () => {},
   onRowChange: () => {},
   renderAdditionalInfo: null,
