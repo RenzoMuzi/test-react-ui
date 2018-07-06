@@ -1,7 +1,7 @@
 import moment from 'moment';
 import numeral from 'numeral';
 
-const emptyValue = '-';
+export const emptyValue = '-';
 
 export const isEmpty = value =>
   value === null || value === undefined || Number.isNaN(value) || value === '';

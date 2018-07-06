@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Checkbox } from './forms';
 import loadingGif from '../images/loading.gif';
 import ListDropdown from './ListDropdown';
-import { formatPercent, formatCurrency, formatDate, formatDefault } from '../utils/values';
+import { formatPercent, formatCurrency, formatDate, formatDefault, emptyValue } from '../utils/values';
 
 class List extends Component {
   render() {
@@ -18,17 +18,25 @@ class List extends Component {
     );
   }
 
-  renderHeaderText = title => title.map(t => t.headerName[0]).join('/');
+  renderHeaderText = title => title.map(t => t.headerName[0]).filter(Boolean).join('/');
 
   renderSecondTitleHeader = title =>
     title.map(t => (t.headerName.length > 1 ? t.headerName[1] : ''))[0];
 
-  renderColumnValues = (record, column, columnIndex) => {
+  renderColumnValues = (record, column, options = {}) => {
     const { dropdown } = this.props;
-    const value = column.map(c => this.renderValue(record[c.key], c.format, c.prefix)).join('/');
-    if (columnIndex === 0 && dropdown && dropdown.length > 0) {
+    let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix));
+    values = options.skipBlank ? values.filter(value => value !== emptyValue) : values;
+
+    if (options.subtitleJoin === 'list') {
+      return values.map((value, index) => <div key={index}>{value}</div>);
+    }
+
+    const value = values.join('/');
+    if (options.showDropdown && dropdown.length > 0) {
       return <ListDropdown value={value} dropdown={dropdown} />;
     }
+
     return value;
   };
 
@@ -124,16 +132,21 @@ class List extends Component {
                     </div>
                   )}
                   <div className="weight-300 fs18">
-                    {this.renderColumnValues(record, column.title, columnIndex)}
+                    {this.renderColumnValues(
+                      record,
+                      column.title,
+                      { showDropdown: columnIndex === 0 },
+                    )}
                   </div>
                   {column.subtitle.length > 0 && (
                     <div className="weight-200 fs12">
                       <div className="md-hide lg-hide weight-600 fs14 pt2 uppercase">
                         {this.renderHeaderText(column.subtitle)}
                       </div>
-                      {this.renderColumnValues(record, column.subtitle)}
+                      {this.renderColumnValues(record, column.subtitle, column.options)}
                     </div>
                   )}
+                  {column.additionalRender && column.additionalRender({ record })}
                 </div>
               ))}
             </div>

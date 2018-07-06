@@ -22,6 +22,10 @@
   color: var(--green-success);
 }
 
+.green-primary {
+  color: var(--green-primary);
+}
+
 .color-crimson {
   color: var(--crimson);
 }
@@ -62,10 +66,22 @@
   background: linear-gradient(var(--white), var(--gray-background));
 }
 
+.bg-green-primary {
+  background: var(--green-primary);
+}
+
 .color-inherit {
   color: inherit;
 }
 
 .hover-orange-primary:hover {
   color: var(--orange-primary);
+}
+
+.hover-white:hover {
+  color: var(--white);
+}
+
+.hover-bg-orange:hover {
+  background: var(--orange-primary);
 }
