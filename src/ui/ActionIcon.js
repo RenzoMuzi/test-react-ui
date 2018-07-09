@@ -6,7 +6,7 @@ import onClickOutside from 'react-onclickoutside';
 import ContextualMenu from './ContextualMenu';
 import Icon from './Icon';
 
-export class ActionButton extends PureComponent {
+export class ActionIcon extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,8 @@ export class ActionButton extends PureComponent {
   render() {
     const { isOpen } = this.state;
     const {
-      title,
+      icon,
+      iconSize,
       actions,
       className,
       dropdownClassName,
@@ -27,14 +28,13 @@ export class ActionButton extends PureComponent {
 
     return (
       <div className="relative">
-        <div
-          className={classNames('flex flex-center justify-between border rounded pointer btn btn-group', className)}
+        <Icon
+          className={classNames('inline-block fa-sm gray pl1', className)}
+          type={icon}
+          size={iconSize}
           onFocus={() => this.setState({ isOpen: true })}
           onMouseDown={() => this.setState(prevState => ({ isOpen: !prevState.isOpen }))}
-        >
-          {title}
-          <Icon className="inline-block fa-sm gray pl1" type="caret-down" size={16} />
-        </div>
+        />
         <ContextualMenu
           actions={actions}
           isOpen={isOpen}
@@ -48,19 +48,21 @@ export class ActionButton extends PureComponent {
   handleClickOutside = () => this.setState({ isOpen: false });
 }
 
-ActionButton.displayName = 'ActionButton';
+ActionIcon.displayName = 'ActionIcon';
 
-ActionButton.defaultProps = {
-  title: 'Actions',
+ActionIcon.defaultProps = {
+  icon: 'cog',
+  iconSize: 16,
   className: '',
   dropdownClassName: '',
 };
 
-ActionButton.propTypes = {
-  title: PropTypes.string,
+ActionIcon.propTypes = {
+  icon: PropTypes.string,
+  iconSize: PropTypes.number,
   className: PropTypes.string,
   dropdownClassName: PropTypes.string,
   actions: PropTypes.array.isRequired,
 };
 
-export default onClickOutside(ActionButton);
+export default onClickOutside(ActionIcon);

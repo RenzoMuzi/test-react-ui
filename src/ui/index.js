@@ -1,4 +1,5 @@
 export ActionButton from './ActionButton';
+export ActionIcon from './ActionIcon';
 export Chicklet from './Chicklet';
 export ConfirmModal from './ConfirmModal';
 export CustomDropdown from './CustomDropdown';
