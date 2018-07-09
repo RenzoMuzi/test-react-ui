@@ -146,11 +146,8 @@ export const withPopover = WrappedComponent => {
     };
 
     render() {
-      let { onChange, ...passThroughProps } = this.props;
-
-      let { currentErrorMessage, isPopoverDismissed } = this.state;
-
-      onChange = this.handleOnChange;
+      const { wrapperClassName, ...passThroughProps } = this.props;
+      const { currentErrorMessage, isPopoverDismissed } = this.state;
 
       const popover =
         validationsUtils.hasId(currentErrorMessage) && !isPopoverDismissed ? (
@@ -164,7 +161,7 @@ export const withPopover = WrappedComponent => {
         ) : null;
 
       return (
-        <span className="flex flex-auto">
+        <span className={`flex flex-auto ${wrapperClassName}`}>
           {popover}
           <span
             className="c-popover__component-wrapper"
@@ -172,7 +169,10 @@ export const withPopover = WrappedComponent => {
               this.$root = ref;
             }}
           >
-            <WrappedComponent onChange={onChange} {...passThroughProps} />
+            <WrappedComponent
+              onChange={this.handleOnChange}
+              {...passThroughProps}
+            />
           </span>
         </span>
       );
@@ -203,6 +203,7 @@ export const withPopover = WrappedComponent => {
   wrapper.displayName = `WithPopover(${getDisplayName(WrappedComponent)})`;
 
   wrapper.defaultProps = {
+    wrapperClassName: '',
     errorMessage: {},
     onChange: () => {},
   };
@@ -212,6 +213,7 @@ export const withPopover = WrappedComponent => {
       id: PropTypes.string,
       text: PropTypes.string,
     }),
+    wrapperClassName: PropTypes.string,
     onChange: PropTypes.func,
   };
 
