@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import loadingGif from 'images/loading.gif';
+import Loading from './Loading';
 import Modal from './Modal';
 
 const LoadingModal = ({ isLoading, text }) => (
   <Modal isOpen={isLoading}>
-    <div className="center p1">
-      <img src={loadingGif} alt="loading" />
-      <span className="weight-700 fs17 pl2 pb1">{text}</span>
-    </div>
+    <Loading text={text} className="pt1" />
   </Modal>
 );
 
