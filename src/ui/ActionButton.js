@@ -28,7 +28,7 @@ export class ActionButton extends PureComponent {
     return (
       <div className="relative">
         <div
-          className={classNames('flex flex-center justify-between border rounded pointer btn btn-group', className)}
+          className={classNames('flex justify-center items-center pointer action-button', className)}
           onFocus={() => this.setState({ isOpen: true })}
           onMouseDown={() => this.setState(prevState => ({ isOpen: !prevState.isOpen }))}
         >
