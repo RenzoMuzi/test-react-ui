@@ -51,7 +51,7 @@ class ContextualMenu extends PureComponent {
     ));
 
     return (
-      <div key={action.title}>
+      <div key={index}>
         {this.renderTitle(title)}
         {actionItems}
         {index !== count - 1 && this.renderSeparator()}
