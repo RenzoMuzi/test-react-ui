@@ -19,6 +19,7 @@ const formatPercent = value => {
 const formatDefault = value => value || emptyValue;
 
 export default {
+  emptyValue,
   isEmpty,
   formatDate,
   formatCurrency,
