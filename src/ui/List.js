@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import valuesUtils from 'utils/values';
 import { Checkbox } from './forms';
 import loadingGif from '../images/loading.gif';
 import ListDropdown from './ListDropdown';
-import { formatPercent, formatCurrency, formatDate, formatDefault, emptyValue } from '../utils/values';
 
 class List extends Component {
   render() {
@@ -26,7 +26,7 @@ class List extends Component {
   renderColumnValues = (record, column, options = {}) => {
     const { dropdown } = this.props;
     let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix));
-    values = options.skipBlank ? values.filter(value => value !== emptyValue) : values;
+    values = options.skipBlank ? values.filter(value => value !== valuesUtils.emptyValue) : values;
 
     if (options.subtitleJoin === 'list') {
       return values.map((value, index) => <div key={index}>{value}</div>);
@@ -43,13 +43,13 @@ class List extends Component {
   renderValue = (value, format, prefix) => {
     switch (format) {
       case 'percent':
-        return formatPercent(value);
+        return valuesUtils.formatPercent(value);
       case 'currency':
-        return formatCurrency(value);
+        return valuesUtils.formatCurrency(value);
       case 'date':
-        return formatDate(value);
+        return valuesUtils.formatDate(value);
       default:
-        return prefix && value ? `${prefix}${formatDefault(value)}` : formatDefault(value);
+        return prefix && value ? `${prefix}${valuesUtils.formatDefault(value)}` : valuesUtils.formatDefault(value);
     }
   };
 

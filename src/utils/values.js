@@ -1,19 +1,28 @@
 import moment from 'moment';
 import numeral from 'numeral';
 
-export const emptyValue = '-';
+const emptyValue = '-';
 
-export const isEmpty = value =>
-  value === null || value === undefined || Number.isNaN(value) || value === '';
+const isEmpty = value => value === null || value === undefined || Number.isNaN(value) || value === '';
 
-export const formatDate = date => (date ? moment(date).format('MM/DD/YYYY') : emptyValue);
+const formatDate = date => (date ? moment(date).format('MM/DD/YYYY') : emptyValue);
 
-export const formatCurrency = value => (value ? numeral(value).format('$0,0.00') : emptyValue);
+const formatCurrency = value => (value ? numeral(value).format('$0,0.00') : emptyValue);
 
-export const formatDecimal = value => (value ? numeral(value).format('0,0.00') : emptyValue);
+const formatDecimal = value => (value ? numeral(value).format('0,0.00') : emptyValue);
 
-export const formatPercent = value => (value ? numeral(value / 100).format('0%') : emptyValue);
+const formatPercent = value => {
+  if (!value) return emptyValue;
+  return value === 100 ? '100%' : numeral(value / 100).format('0.0%');
+};
 
-export const formatDefault = value => value || emptyValue;
+const formatDefault = value => value || emptyValue;
 
-export default isEmpty;
+export default {
+  isEmpty,
+  formatDate,
+  formatCurrency,
+  formatDecimal,
+  formatPercent,
+  formatDefault,
+};
