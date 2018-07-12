@@ -36,11 +36,11 @@ class ListDropdown extends React.PureComponent {
   }
 
   renderDropdownOptions = () => {
-    const { dropdown } = this.props;
+    const { dropdown, record } = this.props;
     return dropdown.map(item => (
       <div
         key={item.name}
-        onClick={() => item.onSelect()}
+        onClick={() => item.onSelect(record)}
         className="p1 nowrap fs12 pl1 py1/2 pointer action-button-item"
       >
         {item.name}
@@ -58,6 +58,7 @@ ListDropdown.defaultProps = {
 ListDropdown.propTypes = {
   value: PropTypes.string,
   dropdown: PropTypes.array.isRequired,
+  record: PropTypes.object.isRequired,
 };
 
 export default onClickOutside(ListDropdown);

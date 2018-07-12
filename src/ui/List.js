@@ -23,8 +23,9 @@ class List extends Component {
   renderSecondTitleHeader = title =>
     title.map(t => (t.headerName.length > 1 ? t.headerName[1] : ''))[0];
 
-  renderColumnValues = (record, column, options = {}) => {
-    const { dropdown } = this.props;
+
+  renderColumnValues = (record, column, columnIndex, options = {}) => {
+    const { dropdown, showDropdown } = this.props;
     let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix));
     values = options.skipBlank ? values.filter(value => value !== valuesUtils.emptyValue) : values;
 
@@ -33,8 +34,8 @@ class List extends Component {
     }
 
     const value = values.join('/');
-    if (options.showDropdown && dropdown.length > 0) {
-      return <ListDropdown value={value} dropdown={dropdown} />;
+    if (columnIndex === 0 && showDropdown && dropdown.length > 0) {
+      return <ListDropdown value={value} dropdown={dropdown} record={record} />;
     }
 
     return value;
@@ -118,7 +119,7 @@ class List extends Component {
               </div>
               {columns.map((column, columnIndex) => (
                 <div
-                  className={classNames('p1', {
+                  className={classNames('p1 flex', {
                     'sm-col sm-col-5 center': columnIndex !== 0,
                     'md-col md-col-10': columnIndex === 0,
                     'bg-orange-highlight': column.highlighted,
@@ -135,7 +136,6 @@ class List extends Component {
                     {this.renderColumnValues(
                       record,
                       column.title,
-                      { showDropdown: columnIndex === 0 },
                     )}
                   </div>
                   {column.subtitle.length > 0 && (
@@ -143,7 +143,8 @@ class List extends Component {
                       <div className="md-hide lg-hide weight-600 fs14 pt2 uppercase">
                         {this.renderHeaderText(column.subtitle)}
                       </div>
-                      {this.renderColumnValues(record, column.subtitle, column.options)}
+                      {this.renderColumnValues(
+                        record, column.subtitle, columnIndex, column.options)}
                     </div>
                   )}
                   {column.additionalRender && column.additionalRender({ record })}
@@ -186,6 +187,8 @@ List.propTypes = {
   zeroStateText: PropTypes.string,
   /** Loading */
   isLoading: PropTypes.bool,
+  /** Show or not list dropdown */
+  showDropdown: PropTypes.bool,
   /** Actions displayed in the first column */
   dropdown: PropTypes.array,
 };
@@ -200,6 +203,7 @@ List.defaultProps = {
   allSelected: false,
   zeroStateText: 'No records',
   isLoading: false,
+  showDropdown: false,
 };
 
 export default List;
