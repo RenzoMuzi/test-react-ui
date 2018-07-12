@@ -33,17 +33,18 @@ class Tabs extends PureComponent {
   constructor(props) {
     super(props);
 
-    const { children, active } = props;
-    this.tabNames = React.Children.map(children, tab => tab.props.name);
+    const { active } = props;
+    this.tabNames = this.getTabs().map(tab => tab.props.name);
 
     this.state = {
       activeTab: active ? Math.max(this.tabNames.indexOf(active), 0) : 0,
     };
   }
 
+
   componentWillReceiveProps(nextProps) {
-    const { children, active } = nextProps;
-    this.tabNames = React.Children.map(children, tab => tab.props.name);
+    const { active } = nextProps;
+    this.tabNames = this.getTabs().map(tab => tab.props.name);
 
     if (active) {
       this.setState({ activeTab: Math.max(this.tabNames.indexOf(active), 0) });
@@ -61,11 +62,10 @@ class Tabs extends PureComponent {
   };
 
   render() {
-    const { children, spaced } = this.props;
+    const { spaced } = this.props;
     const { activeTab } = this.state;
 
-    const tabs = React.Children.toArray(children);
-
+    const tabs = this.getTabs();
     const activeChildrenTab = React.cloneElement(tabs[activeTab]);
     const leftTabTitles = tabs
       .filter(tab => !tab.props.right)
@@ -83,15 +83,15 @@ class Tabs extends PureComponent {
               'justify-between': spaced,
             })}
             style={{ marginBottom: '-1px' }}
-          >
+            >
             {leftTabTitles}
           </div>
           <div
-            className={classNames('flex inline-block full-width', {
+            className={classNames('flex inline-block full-width justify-end', {
               'justify-between': spaced,
             })}
             style={{ marginBottom: '-1px' }}
-          >
+            >
             {rightTabTitles}
           </div>
         </ul>
@@ -116,6 +116,14 @@ class Tabs extends PureComponent {
         onClick={() => this.handleOnTabClicked(index, tab.props.name)}
       />
     );
+  };
+
+  getTabs = () => {
+    const children = React.Children.toArray(this.props.children)
+      .filter(child => (child && child.type && child.type.displayName === 'Tab'));
+    const rightTabs = children.filter(tab => tab.props.right);
+    const leftTabs = children.filter(tab => !tab.props.right);
+    return leftTabs.concat(rightTabs);
   };
 }
 
