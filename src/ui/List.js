@@ -119,7 +119,7 @@ class List extends Component {
               </div>
               {columns.map((column, columnIndex) => (
                 <div
-                  className={classNames('p1 flex', {
+                  className={classNames('p1', {
                     'sm-col sm-col-5 center': columnIndex !== 0,
                     'md-col md-col-10': columnIndex === 0,
                     'bg-orange-highlight': column.highlighted,
