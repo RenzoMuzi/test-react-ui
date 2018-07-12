@@ -4,7 +4,7 @@ const WebpackCleanPlugin = require('webpack-clean');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     'ui/index.js': './src/ui/index.js',
     'ui/forms/index.js': './src/ui/forms/index.js',
