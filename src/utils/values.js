@@ -13,8 +13,21 @@ const formatDecimal = value => (value ? numeral(value).format('0,0.00') : emptyV
 
 const formatPercent = value => {
   if (!value) return emptyValue;
-  return value === 100 ? '100%' : numeral(value / 100).format('0.0%');
+  return value === 1 ? '100%' : numeral(value).format('0.0%');
 };
+
+const formatAmountToK = amount => {
+  if (amount > 999.99) {
+    return `$${(amount / 1000).toFixed(1).replace(/\.0+$/, '')}k`;
+  }
+  if (amount > 0) {
+    return `$${amount.toFixed(2)}`;
+  }
+  return '$0';
+};
+
+const formatPhoneNumber = (phone = '') =>
+  (phone.length === 10 ? `${phone.substr(0, 3)}-${phone.substr(3, 3)}-${phone.substr(6, 4)}` : phone);
 
 const formatDefault = value => value || emptyValue;
 
@@ -26,4 +39,6 @@ export default {
   formatDecimal,
   formatPercent,
   formatDefault,
+  formatAmountToK,
+  formatPhoneNumber,
 };
