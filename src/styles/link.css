@@ -1,0 +1,9 @@
+.a-link {
+  color: var(--sky-blue-dark);
+  text-decoration: none;
+}
+
+.a-link:hover {
+  color: var(--orange-primary);
+  text-decoration: underline;
+}

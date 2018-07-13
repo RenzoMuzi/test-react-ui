@@ -136,6 +136,8 @@ class List extends Component {
                     {this.renderColumnValues(
                       record,
                       column.title,
+                      columnIndex,
+                      column.options,
                     )}
                   </div>
                   {column.subtitle.length > 0 && (
@@ -144,7 +146,7 @@ class List extends Component {
                         {this.renderHeaderText(column.subtitle)}
                       </div>
                       {this.renderColumnValues(
-                        record, column.subtitle, columnIndex, column.options)}
+                        record, column.subtitle, null, column.options)}
                     </div>
                   )}
                   {column.additionalRender && column.additionalRender({ record })}

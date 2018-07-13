@@ -13,10 +13,10 @@ class ListDropdown extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-    const { value } = this.props;
+    const { value, record } = this.props;
     return (
       <div>
-        {value}
+        <a className="a-link" href={`/Patient/Details?patientId=${record.PatientId}`}>{value}</a>
         <div className="inline-block">
           <div
             onClick={() => {

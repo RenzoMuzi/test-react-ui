@@ -37,6 +37,7 @@
 @import './modal.css';
 @import './layout.css';
 @import './shadows.css';
+@import './link.css';
 
 /* Fonts */
 @import '/gilroy-font-family';
