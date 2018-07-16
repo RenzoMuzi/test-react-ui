@@ -11,7 +11,6 @@ export SecondaryButton from './SecondaryButton';
 export LinkButton from './LinkButton';
 export TextArea from './Textarea';
 export ToggleSwitch from './ToggleSwitch';
-export ViewOnlyInput from './ViewOnlyInput';
 export ViewOnlyText from './ViewOnlyText';
 export DatePicker from './DatePicker';
 

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import ViewOnlyInput from './ViewOnlyInput';
-
 export const IntegerRegex = /^\d{0,9}$/;
 
 class Input extends Component {
@@ -33,11 +31,7 @@ class Input extends Component {
   };
 
   render() {
-    const { viewOnly, prefix } = this.props;
-
-    if (viewOnly) {
-      return this.renderAsViewOnly();
-    }
+    const { prefix } = this.props;
 
     return prefix ? this.renderWithPrefix() : this.renderInput();
   }
@@ -61,6 +55,7 @@ class Input extends Component {
       autoFocus,
       prefix,
       type,
+      viewOnly,
     } = this.props;
 
     const inputClassName = classNames(
@@ -69,11 +64,13 @@ class Input extends Component {
       { 'with-prefix': !!prefix },
     );
 
+    const disabledClassName = 'input col-12 mb0 field bg-gray gray-secondary';
+
     return (
       <input
         type={type}
         ref={inputRef}
-        className={inputClassName}
+        className={viewOnly ? disabledClassName : inputClassName}
         maxLength={maxLength}
         onBlur={this.handleOnBlur}
         onKeyDown={this.handleOnKeyDown}
@@ -81,14 +78,9 @@ class Input extends Component {
         placeholder={placeholder}
         value={value || ''}
         autoFocus={autoFocus}
+        disabled={viewOnly}
       />
     );
-  }
-
-  renderAsViewOnly() {
-    const { value } = this.props;
-
-    return <ViewOnlyInput value={value} />;
   }
 }
 

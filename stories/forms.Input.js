@@ -34,3 +34,22 @@ stories.add(
     )),
   ),
 );
+
+stories.add(
+  'view only',
+  withState({ value: 'Some text' })(
+    withInfo(`
+      ~~~js
+      import { Input } from 'pw-ui/ui/forms';
+      ~~~
+    `)(({ store }) => (
+      <Input
+        inputRef={() => {}}
+        placeholder={text('placeholder', 'Some placeholder')}
+        value={store.state.value}
+        viewOnly={boolean('viewOnly', true)}
+        prefix={text('prefix', '')}
+      />
+    )),
+  ),
+);
