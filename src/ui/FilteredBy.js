@@ -61,7 +61,7 @@ const FilterChicklet = ({
 }) => (
   <div
     className={classNames(
-      'mr1 mb1 mt1 rounded orange-primary bg-orange-highlight nowrap',
+      'mr1 my1/3 ounded orange-primary bg-orange-highlight nowrap',
       className,
     )}
   >
@@ -90,7 +90,7 @@ FilterChicklet.propTypes = {
 const FilteredBy = ({
   className, filters, chickletClassName, onChange,
 }) => (
-  <div className={classNames('flex flex-wrap items-center lh-21', className)}>
+  <div className={classNames('my1 flex flex-wrap items-center lh-21', className)}>
     <span className="pr1 nowrap">Filtered By</span>
     {filters.map((option, index) => (
       <FilterChicklet

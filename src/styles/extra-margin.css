@@ -1,0 +1,31 @@
+/* Extra margin  for --space-1*/
+
+.my1\/2 {
+  margin-bottom: calc(var(--space-1) / 2);
+  margin-top: calc(var(--space-1) / 2);
+}
+
+.my1\/3 {
+  margin-bottom: calc(var(--space-1) / 3);
+  margin-top: calc(var(--space-1) / 3);
+}
+
+.my1\/4 {
+  margin-bottom: calc(var(--space-1) / 4);
+  margin-top: calc(var(--space-1) / 4);
+}
+
+.mx1\/2 {
+  margin-left: calc(var(--space-1) / 2);
+  margin-right: calc(var(--space-1) / 2);
+}
+
+.mx1\/3 {
+  margin-left: calc(var(--space-1) / 3);
+  margin-right: calc(var(--space-1) / 3);
+}
+
+.mx1\/4 {
+  margin-left: calc(var(--space-1) / 4);
+  margin-right: calc(var(--space-1) / 4);
+}
