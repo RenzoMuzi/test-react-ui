@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Modal from './Modal';
 import PrimaryButton from './forms/PrimaryButton';
 
-const InformationModal = ({
+const BasicModal = ({
   isOpen, title, body, onClose, allowScrolling,
 }) => (
   <Modal isOpen={isOpen} onClose={onClose} allowScrolling={allowScrolling}>
@@ -27,16 +27,16 @@ const InformationModal = ({
   </Modal>
 );
 
-InformationModal.displayName = 'InformationModal';
+BasicModal.displayName = 'BasicModal';
 
-InformationModal.defaultProps = {
+BasicModal.defaultProps = {
   isOpen: true,
   title: '',
   onClose: () => {},
   allowScrolling: false,
 };
 
-InformationModal.propTypes = {
+BasicModal.propTypes = {
   /** Modal is shown or not */
   isOpen: PropTypes.bool,
   /** Modal title */
@@ -49,4 +49,4 @@ InformationModal.propTypes = {
   allowScrolling: PropTypes.bool,
 };
 
-export default InformationModal;
+export default BasicModal;

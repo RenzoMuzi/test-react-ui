@@ -2,7 +2,6 @@ export Button from './Button';
 export Checkbox from './Checkbox';
 export Dropdown from './Dropdown';
 export EditAttributeModal from './EditAttributeModal';
-export EditSelectAttribute from './EditSelectAttribute';
 export EditTextAttribute from './EditTextAttribute';
 export EditableText from './EditableText';
 export Field from './Field';
