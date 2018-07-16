@@ -4,15 +4,20 @@ import React, { Component } from 'react';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
 
+/**
+ * @deprecated this component is deprecated and should not be used anymore.
+*/
+
 class EditAttributeModal extends Component {
   render() {
+    console.warn('EditAttributeModal is a deprecated component and will be removed on future versions.');
     const {
       isOpen, title, children, onSubmit,
     } = this.props;
 
     return (
       isOpen && (
-        <div>
+        <div className="bg-red">
           <div className="c-edit-modal bg-white border border-gray rounded-large max-width-5 min-width-2 mb2">
             <div className="p1 rounded-top-large bg-gray fit">{title}</div>
             <div className="p1 fit">{children}</div>
