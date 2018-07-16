@@ -12,7 +12,8 @@
 
     --orange-primary: #F7956F;
     --orange-primary-active: #F66834;
-    --orange-primary-hover: #F67F54;
+    --orange-primary-hover: #f67f54;
+    --orange-primary-hover-muted: #f67f54cc;
     --orange-highlight: #FFEFE4;
 
     --crimson: #FD0808;
@@ -22,4 +23,5 @@
     
     --white: #FFFFFF;
     --white-muted: #FFFFFF90;
+    --transparent: #FFFFFF00;
   }

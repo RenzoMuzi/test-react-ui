@@ -58,6 +58,20 @@
   background-color: var(--gray-primary-active);
 }
 
+.pc-btn-link {
+  min-width: initial;
+  background-color: var(--transparent);
+  color: var(--gray-primary);
+  font-weight: 500;
+  border: 0px ;
+  opacity: 0.8;
+}
+
+.pc-btn-link:hover:enabled,
+.pc-btn-link:focus:enabled {
+  opacity: 1;
+}
+
 .btn-group {
   height: auto;
   border-radius: 4px;
