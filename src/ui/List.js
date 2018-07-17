@@ -57,7 +57,7 @@ class List extends Component {
         valueToShow = valuesUtils.formatDate(valueToShow);
         break;
       case 'phone':
-        valueToShow = valuesUtils.formatPhoneNumber(valueToShow, '.');
+        valueToShow = valuesUtils.formatPhoneNumber(valueToShow);
         break;
       default:
         valueToShow = valuesUtils.formatDefault(valueToShow);

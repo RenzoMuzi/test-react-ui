@@ -1,5 +1,6 @@
 import moment from 'moment';
 import numeral from 'numeral';
+import takeRight from 'lodash/takeRight';
 
 const emptyValue = '-';
 
@@ -26,8 +27,13 @@ const formatAmountToK = amount => {
   return '$0';
 };
 
-const formatPhoneNumber = (phone = '', separator = '-') =>
-  (phone.length === 10 ? `${phone.substr(0, 3)}${separator}${phone.substr(3, 3)}${separator}${phone.substr(6, 4)}` : phone);
+const formatPhoneNumber = (phone) => {
+  if (!phone) return emptyValue;
+  const phoneSections = phone.match(/^(\d}{3})(\d{3})(\d{4})/);
+
+  const [areaCode, prefix, lineNumber] = takeRight(phoneSections, 3);
+  return `(${areaCode}) ${prefix}-${lineNumber}`;
+};
 
 const formatDefault = value => value || emptyValue;
 
