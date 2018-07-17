@@ -11,6 +11,8 @@ export default [
     BillingTotalMM: '23.45',
     NextVisit: '2018-12-12',
     LastVisit: '2018-02-12',
+    PatientGroupName: 'Group Test',
+    Phones: [{ PhoneNumber: '5556501940' }],
   },
   {
     PatientId: '2',

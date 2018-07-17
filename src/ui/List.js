@@ -26,7 +26,7 @@ class List extends Component {
 
   renderColumnValues = (record, column, columnIndex, options = {}) => {
     const { dropdown, showDropdown } = this.props;
-    let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix));
+    let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix, c.subKey));
     values = options.skipBlank ? values.filter(value => value !== valuesUtils.emptyValue) : values;
 
     if (options.subtitleJoin === 'list') {
@@ -41,17 +41,30 @@ class List extends Component {
     return value;
   };
 
-  renderValue = (value, format, prefix) => {
+  renderValue = (value, format, prefix, subKey) => {
+    let valueToShow = value || '';
+    if (subKey && value) {
+      valueToShow = value[0][subKey];
+    }
     switch (format) {
       case 'percent':
-        return valuesUtils.formatPercent(value);
+        valueToShow = valuesUtils.formatPercent(valueToShow);
+        break;
       case 'currency':
-        return valuesUtils.formatCurrency(value);
+        valueToShow = valuesUtils.formatCurrency(valueToShow);
+        break;
       case 'date':
-        return valuesUtils.formatDate(value);
+        valueToShow = valuesUtils.formatDate(valueToShow);
+        break;
+      case 'phone':
+        valueToShow = valuesUtils.formatPhoneNumber(valueToShow, '.');
+        break;
       default:
-        return prefix && value ? `${prefix}${valuesUtils.formatDefault(value)}` : valuesUtils.formatDefault(value);
+        valueToShow = valuesUtils.formatDefault(valueToShow);
+        break;
     }
+    if (prefix) return `${prefix}${valueToShow}`;
+    return valueToShow;
   };
 
   renderLoading = () => (
@@ -137,7 +150,6 @@ class List extends Component {
                       record,
                       column.title,
                       columnIndex,
-                      column.options,
                     )}
                   </div>
                   {column.subtitle.length > 0 && (

@@ -26,8 +26,8 @@ const formatAmountToK = amount => {
   return '$0';
 };
 
-const formatPhoneNumber = (phone = '') =>
-  (phone.length === 10 ? `${phone.substr(0, 3)}-${phone.substr(3, 3)}-${phone.substr(6, 4)}` : phone);
+const formatPhoneNumber = (phone = '', separator = '-') =>
+  (phone.length === 10 ? `${phone.substr(0, 3)}${separator}${phone.substr(3, 3)}${separator}${phone.substr(6, 4)}` : phone);
 
 const formatDefault = value => value || emptyValue;
 

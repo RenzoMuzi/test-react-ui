@@ -77,6 +77,7 @@ stories.add(
         columns={columns}
         records={records}
         dropdown={dropdownOptions}
+        showDropdown
         selectedRecords={store.state.selectedRecords}
         allSelected={store.state.allSelected}
         onRowChange={({ value, PatientId }) => {

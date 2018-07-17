@@ -1,8 +1,12 @@
 export default [
   {
     title: [{ headerName: ['Patient'], key: 'KdLabel' }],
-    subtitle: [{ headerName: [''], key: 'patientGroups', prefix: 'Groups: ' }],
+    subtitle: [
+      { headerName: [''], key: 'Phones', subKey: 'PhoneNumber', prefix: 'Phone: ', format: 'phone' },
+      { headerName: [''], key: 'PatientGroupName', prefix: 'Groups: ' },
+    ],
     highlighted: true,
+    options: { subtitleJoin: 'list' },
   },
   {
     title: [{ headerName: ['Rdc', 'Maint.'], key: 'RdcMaint', format: 'percent' }],
