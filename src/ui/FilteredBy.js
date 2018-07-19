@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import mPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import head from 'lodash/head';
+import isEmpty from 'lodash/isEmpty';
 
 import Icon from './Icon';
 
@@ -87,44 +88,61 @@ FilterChicklet.propTypes = {
   className: PropTypes.string,
 };
 
+const renderFilters = (title, filters, className, chickletClassName, onChange) => {
+  if (isEmpty(filters)) return null;
+  return (
+    <div className={classNames('my1/3 flex flex-wrap items-center lh-21', className)}>
+      <span className="pr1 nowrap">{title}</span>
+      {filters.map((option, index) => (
+        <FilterChicklet
+          key={option.label}
+          label={option.label}
+          operator={option.operator}
+          value={option.value}
+          type={option.type}
+          onDelete={() => onChange(option, index)}
+          className={chickletClassName}
+        />
+      ))}
+    </div>
+  );
+};
+
 const FilteredBy = ({
-  className, filters, chickletClassName, onChange,
-}) => (
-  <div className={classNames('my1 flex flex-wrap items-center lh-21', className)}>
-    <span className="pr1 nowrap">Filtered By</span>
-    {filters.map((option, index) => (
-      <FilterChicklet
-        key={option.label}
-        label={option.label}
-        operator={option.operator}
-        value={option.value}
-        type={option.type}
-        onDelete={() => onChange(option, index)}
-        className={chickletClassName}
-      />
-    ))}
-  </div>
-);
+  className, filters, filtersExclude, chickletClassName, onChange,
+}) => {
+  if (isEmpty(filters) && isEmpty(filtersExclude)) return null;
+  return (
+    <div>
+      { renderFilters('Filtered By', filters, className, chickletClassName, onChange) }
+      { renderFilters('Exclude', filtersExclude, className, chickletClassName, onChange) }
+    </div>
+  );
+};
 
 FilteredBy.defaultProps = {
   className: '',
   chickletClassName: '',
   onChange: () => {},
   filters: [],
+  filtersExclude: [],
 };
+
+const filtersPropTypes = PropTypes.arrayOf(
+  PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    operator: PropTypes.string,
+    value: allPossibleValueTypes.isRequired,
+    type: PropTypes.string,
+  }),
+);
 
 FilteredBy.propTypes = {
   className: PropTypes.string,
   chickletClassName: PropTypes.string,
   onChange: PropTypes.func,
-  filters: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      operator: PropTypes.string,
-      value: allPossibleValueTypes.isRequired,
-      type: PropTypes.string,
-    }),
-  ),
+  filters: filtersPropTypes,
+  filtersExclude: filtersPropTypes,
 };
 
 export default FilteredBy;
