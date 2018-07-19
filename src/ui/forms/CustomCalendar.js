@@ -154,7 +154,7 @@ class CustomCalendar extends Component {
           className={inputClassName}
           type="text"
           value={this.state.value}
-          onChange={this.handleChange}
+          onChange={this.handleInputChange}
           onFocus={this.handleFocus}
           placeholder={placeholder}
         />
@@ -167,18 +167,22 @@ class CustomCalendar extends Component {
           handleDayHover={this.handleDayHover}
           handleDayLeave={this.handleDayLeave}
           handlePickerYearMonthChange={this.handlePickerYearMonthChange}
-          onChange={this.handleChange}
           {...props}
         />
       </div>
     );
   }
 
-  setSelectedDate = (date) => this.setState({
-    value: date ? moment(date).format('MM/DD/YYYY') : '',
-    selectedDate: date ? new Date(date) : null,
-    showCalendar: false,
-  });
+  setSelectedDate = (date, { selected, disabled }) => {
+    if (disabled) return;
+    this.setState({
+      value: date ? moment(date).format('MM/DD/YYYY') : '',
+      selectedDate: date ? new Date(date) : null,
+      pickerYearMonth: date,
+      showCalendar: this.props.closeCalendarOnSelect ? false : this.state.showCalendar,
+    });
+    this.props.onChange(date);
+  };
 
   handlePickerYearMonthChange = (date) => this.setState({
     pickerYearMonth: date,
@@ -192,17 +196,18 @@ class CustomCalendar extends Component {
     this.setState({ showCalendar: false });
   }
 
-  handleChange = (event) => {
+  handleInputChange = (event) => {
     const { value } = event.target;
-    this.setState({ value });
+
     if (moment(value, 'MM/DD/YYYY', true).isValid()) {
       const newDate = new Date(value);
       this.setSelectedDate(newDate);
-      this.props.onChange(newDate);
+    } else {
+      this.setState({ value });
     }
   }
 
-  handleDayHover = (date) => this.setState({ hoveredDate: date });
+  handleDayHover = (date, { disabled }) => (!disabled && this.setState({ hoveredDate: date }))
 
   handleDayLeave = () => this.setState({ hoveredDate: null });
 }
@@ -213,6 +218,7 @@ CustomCalendar.propTypes = {
   placeholder: PropTypes.string,
   inputClassName: PropTypes.string,
   date: PropTypes.object,
+  closeCalendarOnSelect: PropTypes.boolean,
   fromMonth: PropTypes.instanceOf(Date),
   toMonth: PropTypes.instanceOf(Date),
 };
@@ -223,6 +229,7 @@ CustomCalendar.defaultProps = {
   placeholder: null,
   inputClassName: 'input',
   date: new Date(),
+  closeCalendarOnSelect: false,
   fromMonth: new Date(currentYear, currentMonth),
   toMonth: new Date(currentYear + TOTAL_YEARS, 11),
 };
