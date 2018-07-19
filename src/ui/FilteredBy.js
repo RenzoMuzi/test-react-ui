@@ -10,6 +10,7 @@ import Icon from './Icon';
 
 const OperatorToLabelMap = (isDate) => ({
   Eq: '',
+  Like: '',
   NotEq: '≠',
   Gt: isDate ? 'Before' : '>',
   Lt: isDate ? 'After' : '<',
