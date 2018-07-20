@@ -29,7 +29,7 @@ const formatAmountToK = amount => {
 
 const formatPhoneNumber = (phone) => {
   if (!phone) return emptyValue;
-  const phoneSections = phone.match(/^(\d{3})(\d{3})(\d{4})/);
+  const phoneSections = phone.match(/^\(?(\d{3})\)?.?(\d{3}).?(\d{4})/);
   const [areaCode, prefix, lineNumber] = takeRight(phoneSections, 3);
   return `(${areaCode}) ${prefix}-${lineNumber}`;
 };

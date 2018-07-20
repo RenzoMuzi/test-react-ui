@@ -33,7 +33,7 @@ class Pagination extends React.PureComponent {
       { 'pointer hover-orange-primary gray-primary': startIndex !== 0 },
     );
     const increasePageClassName = classNames(
-      'fs16 fa fa-caret-right pr2 px1',
+      'fs16 fa fa-caret-right px1',
       { gray: currentPageEnd >= count },
       { 'pointer hover-orange-primary gray-primary': currentPageEnd < count },
     );

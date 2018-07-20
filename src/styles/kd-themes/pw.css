@@ -165,11 +165,12 @@ input[type='text']::-ms-clear {
   display: none;
 }
 .o-options__option-active {
-  color: rgba(242, 130, 0, 0.8);
-  background-color: #fafbfa;
+  background-color: #F7956F;
+  color: #fff;
 }
 .o-options__option-active span {
-  color: rgba(242, 130, 0, 0.8);
+  background-color:#F7956F;
+  color: #fff;
 }
 .c-kd-autocomplete-option__title {
   font-weight: 500;
