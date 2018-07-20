@@ -45,16 +45,11 @@ class Pagination extends React.PureComponent {
           value={pageSize}
           onChange={this.handleOnPageSizeChange}
         >
-          {[
-            pageSizeOptions.map(size => (
-              <option value={size} key={size}>
-                {size}
-              </option>
-            )),
-            <option value={count} key="All">
-              All
-            </option>,
-          ]}
+          {pageSizeOptions.map(size => (
+            <option value={size} key={size}>
+              {size}
+            </option>
+          ))}
         </select>
         <div className="px1">per page</div>
         <i
@@ -73,7 +68,7 @@ class Pagination extends React.PureComponent {
 
 Pagination.defaultProps = {
   count: 0,
-  pageSizeOptions: [10, 25, 100, 500],
+  pageSizeOptions: [10, 100, 500, 1000, 5000],
   pageSize: 10,
   startIndex: 0,
 };
