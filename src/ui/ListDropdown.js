@@ -13,10 +13,10 @@ class ListDropdown extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-    const { value, record } = this.props;
+    const { value, record, redirect } = this.props;
     return (
       <div>
-        <a className="a-link" href={`/Patient/Details?patientId=${record.PatientId}`}>{value}</a>
+        <a className="a-link" href={redirect ? `${redirect}${record.PatientId}` : null}>{value}</a>
         <div className="inline-block">
           <div
             onClick={() => {
@@ -53,10 +53,12 @@ class ListDropdown extends React.PureComponent {
 
 ListDropdown.defaultProps = {
   value: '',
+  redirect: null,
 };
 
 ListDropdown.propTypes = {
   value: PropTypes.string,
+  redirect: PropTypes.string,
   dropdown: PropTypes.array.isRequired,
   record: PropTypes.object.isRequired,
 };

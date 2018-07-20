@@ -29,13 +29,18 @@ class List extends Component {
     let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix, c.subKey));
     values = options.skipBlank ? values.filter(value => value !== valuesUtils.emptyValue) : values;
 
-    if (options.subtitleJoin === 'list') {
-      return values.map((value, index) => <div key={index}>{value}</div>);
-    }
-
     const value = values.join('/');
     if (columnIndex === 0 && showDropdown && dropdown.length > 0) {
-      return <ListDropdown value={value} dropdown={dropdown} record={record} />;
+      return <ListDropdown
+        value={value}
+        dropdown={dropdown}
+        record={record}
+        redirect={options.redirect}
+      />;
+    }
+
+    if (options.subtitleJoin === 'list') {
+      return values.map((val, index) => <div key={index}>{val}</div>);
     }
 
     return value;
@@ -150,6 +155,7 @@ class List extends Component {
                       record,
                       column.title,
                       columnIndex,
+                      column.options,
                     )}
                   </div>
                   {column.subtitle.length > 0 && (

@@ -6,7 +6,7 @@ export default [
       { headerName: [''], key: 'PatientGroupName', prefix: 'Groups: ' },
     ],
     highlighted: true,
-    options: { subtitleJoin: 'list' },
+    options: { subtitleJoin: 'list', redirect: '/Patient/Details?patientId=' },
   },
   {
     title: [{ headerName: ['Rdc', 'Maint.'], key: 'RdcMaint', format: 'percent' }],
