@@ -124,10 +124,14 @@ CalendarPickerView.propTypes = {
   handleDayHover: PropTypes.func.isRequired,
   handleDayLeave: PropTypes.func.isRequired,
   handlePickerYearMonthChange: PropTypes.func.isRequired,
+  fromMonth: PropTypes.instanceOf(Date),
+  toMonth: PropTypes.instanceOf(Date),
 };
 
 CalendarPickerView.defaultProps = {
   hoveredDate: null,
+  fromMonth: new Date(currentYear, currentMonth),
+  toMonth: new Date(currentYear + TOTAL_YEARS, 11),
 };
 
 class CustomCalendar extends Component {
@@ -173,7 +177,7 @@ class CustomCalendar extends Component {
     );
   }
 
-  setSelectedDate = (date, { selected, disabled }) => {
+  setSelectedDate = (date, { disabled }) => {
     if (disabled) return;
     this.setState({
       value: date ? moment(date).format('MM/DD/YYYY') : '',
@@ -218,9 +222,7 @@ CustomCalendar.propTypes = {
   placeholder: PropTypes.string,
   inputClassName: PropTypes.string,
   date: PropTypes.object,
-  closeCalendarOnSelect: PropTypes.boolean,
-  fromMonth: PropTypes.instanceOf(Date),
-  toMonth: PropTypes.instanceOf(Date),
+  closeCalendarOnSelect: PropTypes.bool,
 };
 
 CustomCalendar.defaultProps = {
@@ -230,8 +232,6 @@ CustomCalendar.defaultProps = {
   inputClassName: 'input',
   date: new Date(),
   closeCalendarOnSelect: false,
-  fromMonth: new Date(currentYear, currentMonth),
-  toMonth: new Date(currentYear + TOTAL_YEARS, 11),
 };
 
 export default onClickOutside(CustomCalendar);

@@ -62,10 +62,11 @@ class Input extends Component {
       prefix,
     } = this.props;
 
-    const inputClassName = classNames('input col-12 mb0 field', {
+    const inputClassName = classNames(
+      'input col-12 mb0 field',
       className,
-      'with-prefix': !!prefix,
-    });
+      { 'with-prefix': !!prefix },
+    );
 
     return (
       <input
