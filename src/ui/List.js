@@ -196,7 +196,7 @@ class List extends Component {
         <div>
           {value.map((v, i) => (
             <div key={i}>
-              {value.length > 1 && i !== 0 && <hr />}
+              {value.length > 1 && i !== 0 && <hr className="tooltipHr" />}
               {v}
             </div>
           ))

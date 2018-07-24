@@ -2,3 +2,8 @@
   font-size: 11px !important;
   padding: 6px !important;
 }
+
+.tooltipHr {
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
