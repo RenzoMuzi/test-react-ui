@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import valuesUtils from 'utils/values';
+import isEmpty from 'lodash/isEmpty';
 import { Checkbox } from './forms';
 import loadingGif from '../images/loading.gif';
 import ListDropdown from './ListDropdown';
@@ -48,7 +49,7 @@ class List extends Component {
 
   renderValue = (value, format, prefix, subKey) => {
     let valueToShow = value || '';
-    if (subKey && value) {
+    if (subKey && !isEmpty(value)) {
       valueToShow = value[0][subKey];
     }
     switch (format) {
@@ -68,7 +69,9 @@ class List extends Component {
         valueToShow = valuesUtils.formatDefault(valueToShow);
         break;
     }
-    if (prefix) return `${prefix}${valueToShow}`;
+    if (prefix) {
+      return isEmpty(valueToShow) || valueToShow === '-' ? '' : `${prefix}${valueToShow}`;
+    }
     return valueToShow;
   };
 

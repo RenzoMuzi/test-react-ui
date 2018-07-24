@@ -1,6 +1,7 @@
 import moment from 'moment';
 import numeral from 'numeral';
 import takeRight from 'lodash/takeRight';
+import _IsEmpty from 'lodash/isEmpty';
 
 const emptyValue = '-';
 
@@ -28,7 +29,7 @@ const formatAmountToK = amount => {
 };
 
 const formatPhoneNumber = (phone) => {
-  if (!phone) return emptyValue;
+  if (_IsEmpty(phone)) return emptyValue;
   const phoneSections = phone.match(/^\(?(\d{3})\)?.?(\d{3}).?(\d{4})/);
   const [areaCode, prefix, lineNumber] = takeRight(phoneSections, 3);
   return `(${areaCode}) ${prefix}-${lineNumber}`;

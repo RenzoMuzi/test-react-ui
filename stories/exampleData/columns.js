@@ -26,7 +26,7 @@ export default [
   },
   {
     title: [{ headerName: ['Maint'], key: 'MaintMeds' }, { headerName: 'Meds', key: 'ActiveMeds' }],
-    subtitle: [{ headerName: ['Billing Total'], key: 'BillingTotalMM', format: 'currency' }],
+    subtitle: [{ headerName: ['Billing Total'], key: 'BillingsTotalMM', format: 'currency' }],
   },
   {
     title: [{ headerName: ['Rdc', 'Diab.'], key: 'RdcDiab', format: 'percent' }],
