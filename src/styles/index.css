@@ -39,6 +39,7 @@
 @import './layout.css';
 @import './shadows.css';
 @import './link.css';
+@import './tooltip.css';
 
 /* Fonts */
 @import '/gilroy-font-family';

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import classNames from 'classnames';
 import valuesUtils from 'utils/values';
 import isEmpty from 'lodash/isEmpty';
@@ -83,7 +84,6 @@ class List extends Component {
 
   renderHeader = () => {
     const { columns, allSelected, onAllChange } = this.props;
-
     const patientColumns = columns.map((column, index) => (
       <div
         className={classNames('sm-col sm-col-5 p1 fs11', {
@@ -93,11 +93,12 @@ class List extends Component {
         })}
         key={index}
       >
-        <div className="weight-700 uppercase">
+        <div className="weight-700 uppercase" data-tip data-for={index.toString()} >
           {this.renderHeaderText(column.title)}
           <div className="weight-200 uppercase">{this.renderSecondTitleHeader(column.title)}</div>
         </div>
         <div className="weight-200 uppercase">{this.renderHeaderText(column.subtitle)}</div>
+        {column.tooltip && this.renderTooltip(column, index)}
       </div>
     ));
 
@@ -109,6 +110,12 @@ class List extends Component {
 
     return [checkboxColumn, ...patientColumns];
   };
+
+  renderTooltip = (column, index) => (
+    <ReactTooltip place="top" type="dark" effect="solid" id={index.toString()} className="tootlip2" >
+      {this.tooltip(column.tooltip)}
+    </ReactTooltip>
+  )
 
   renderBody = () => {
     const {
@@ -182,6 +189,23 @@ class List extends Component {
       <div className="p2 center weight-300">{zeroStateText}</div>
     );
   };
+
+  tooltip = value => {
+    if (value) {
+      return (
+        <div>
+          {value.map((v, i) => (
+            <div key={i}>
+              {value.length > 1 && i !== 0 && <hr />}
+              {v}
+            </div>
+          ))
+        }
+        </div>
+      );
+    }
+    return null;
+  }
 }
 
 List.propTypes = {

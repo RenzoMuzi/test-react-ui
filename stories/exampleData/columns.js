@@ -11,14 +11,17 @@ export default [
   {
     title: [{ headerName: ['Rdc', 'Maint.'], key: 'RdcMaint', format: 'percent' }],
     subtitle: [],
+    tooltip: ['RDC Maintenance'],
   },
   {
     title: [{ headerName: ['Rdc', 'Hyp.'], key: 'RdcHyp', format: 'percent' }],
     subtitle: [],
+    tooltip: ['RDC Hypertension'],
   },
   {
     title: [{ headerName: ['Rdc', 'Chol'], key: 'RdcChol', format: 'percent' }],
     subtitle: [],
+    tooltip: ['RDC Cholesterol'],
   },
   {
     title: [{ headerName: ['Age'], key: 'Age' }],
@@ -27,9 +30,11 @@ export default [
   {
     title: [{ headerName: ['Maint'], key: 'MaintMeds' }, { headerName: 'Meds', key: 'ActiveMeds' }],
     subtitle: [{ headerName: ['Billing Total'], key: 'BillingsTotalMM', format: 'currency' }],
+    tooltip: ['Maintenance Meds / Active Meds'],
   },
   {
     title: [{ headerName: ['Rdc', 'Diab.'], key: 'RdcDiab', format: 'percent' }],
     subtitle: [],
+    tooltip: ['RDC Diabetes'],
   },
 ];
