@@ -16,9 +16,10 @@ stories.add(
   ~~~
   `)(() => (
     <Chicklet
-      className={'mr1 rounded orange-primary nowrap bg-orange-highlight inline-block my1x3 px1/3'}
-      onClick={action('clicked')}>
-        Chicklet content
+      className="mr1 rounded orange-primary nowrap bg-orange-highlight inline-block my1x3 px1/3"
+      onClick={action('clicked')}
+    >
+      Chicklet content
     </Chicklet>
   )),
 );
