@@ -47,44 +47,51 @@ class Modal extends Component {
       isOpen,
       children,
       positionClassName,
+      containerClassName,
+      contentClassName,
+      backgroundClassName,
       styleClass,
       position,
     } = this.props;
-
-    const containerClassName = classNames(
-      'c-modal__container',
-      positionClassName,
-      {
-        'c-modal__container-left': position.includes('left'),
-        'c-modal__container-right': position.includes('right'),
-        'c-modal__container-top': position.includes('top'),
-        'c-modal__container-bottom': position.includes('bottom'),
-      },
-    );
-
-    const modalClassName = classNames(
-      'c-modal',
-      'bg-white',
-      'border',
-      'border-gray',
-      styleClass,
-      {
-        'c-modal-width': !position || position === 'center',
-      },
-    );
 
     return (
       isOpen && (
         <div className="c-modal__viewport">
           <div
-            className="c-modal__backdrop bg-white-muted"
+            className={classNames(['c-modal__backdrop', backgroundClassName])}
             onClick={this.close}
             ref={ref => {
               this.backdrop = ref;
             }}
           >
-            <div className={containerClassName}>
-              <div className={modalClassName} onClick={this.handleOnClickModal}>
+            <div
+              className={classNames(
+                'c-modal__container',
+                {
+                  'c-modal__container-left': position.includes('left'),
+                  'c-modal__container-right': position.includes('right'),
+                  'c-modal__container-top': position.includes('top'),
+                  'c-modal__container-bottom': position.includes('bottom'),
+                  'c-modal__container-absolute': position === 'absolute',
+                },
+                positionClassName,
+                containerClassName,
+              )}
+            >
+              <div
+                className={classNames(
+                  'c-modal',
+                  'bg-white',
+                  'border',
+                  'border-gray',
+                  {
+                    'c-modal-width': !position || position === 'center',
+                  },
+                  styleClass,
+                  contentClassName,
+                )}
+                onClick={this.handleOnClickModal}
+              >
                 {children}
               </div>
             </div>
@@ -121,11 +128,14 @@ Modal.displayName = 'Modal';
 Modal.defaultProps = {
   isOpen: false,
   positionClassName: null,
+  containerClassName: '',
   children: null,
   onClose: () => {},
   styleClass: '',
+  contentClassName: '',
   allowScrolling: false,
   position: 'center',
+  backgroundClassName: 'bg-white-muted',
 };
 
 Modal.propTypes = {
@@ -143,6 +153,12 @@ Modal.propTypes = {
   allowScrolling: PropTypes.bool,
   /** Modal position, center, left-bottom, right-bottom, left-top, right-top */
   position: PropTypes.string,
+  /** Modal container CSS classes  */
+  containerClassName: PropTypes.string,
+  /** Modal container CSS classes  */
+  contentClassName: PropTypes.string,
+  /** Modal background CSS classes, default bg-white-muted */
+  backgroundClassName: PropTypes.string,
 };
 
 export default Modal;

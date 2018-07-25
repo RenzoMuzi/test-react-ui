@@ -50,6 +50,10 @@
   background-color: var(--gray-background);
 }
 
+.bg-gray-muted {
+  background-color: var(--gray-background-muted);
+}
+
 .bg-orange-highlight {
   background: var(--orange-highlight);
 }
@@ -68,6 +72,10 @@
 
 .bg-green-primary {
   background: var(--green-primary);
+}
+
+.bg-transparent {
+  background: transparent;
 }
 
 .color-inherit {

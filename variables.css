@@ -3,6 +3,7 @@
     --gray-primary-active: #585858;
     --gray-secondary: #BABABA;
     --gray-background: #F4F4F4;
+    --gray-background-muted: color-mod(var(--gray-primary) alpha(80%));
     --gray-border: #DDDDDD;
 
     --gray-header: #f5f5f5;
@@ -20,7 +21,7 @@
 
     --sky-blue: #65b3d0;
     --sky-blue-dark: #316eaa;
-    
+
     --white: #FFFFFF;
     --white-muted: #FFFFFF90;
     --transparent: #FFFFFF00;

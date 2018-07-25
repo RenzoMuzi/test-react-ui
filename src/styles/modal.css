@@ -47,10 +47,18 @@
   height: initial;
 }
 
+.c-modal__container-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
 .c-modal__container-right > .c-modal,
 .c-modal__container-left > .c-modal,
 .c-modal__container-top > .c-modal,
-.c-modal__container-bottom > .c-modal {
+.c-modal__container-bottom > .c-modal,
+.c-modal__container-absolute > .c-modal {
   margin: 0px;
 }
 
