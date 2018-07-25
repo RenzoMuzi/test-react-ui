@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from './Modal';
+import Icon from './Icon';
 import PrimaryButton from './forms/PrimaryButton';
 
 const ErrorModal = ({
   isOpen, message, title, onClose, allowScrolling,
 }) => (
   <Modal isOpen={isOpen} onClose={onClose} allowScrolling={allowScrolling}>
-    <div className="p2 m1 flex justify-between">
-      <span className="fs20 weight-700 gray-primary">{title}</span>
-      <i
-        className="fa fa-times gray-primary opacity-80 right pointer"
+    <div className="p2 bg-gray flex justify-between">
+      <span className="fs24 weight-600 gray-primary">{title}</span>
+      <Icon
+        type="times"
+        className="gray-primary opacity-80 right pointer"
+        size={24}
         onClick={onClose}
       />
     </div>
