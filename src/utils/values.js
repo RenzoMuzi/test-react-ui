@@ -7,14 +7,14 @@ const emptyValue = '-';
 
 const isEmpty = value => value === null || value === undefined || Number.isNaN(value) || value === '';
 
-const formatDate = date => (date ? moment(date).format('MM/DD/YYYY') : emptyValue);
+const formatDate = (date, emptyVal = emptyValue) => (date ? moment(date).format('MM/DD/YYYY') : emptyVal);
 
-const formatCurrency = value => (value ? numeral(value).format('$0,0.00') : emptyValue);
+const formatCurrency = (value, emptyVal = emptyValue) => (value ? numeral(value).format('$0,0.00') : emptyVal);
 
-const formatDecimal = value => (value ? numeral(value).format('0,0.00') : emptyValue);
+const formatDecimal = (value, emptyVal = emptyValue) => (value ? numeral(value).format('0,0.00') : emptyVal);
 
-const formatPercent = value => {
-  if (!value) return emptyValue;
+const formatPercent = (value, emptyVal = emptyValue) => {
+  if (!value) return emptyVal;
   return value === 1 ? '100%' : numeral(value).format('0.0%');
 };
 
@@ -28,8 +28,8 @@ const formatAmountToK = amount => {
   return '$0';
 };
 
-const formatPhoneNumber = (phone) => {
-  if (_IsEmpty(phone)) return emptyValue;
+const formatPhoneNumber = (phone, emptyVal = emptyValue) => {
+  if (_IsEmpty(phone)) return emptyVal;
   const phoneSections = phone.match(/^\(?(\d{3})\)?.?(\d{3}).?(\d{4})/);
   const [areaCode, prefix, lineNumber] = takeRight(phoneSections, 3);
   return `(${areaCode}) ${prefix}-${lineNumber}`;
