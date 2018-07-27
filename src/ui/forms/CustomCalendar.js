@@ -8,8 +8,6 @@ import onClickOutside from 'react-onclickoutside';
 const TOTAL_YEARS = 5;
 const currentYear = new Date().getFullYear();
 const currentMonth = new Date().getMonth();
-const fromMonth = new Date(currentYear, currentMonth);
-const toMonth = new Date(currentYear + TOTAL_YEARS, 11);
 
 const modifiersStyles = {
   selectedDate: {
@@ -79,6 +77,8 @@ const CalendarPickerView = ({
   handleDayHover,
   handleDayLeave,
   handlePickerYearMonthChange,
+  fromMonth,
+  toMonth,
 }) => (
   <div
     className={classNames('YearNavigation absolute bg-white shadow-faded z4', {
@@ -137,7 +137,7 @@ class CustomCalendar extends Component {
       value: (props.date ? moment(props.date).format('MM/DD/YYYY') : ''),
       showCalendar: false,
       selectedDate: (props.date ? new Date(props.date) : null),
-      pickerYearMonth: fromMonth,
+      pickerYearMonth: props.date,
       hoveredDate: null,
     };
   }
@@ -213,6 +213,8 @@ CustomCalendar.propTypes = {
   placeholder: PropTypes.string,
   inputClassName: PropTypes.string,
   date: PropTypes.object,
+  fromMonth: PropTypes.instanceOf(Date),
+  toMonth: PropTypes.instanceOf(Date),
 };
 
 CustomCalendar.defaultProps = {
@@ -221,6 +223,8 @@ CustomCalendar.defaultProps = {
   placeholder: null,
   inputClassName: 'input',
   date: new Date(),
+  fromMonth: new Date(currentYear, currentMonth),
+  toMonth: new Date(currentYear + TOTAL_YEARS, 11),
 };
 
 export default onClickOutside(CustomCalendar);
