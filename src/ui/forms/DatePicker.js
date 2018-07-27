@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import moment from 'moment';
@@ -134,7 +134,7 @@ CalendarPickerView.defaultProps = {
   toMonth: new Date(currentYear + TOTAL_YEARS, 11),
 };
 
-class CustomCalendar extends Component {
+class DatePicker extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -216,7 +216,7 @@ class CustomCalendar extends Component {
   handleDayLeave = () => this.setState({ hoveredDate: null });
 }
 
-CustomCalendar.propTypes = {
+DatePicker.propTypes = {
   onChange: PropTypes.func,
   disabledDays: PropTypes.array,
   placeholder: PropTypes.string,
@@ -225,7 +225,7 @@ CustomCalendar.propTypes = {
   closeCalendarOnSelect: PropTypes.bool,
 };
 
-CustomCalendar.defaultProps = {
+DatePicker.defaultProps = {
   onChange: () => {},
   disabledDays: [],
   placeholder: null,
@@ -234,4 +234,4 @@ CustomCalendar.defaultProps = {
   closeCalendarOnSelect: false,
 };
 
-export default onClickOutside(CustomCalendar);
+export default onClickOutside(DatePicker);

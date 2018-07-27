@@ -14,4 +14,7 @@ export TextArea from './Textarea';
 export ToggleSwitch from './ToggleSwitch';
 export ViewOnlyInput from './ViewOnlyInput';
 export ViewOnlyText from './ViewOnlyText';
-export CustomCalendar from './CustomCalendar';
+export DatePicker from './DatePicker';
+
+// For Backwards Compatibilty until dependencies update
+export CustomCalendar from './DatePicker';
