@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import onClickOutside from 'react-onclickoutside';
+import FloatingList from './FloatingList';
 
 class CustomDropdown extends Component {
   constructor(props) {
@@ -12,13 +13,13 @@ class CustomDropdown extends Component {
     };
   }
 
-  handleOnChange = option => {
-    this.props.onChange(option);
+  handleOnChange = (option, index) => {
+    this.props.onChange(index);
     this.setState({ isOpen: false });
   };
 
   render() {
-    const { className, label } = this.props;
+    const { className, label, options } = this.props;
     const { isOpen } = this.state;
 
     const selectClassName = classNames(
@@ -38,11 +39,12 @@ class CustomDropdown extends Component {
         >
           {label}
         </div>
-        {isOpen && (
-          <div className="absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-4 overflow-scroll">
-            {this.renderDropdown()}
-          </div>
-        )}
+        {isOpen &&
+          <FloatingList
+            items={Array.isArray(options) ? options : [options]}
+            onSelect={this.handleOnChange}
+          />
+        }
       </div>
     );
   }

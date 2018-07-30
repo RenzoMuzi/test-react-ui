@@ -14,3 +14,4 @@ export Tabs, { Tab } from './Tabs';
 export List from './List';
 export ShowMore from './ShowMore';
 export Loading from './Loading';
+export FloatingList from './FloatingList';

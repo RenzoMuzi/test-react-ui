@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
 import Icon from './Icon';
+import FloatingList from './FloatingList';
 
 class ListDropdown extends React.PureComponent {
   constructor(props) {
@@ -13,7 +14,12 @@ class ListDropdown extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-    const { value, url } = this.props;
+    const {
+      value,
+      url,
+      dropdown,
+    } = this.props;
+
     return (
       <div className="no-wrap">
         <a
@@ -33,27 +39,23 @@ class ListDropdown extends React.PureComponent {
             <Icon className="inline-block fa-sm gray hover-orange-primary pl1" type="caret-down" size={20} />
           </div>
           {isOpen && (
-            <div className="ml1 absolute border-bottom-shadow bg-white flex flex-column z3 border border-gray gray-primary max-height-5 overflow-y-scroll py1/3">
-              {this.renderDropdownOptions()}
-            </div>
+            <FloatingList
+              items={dropdown}
+              renderItem={this.renderDropdownOption}
+              onSelect={this.handleItemSelection}
+            />
           )}
         </div>
       </div>
     );
   }
 
-  renderDropdownOptions = () => {
-    const { dropdown, record } = this.props;
-    return dropdown.map(item => (
-      <div
-        key={item.name}
-        onClick={() => item.onSelect(record)}
-        className="p1 nowrap fs12 pl1 py1/2 pointer action-button-item"
-      >
-        {item.name}
-      </div>
-    ));
-  };
+  renderDropdownOption = (item) => (<span> {item.name} </span>);
+
+  handleItemSelection = (item) => {
+    const { record } = this.props;
+    item.onSelect(record);
+  }
 
   handleClickOutside = () => this.setState({ isOpen: false });
 }
