@@ -37,11 +37,29 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../../node_modules/pw-ui/',
+            },
+          },
+          { loader: 'css-loader' },
+          { loader: 'postcss-loader' },
+        ],
       },
       {
         test: /\.s[ac]ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../../node_modules/pw-ui/',
+            },
+          },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -51,7 +69,7 @@ module.exports = {
         test: /.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
               limit: 10000,
               name: 'public/fonts/[name].[ext]',
@@ -64,7 +82,7 @@ module.exports = {
         test: /\.otf$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
               limit: 65000,
               mimetype: 'application/octet-stream',

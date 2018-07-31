@@ -43,7 +43,7 @@
 @import './line-heights.css';
 
 /* Fonts */
-@import '/gilroy-font-family';
+@import './gilroy-font-family';
 
 :root {
   --button-font-weight: normal;
