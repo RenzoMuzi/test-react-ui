@@ -83,7 +83,7 @@ class Tabs extends PureComponent {
               'justify-between': spaced,
             })}
             style={{ marginBottom: '-1px' }}
-            >
+          >
             {leftTabTitles}
           </div>
           <div
@@ -91,7 +91,7 @@ class Tabs extends PureComponent {
               'justify-between': spaced,
             })}
             style={{ marginBottom: '-1px' }}
-            >
+          >
             {rightTabTitles}
           </div>
         </ul>

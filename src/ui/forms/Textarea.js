@@ -33,6 +33,7 @@ export class Textarea extends Component {
       value,
       viewOnly,
       autoFocus,
+      showLimit,
     } = this.props;
 
     if (viewOnly) {
@@ -42,16 +43,26 @@ export class Textarea extends Component {
     const textAreaClassName = classNames('textarea', className);
 
     return (
-      <textarea
-        ref={inputRef}
-        className={textAreaClassName}
-        maxLength={maxLength}
-        placeholder={placeholder}
-        value={value || ''}
-        autoFocus={autoFocus}
-        onChange={this.handleOnChange}
-        onKeyDown={this.handleOnKeyDown}
-      />
+      <div className="full-width relative">
+        <textarea
+          ref={inputRef}
+          className={textAreaClassName}
+          maxLength={maxLength}
+          placeholder={placeholder}
+          value={value || ''}
+          autoFocus={autoFocus}
+          onChange={this.handleOnChange}
+          onKeyDown={this.handleOnKeyDown}
+        />
+        {maxLength && !viewOnly && showLimit && (
+        <span
+          className="absolute fs-12 red p1/2"
+          style={{ bottom: 0, right: 0 }}
+        >
+          {maxLength - value.length} characters remaining
+        </span>
+          )}
+      </div>
     );
   }
 
@@ -72,6 +83,7 @@ Textarea.defaultProps = {
   validRegex: null,
   viewOnly: false,
   autoFocus: false,
+  showLimit: false,
   inputRef: () => {},
   onChange: () => {},
   onSubmit: () => {},
@@ -98,6 +110,8 @@ Textarea.propTypes = {
   onSubmit: PropTypes.func,
   /** Enables auto focus */
   autoFocus: PropTypes.bool,
+  /** Enables limit counter for number of characters */
+  showLimit: PropTypes.bool,
 };
 
 const TextareaWithPopover = withPopover(Textarea);
