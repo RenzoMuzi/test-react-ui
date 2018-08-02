@@ -86,7 +86,7 @@ class List extends Component {
     const { columns, allSelected, onAllChange } = this.props;
     const patientColumns = columns.map((column, index) => (
       <div
-        className={classNames('sm-col sm-col-5 p1 fs11', {
+        className={classNames('sm-col sm-col-4 p1 fs11', {
           center: index !== 0,
           'sm-col-10': index === 0,
           'bg-orange-highlight': column.highlighted,
@@ -148,7 +148,7 @@ class List extends Component {
               {columns.map((column, columnIndex) => (
                 <div
                   className={classNames('p1', {
-                    'sm-col sm-col-5 center': columnIndex !== 0,
+                    'sm-col sm-col-4 center': columnIndex !== 0,
                     'md-col md-col-10': columnIndex === 0,
                     'bg-orange-highlight': column.highlighted,
                   })}

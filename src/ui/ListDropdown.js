@@ -15,7 +15,7 @@ class ListDropdown extends React.PureComponent {
     const { isOpen } = this.state;
     const { value, record, redirect } = this.props;
     return (
-      <div>
+      <div className="no-wrap">
         <a className="a-link" href={redirect ? `${redirect}${record.PatientId}` : null}>{value}</a>
         <div className="inline-block">
           <div
