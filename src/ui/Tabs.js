@@ -15,15 +15,12 @@ const SubtabTitle = ({ title, active, onClick }) => (
   </li>
 );
 
-const TabTitle = ({ title, active, onClick }) => (
+const TabTitle = ({
+  title, active, onClick, className, activeClassname,
+}) => (
   <li
     onClick={onClick}
-    className={classNames(
-      'flex flex-center mr1 p1 inline-block rounded-top weight-400 fs13 pointer',
-      {
-        'border border-top border-gray border-bottom-white weight-700': active,
-      },
-    )}
+    className={classNames('flex flex-center p1 inline-block pointer', className, { [activeClassname]: active })}
   >
     {title}
   </li>
@@ -62,7 +59,7 @@ class Tabs extends PureComponent {
   };
 
   render() {
-    const { spaced } = this.props;
+    const { spaced, containerClassname } = this.props;
     const { activeTab } = this.state;
 
     const tabs = this.getTabs();
@@ -77,7 +74,7 @@ class Tabs extends PureComponent {
 
     return (
       <div>
-        <ul className="m0 list-reset flex border-bottom border-gray justify-between">
+        <ul className={classNames('m0 list-reset flex justify-between', containerClassname)}>
           <div
             className={classNames('flex inline-block full-width', {
               'justify-between': spaced,
@@ -102,7 +99,7 @@ class Tabs extends PureComponent {
 
   renderTabTitle = (tab, index) => {
     const { activeTab } = this.state;
-    const { className, subtab } = this.props;
+    const { className, subtab, activeClassname } = this.props;
 
     const Component = subtab ? SubtabTitle : TabTitle;
 
@@ -113,6 +110,7 @@ class Tabs extends PureComponent {
         active={activeTab === index}
         to={tab.props.to}
         className={className}
+        activeClassname={activeClassname}
         onClick={() => this.handleOnTabClicked(index, tab.props.name)}
       />
     );
@@ -144,18 +142,24 @@ SubtabTitle.propTypes = {
 Tabs.displayName = 'Tabs';
 
 Tabs.defaultProps = {
-  className: null,
+  className: 'rounded-top weight-400 fs13 mr1',
+  activeClassname: 'border border-top border-gray border-bottom-white weight-700',
+  containerClassname: 'border-bottom border-gray',
   subtab: false,
   spaced: false,
   children: null,
-  onTabChange: () => {},
+  onTabChange: () => { },
 };
 
 Tabs.propTypes = {
   /** Active tab */
   active: PropTypes.string.isRequired,
-  /** Custom CSS class name */
+  /** Custom CSS class name for the tab */
   className: PropTypes.string,
+  /** Custom CSS class name for the tab active state */
+  activeClassname: PropTypes.string,
+  /** Custom CSS class name for the tabs container */
+  containerClassname: PropTypes.string,
   /** Has subtabs or not */
   subtab: PropTypes.bool,
   /** Tabs are distributed on the container width */
@@ -174,6 +178,8 @@ TabTitle.propTypes = {
   active: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func,
+  className: PropTypes.string.isRequired,
+  activeClassname: PropTypes.string.isRequired,
 };
 
 Tab.displayName = 'Tab';
