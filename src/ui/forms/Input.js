@@ -60,6 +60,7 @@ class Input extends Component {
       value,
       autoFocus,
       prefix,
+      type,
     } = this.props;
 
     const inputClassName = classNames(
@@ -70,7 +71,7 @@ class Input extends Component {
 
     return (
       <input
-        type="text"
+        type={type}
         ref={inputRef}
         className={inputClassName}
         maxLength={maxLength}
@@ -94,6 +95,7 @@ class Input extends Component {
 Input.displayName = 'Input';
 
 Input.defaultProps = {
+  type: 'text',
   autoFocus: false,
   className: '',
   inputRef: () => {},
@@ -109,6 +111,8 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  /** Input type. Could be either text or password */
+  type: PropTypes.oneOf(['text', 'password']),
   /** CSS class to customize the component */
   className: PropTypes.string,
   /** Reference to be handled from parent */
