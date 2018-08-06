@@ -30,6 +30,7 @@ stories.add(
         validRegex={object('validRegex', null)}
         autoFocus={boolean('autoFocus', false)}
         onChange={(e) => store.set({ value: e })}
+        showLimit={boolean('showLimit', true)}
       />
     ))),
 );
@@ -52,6 +53,7 @@ stories.add(
         validRegex={object('validRegex', null)}
         autoFocus={boolean('autoFocus', false)}
         onSubmit={onSubmit}
+        showLimit={boolean('showLimit', true)}
       />
     ))),
 );
