@@ -43,7 +43,7 @@ export class Textarea extends Component {
     const textAreaClassName = classNames('textarea', className);
 
     return (
-      <div className="full-width relative">
+      <div className="full-width">
         <textarea
           ref={inputRef}
           className={textAreaClassName}
@@ -55,13 +55,10 @@ export class Textarea extends Component {
           onKeyDown={this.handleOnKeyDown}
         />
         {maxLength && !viewOnly && showLimit && (
-        <span
-          className="absolute fs-12 red p1/2"
-          style={{ bottom: 0, right: 0 }}
-        >
-          {maxLength - value.length} characters remaining
-        </span>
-          )}
+          <div className="flex justify-end">
+            <span className="fs-12 red p1/2">{maxLength - value.length} characters remaining</span>
+          </div>
+        )}
       </div>
     );
   }
