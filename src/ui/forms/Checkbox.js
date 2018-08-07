@@ -5,9 +5,8 @@ import classNames from 'classnames';
 export default function Checkbox({
   value, viewOnly, onChange, className, blackCheckbox,
 }) {
-  const classes = classNames('checkbox', 'inline', {
+  const classes = classNames('checkbox', 'inline', className, {
     'black-checkbox': blackCheckbox,
-    className,
   });
 
   return (
