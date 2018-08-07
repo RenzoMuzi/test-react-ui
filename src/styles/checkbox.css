@@ -1,0 +1,17 @@
+.black-checkbox {
+  -webkit-appearance: none;
+  color: #fff;
+  border: 1px solid #b0b0b0;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 17px;
+  outline: none;
+}
+
+.black-checkbox:checked{
+  color: #484848;
+}
+
+.black-checkbox:after {
+  content: '✔';
+}

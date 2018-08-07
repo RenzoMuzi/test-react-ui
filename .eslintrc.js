@@ -34,7 +34,6 @@ module.exports = {
     'react/forbid-prop-types': ['error', { forbid: ['any'] }],
     'react/no-array-index-key': 'off',
     'react/no-did-mount-set-state': 'off',
-    'react/prefer-stateless-function': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'react/jsx-wrap-multilines': 'off',
     'import/no-extraneous-dependencies': 'off',

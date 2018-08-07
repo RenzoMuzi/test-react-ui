@@ -14,7 +14,7 @@
   width: 32px;
 }
 
-@for $i from 20 to 800 by 20 {
+@for $i from 20 to 1000 by 20 {
   .width-important-$i {
     width: $(i)px !important;
   }

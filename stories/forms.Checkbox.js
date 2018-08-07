@@ -10,7 +10,7 @@ stories.addDecorator(withKnobs);
 
 stories.add(
   'default',
-  withState({ value: false })(
+  withState({ value: true })(
     withInfo(`
       ~~~js
       import { Checkbox } from 'pw-ui/ui/forms';
@@ -21,6 +21,24 @@ stories.add(
         onChange={() => store.set({ value: !store.state.value })}
         viewOnly={boolean('viewOnly', false)}
       />
-    ))
+    )),
+  ),
+);
+
+stories.add(
+  'black checkbox',
+  withState({ value: true })(
+    withInfo(`
+      ~~~js
+      import { Checkbox } from 'pw-ui/ui/forms';
+      ~~~
+    `)(({ store }) => (
+      <Checkbox
+        value={boolean('value', store.state.value)}
+        onChange={() => store.set({ value: !store.state.value })}
+        viewOnly={boolean('viewOnly', false)}
+        blackCheckbox
+      />
+    )),
   ),
 );

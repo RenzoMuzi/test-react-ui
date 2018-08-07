@@ -1,20 +1,24 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import classNames from 'classnames';
 
-class Checkbox extends Component {
-  render() {
-    const { value, viewOnly, onChange } = this.props;
+export default function Checkbox({
+  value, viewOnly, onChange, className, blackCheckbox,
+}) {
+  const classes = classNames('checkbox', 'inline', {
+    'black-checkbox': blackCheckbox,
+    className,
+  });
 
-    return (
-      <input
-        type="checkbox"
-        className="checkbox inline"
-        checked={value}
-        disabled={viewOnly}
-        onChange={({ target: { checked } }) => onChange(checked)}
-      />
-    );
-  }
+  return (
+    <input
+      type="checkbox"
+      className={classes}
+      checked={value}
+      disabled={viewOnly}
+      onChange={({ target: { checked } }) => onChange(checked)}
+    />
+  );
 }
 
 Checkbox.displayName = 'Checkbox';
@@ -23,15 +27,19 @@ Checkbox.defaultProps = {
   value: false,
   viewOnly: false,
   onChange: () => {},
+  className: '',
+  blackCheckbox: false,
 };
 
 Checkbox.propTypes = {
   /** Checked value */
   value: PropTypes.bool,
-  /** Specifies wether is checkeable or not */
+  /** Specifies whether is checkeable or not */
   viewOnly: PropTypes.bool,
   /** onChange event handler */
   onChange: PropTypes.func,
+  /** CSS classes names */
+  className: PropTypes.string,
+  /** Specifies whether is a black checkbox or not */
+  blackCheckbox: PropTypes.bool,
 };
-
-export default Checkbox;

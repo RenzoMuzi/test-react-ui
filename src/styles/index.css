@@ -41,6 +41,7 @@
 @import './link.css';
 @import './tooltip.css';
 @import './line-heights.css';
+@import './checkbox.css';
 
 /* Fonts */
 @import './gilroy-font-family';
