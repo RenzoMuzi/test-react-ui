@@ -231,7 +231,7 @@ DatePicker.defaultProps = {
   placeholder: null,
   inputClassName: 'input',
   date: new Date(),
-  closeCalendarOnSelect: false,
+  closeCalendarOnSelect: true,
 };
 
 export default onClickOutside(DatePicker);
