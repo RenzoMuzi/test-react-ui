@@ -31,6 +31,8 @@ class EditableText extends Component {
   };
 
   handleOnBlur = () => {
+    if (this.props.saveButtons) return;
+
     this.setState({ mode: Modes.Display });
 
     this.fireOnChange();
@@ -46,6 +48,13 @@ class EditableText extends Component {
     }
   };
 
+  handleOnCancel = () => this.setState({ mode: Modes.Display });
+
+  handleOnSave = () => {
+    this.setState({ mode: Modes.Display });
+    this.fireOnChange();
+  }
+
   render() {
     const { placeholder } = this.props;
 
@@ -60,10 +69,31 @@ class EditableText extends Component {
     );
   }
 
+  renderSaveButtons = () => {
+    const { saveButtons } = this.props;
+
+    return saveButtons && (
+      <div className="right">
+        <div
+          className="inline weight-400 uppercase pointer"
+          onClick={this.handleOnCancel}
+        >
+          Cancel
+        </div>
+        <div
+          className="pl1 inline weight-700 uppercase orange-primary pointer"
+          onClick={this.handleOnSave}
+        >
+          Save
+        </div>
+      </div>
+    );
+  }
+
   editableText(placeholder) {
     const { localText } = this.state;
 
-    return (
+    return [
       <input
         style={{ width: '100%' }}
         className="input"
@@ -74,17 +104,18 @@ class EditableText extends Component {
         value={localText || ''}
         placeholder={placeholder}
         onClick={e => e.stopPropagation()}
-      />
-    );
+      />,
+      this.renderSaveButtons(),
+    ];
   }
 
   displayText(placeholder) {
-    const { isEditable, text } = this.props;
+    const { isEditable, text, displayClassName } = this.props;
 
     const textClassName = classNames({ 'opacity-60': !text });
 
     return (
-      <div className="edit-text" onClick={this.handleOnClick}>
+      <div className={classNames('edit-text', displayClassName)} onClick={this.handleOnClick}>
         <span className={textClassName}>{text || placeholder}</span>
 
         {isEditable && (
@@ -127,7 +158,9 @@ EditableText.defaultProps = {
   text: '',
   placeholder: '',
   isEditable: false,
-  onChange: () => {},
+  onChange: () => { },
+  saveButtons: false,
+  displayClassName: '',
 };
 
 EditableText.propTypes = {
@@ -139,6 +172,10 @@ EditableText.propTypes = {
   isEditable: PropTypes.bool,
   /** onChange event handler */
   onChange: PropTypes.func,
+  /** CSS class for display mode */
+  displayClassName: PropTypes.string,
+  /** Show save/cancel links below the field */
+  saveButtons: PropTypes.bool,
 };
 
 export default EditableText;

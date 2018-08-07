@@ -7,3 +7,13 @@
   color: var(--orange-primary);
   text-decoration: underline;
 }
+
+.link-primary {
+  color: var(--orange-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-primary:hover {
+  text-decoration: underline;
+}
