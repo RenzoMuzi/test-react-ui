@@ -13,24 +13,24 @@ class ListDropdown extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-    const { value, record, redirect } = this.props;
+    const { value, url } = this.props;
     return (
       <div className="no-wrap">
         <a
           className="a-link"
-          href={redirect ? `${redirect}${record.PatientId}` : null}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
         >
           {value}
         </a>
-        <div className="inline-block">
+        <div className="inline-block pointer">
           <div
             onClick={() => {
               this.setState({ isOpen: !isOpen });
             }}
           >
-            <Icon className="inline-block fa-sm gray pl1" type="caret-down" size={20} />
+            <Icon className="inline-block fa-sm gray hover-orange-primary pl1" type="caret-down" size={20} />
           </div>
           {isOpen && (
             <div className="ml1 absolute border-bottom-shadow bg-white flex flex-column z3 border border-gray gray-primary max-height-5 overflow-y-scroll py1/3">
@@ -60,12 +60,12 @@ class ListDropdown extends React.PureComponent {
 
 ListDropdown.defaultProps = {
   value: '',
-  redirect: null,
+  url: null,
 };
 
 ListDropdown.propTypes = {
   value: PropTypes.string,
-  redirect: PropTypes.string,
+  url: PropTypes.string,
   dropdown: PropTypes.array.isRequired,
   record: PropTypes.object.isRequired,
 };

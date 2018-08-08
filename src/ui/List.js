@@ -37,7 +37,7 @@ class List extends Component {
         value={value}
         dropdown={dropdown}
         record={record}
-        redirect={options.redirect}
+        url={options.generateUrl && options.generateUrl(record)}
       />;
     }
 
