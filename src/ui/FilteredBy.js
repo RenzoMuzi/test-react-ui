@@ -17,6 +17,7 @@ const OperatorToLabelMap = (isDate) => ({
   Lte: '≤',
   Gte: '≥',
   Between: 'Between',
+  Contains: 'contains',
 });
 
 const convertValue = value => {
