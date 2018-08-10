@@ -2,23 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export default function Checkbox({
-  value, viewOnly, onChange, className, blackCheckbox,
-}) {
-  const classes = classNames('checkbox', 'inline', className, {
-    'black-checkbox': blackCheckbox,
-  });
-
-  return (
-    <input
-      type="checkbox"
-      className={classes}
-      checked={value}
-      disabled={viewOnly}
-      onChange={({ target: { checked } }) => onChange(checked)}
-    />
-  );
-}
+const Checkbox = ({
+  value,
+  viewOnly,
+  onChange,
+  className,
+}) => (
+  <input
+    type="checkbox"
+    className={classNames('checkbox', 'inline', className)}
+    checked={value}
+    disabled={viewOnly}
+    onChange={({ target: { checked } }) => onChange(checked)}
+  />
+);
 
 Checkbox.displayName = 'Checkbox';
 
@@ -27,7 +24,6 @@ Checkbox.defaultProps = {
   viewOnly: false,
   onChange: () => {},
   className: '',
-  blackCheckbox: false,
 };
 
 Checkbox.propTypes = {
@@ -39,6 +35,6 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   /** CSS classes names */
   className: PropTypes.string,
-  /** Specifies whether is a black checkbox or not */
-  blackCheckbox: PropTypes.bool,
 };
+
+export default Checkbox;

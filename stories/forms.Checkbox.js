@@ -26,24 +26,6 @@ stories.add(
 );
 
 stories.add(
-  'black checkbox',
-  withState({ value: true })(
-    withInfo(`
-      ~~~js
-      import { Checkbox } from 'pw-ui/ui/forms';
-      ~~~
-    `)(({ store }) => (
-      <Checkbox
-        value={boolean('value', store.state.value)}
-        onChange={() => store.set({ value: !store.state.value })}
-        viewOnly={boolean('viewOnly', false)}
-        blackCheckbox
-      />
-    )),
-  ),
-);
-
-stories.add(
   'with custom className',
   withState({ value: true })(
     withInfo(`
@@ -57,6 +39,24 @@ stories.add(
         viewOnly={boolean('viewOnly', false)}
         blackCheckbox
         className={text('className', 'some-class')}
+      />
+    )),
+  ),
+);
+
+stories.add(
+  'With the black checkbox className',
+  withState({ value: true })(
+    withInfo(`
+      ~~~js
+      import { Checkbox } from 'pw-ui/ui/forms';
+      ~~~
+    `)(({ store }) => (
+      <Checkbox
+        value={boolean('value', store.state.value)}
+        onChange={() => store.set({ value: !store.state.value })}
+        viewOnly={boolean('viewOnly', false)}
+        className="black-checkbox"
       />
     )),
   ),
