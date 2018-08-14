@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object } from '@storybook/addon-knobs';
-import { ActionButton } from 'ui/ActionButton';
+import ActionButton from 'ui/ActionButton';
 
 const stories = storiesOf('ui|ActionButton', module);
 stories.addDecorator(withKnobs);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import pick from 'lodash/pick';
@@ -46,37 +46,34 @@ export const filterPropsForType = (props, type) =>
 
 export const getComponent = type => Types[type];
 
-class Field extends Component {
-  render() {
-    const {
-      label, bold, subField, children,
-    } = this.props;
-    const fieldClassNames = classNames(
-      'py1',
-      'flex',
-      'flex-center',
-      'justify-between',
-      {
-        'border-bottom border-gray-50': !subField && !bold,
-      },
-    );
-    const labelClassNames = classNames(
-      'lh3',
-      'col',
-      'col-4',
-      'pr1',
-      { pl2: !subField },
-      { pl3: subField },
-      { 'weight-700': bold },
-    );
-    return (
-      <div className={fieldClassNames}>
-        <div className={labelClassNames}>{label}</div>
-        <div className="col col-8 pr2">{children}</div>
-      </div>
-    );
-  }
-}
+const Field = ({
+  label, bold, subField, children,
+}) => {
+  const fieldClassNames = classNames(
+    'py1',
+    'flex',
+    'flex-center',
+    'justify-between',
+    {
+      'border-bottom border-gray-50': !subField && !bold,
+    },
+  );
+  const labelClassNames = classNames(
+    'lh3',
+    'col',
+    'col-4',
+    'pr1',
+    { pl2: !subField },
+    { pl3: subField },
+    { 'weight-700': bold },
+  );
+  return (
+    <div className={fieldClassNames}>
+      <div className={labelClassNames}>{label}</div>
+      <div className="col col-8 pr2">{children}</div>
+    </div>
+  );
+};
 
 Field.displayName = 'Field';
 

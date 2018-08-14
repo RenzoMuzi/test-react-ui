@@ -6,7 +6,7 @@ import onClickOutside from 'react-onclickoutside';
 import ContextualMenu from './ContextualMenu';
 import Icon from './Icon';
 
-export class ActionButton extends PureComponent {
+class ActionButton extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

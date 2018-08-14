@@ -10,6 +10,7 @@ import SecondaryButton from './SecondaryButton';
 
 class EditAttributeModal extends Component {
   render() {
+    // eslint-disable-next-line
     console.warn('EditAttributeModal is a deprecated component and will be removed on future versions.');
     const {
       isOpen, title, children, onSubmit,

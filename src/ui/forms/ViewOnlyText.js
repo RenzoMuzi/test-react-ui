@@ -1,21 +1,17 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import valuesUtils from 'utils/values';
 
-class ViewOnlyText extends Component {
-  render() {
-    const { value } = this.props;
+const ViewOnlyText = ({ value }) => {
+  const className = classNames('pl1', {
+    'gray-secondary': valuesUtils.isEmpty(value),
+  });
 
-    const className = classNames('pl1', {
-      'gray-secondary': valuesUtils.isEmpty(value),
-    });
+  const text = valuesUtils.isEmpty(value) ? 'N/A' : value;
 
-    const text = valuesUtils.isEmpty(value) ? 'N/A' : value;
-
-    return <div className={className}>{text}</div>;
-  }
-}
+  return <div className={className}>{text}</div>;
+};
 
 ViewOnlyText.displayName = 'ViewOnlyText';
 
