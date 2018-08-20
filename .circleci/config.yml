@@ -32,14 +32,11 @@ jobs:
           name: Update Documentation
           shell: /bin/sh
           command: |
-              if [ "${CIRCLE_BRANCH}" != "pages-fix" ];
+              if [ "${CIRCLE_BRANCH}" != "develop" ];
                 then
                 echo "Only build documentation on develop branch"
                 exit 0;
               fi
-
-              npm install
-              npm run storybook:build
 
               git init
               git config --global user.name "Mauricio Cousillas"
@@ -47,6 +44,9 @@ jobs:
 
               git remote add upstream "git@github.com:moove-it/pw-ui.git"
               git fetch upstream && git reset --hard
+
+              npm install
+              npm run storybook:build
 
               mv docs/* .
               git add .
