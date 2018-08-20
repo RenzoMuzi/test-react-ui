@@ -37,6 +37,7 @@ jobs:
                 echo "Only build documentation on develop branch"
                 exit 0;
               fi
+
               git init
               git config --global user.name "Mauricio Cousillas"
               git config --global user.email "mauricio.cousillas@moove-it.com"
@@ -44,7 +45,18 @@ jobs:
               git fetch upstream && git reset --hard
               npm install
               npm run storybook:build
-              git add .
+
+              git add ./docs
+              git add .gitignore
+              git stash
+              git clean -fdx
+              git rm -rf .
+              git stash apply
+              git mv docs/* .
+              git clean -fdx
+
+              touch .
+              git add -A -f .
               git commit -m "Updated documentation"
               git push -f upstream HEAD:gh-pages
 
