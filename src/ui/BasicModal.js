@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from './Modal';
-import PrimaryButton from './forms/PrimaryButton';
+import Button from './forms/Button';
 
 const BasicModal = ({
   isOpen, title, body, onClose, allowScrolling,
@@ -21,7 +21,7 @@ const BasicModal = ({
         {body}
       </div>
       <div className="my3 flex justify-around">
-        <PrimaryButton label="OK" onClick={onClose} className="pc-btn--big" />
+        <Button label="OK" onClick={onClose} btnClassName="pc-btn--big" />
       </div>
     </div>
   </Modal>

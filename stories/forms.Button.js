@@ -9,7 +9,7 @@ const stories = storiesOf('ui|forms/Button', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { Button } from 'pw-ui/ui/forms';
@@ -19,6 +19,55 @@ stories.add(
       onClick={action('clicked')}
       label={text('label', 'Button')}
       disabled={boolean('disabled', false)}
+    />
+  )),
+);
+
+stories.add(
+  'Disabled',
+  withInfo(`
+    ~~~js
+    import { Button } from 'pw-ui/ui/forms';
+    ~~~
+  `)(() => (
+    <Button
+      onClick={action('clicked')}
+      label={text('label', 'Button')}
+      disabled={boolean('disabled', true)}
+    />
+  )),
+);
+
+stories.add(
+  'Primary Styles',
+  withInfo(`
+    ~~~js
+    import { Button } from 'pw-ui/ui/forms';
+    ~~~
+  `)(() => (
+    <Button
+      onClick={action('clicked')}
+      label={text('label', 'Button')}
+      disabled={boolean('disabled', false)}
+      btnClassName={text('btnClassName', 'pc-btn-primary')}
+      labelClassName={text('labelClassName', 'mx1')}
+    />
+  )),
+);
+
+stories.add(
+  'Secondary Styles',
+  withInfo(`
+    ~~~js
+    import { Button } from 'pw-ui/ui/forms';
+    ~~~
+  `)(() => (
+    <Button
+      onClick={action('clicked')}
+      label={text('label', 'Button')}
+      disabled={boolean('disabled', false)}
+      btnClassName={text('btnClassName', 'pc-btn-secondary')}
+      labelClassName={text('labelClassName', 'mx1')}
     />
   )),
 );

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import PrimaryButton from './PrimaryButton';
-import SecondaryButton from './SecondaryButton';
+import Button from './Button';
 
 /**
  * @deprecated this component is deprecated and should not be used anymore.
@@ -23,12 +22,13 @@ class EditAttributeModal extends Component {
             <div className="p1 rounded-top-large bg-gray fit">{title}</div>
             <div className="p1 fit">{children}</div>
             <div className="p1 flex justify-center">
-              <SecondaryButton
+              <Button
                 label="Cancel"
                 onClick={this.close}
-                className="mr2"
+                btnClassName="pc-btn-secondary"
+                labelClassName="mr2"
               />
-              <PrimaryButton label="Save" onClick={onSubmit} />
+              <Button btnClassName="pc-btn-primary" label="Save" onClick={onSubmit} />
             </div>
           </div>
           <div className="c-edit-modal__backdrop" onClick={this.close} />

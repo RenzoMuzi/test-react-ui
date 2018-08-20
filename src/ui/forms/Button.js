@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Button = ({
-  className, classNameContent, disabled, label, onClick,
+  btnClassName, labelClassName, disabled, label, onClick,
 }) => (
   <button
     disabled={disabled}
-    className={classNames('pc-btn', className)}
+    className={classNames('pc-btn', btnClassName)}
     onClick={onClick}
   >
-    <span className={classNameContent}>{label}</span>
+    <span className={labelClassName}>{label}</span>
   </button>
 );
 
 Button.displayName = 'Button';
 
 Button.defaultProps = {
-  className: 'pc-btn',
-  classNameContent: 'mx1',
+  btnClassName: 'pc-btn',
+  labelClassName: 'mx1',
   disabled: false,
   label: '',
   onClick: () => {},
@@ -26,9 +26,9 @@ Button.defaultProps = {
 
 Button.propTypes = {
   /** CSS Class names for the button  */
-  className: PropTypes.string,
+  btnClassName: PropTypes.string,
   /** CSS Class names for the button content */
-  classNameContent: PropTypes.string,
+  labelClassName: PropTypes.string,
   /** Can be clicked or not */
   disabled: PropTypes.bool,
   /** Button label */
