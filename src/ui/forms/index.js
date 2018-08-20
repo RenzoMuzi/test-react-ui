@@ -1,6 +1,5 @@
 export Button from './Button';
 export Checkbox from './Checkbox';
-export Dropdown from './Dropdown';
 export EditAttributeModal from './EditAttributeModal';
 export EditTextAttribute from './EditTextAttribute';
 export EditableText from './EditableText';

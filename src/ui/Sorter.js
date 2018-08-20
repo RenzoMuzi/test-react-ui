@@ -28,7 +28,6 @@ const Sorter = ({
   className,
   chickletClassName,
   dropdownOptions,
-  dropdownText,
   sorting,
   onSortChange,
 }) => {
@@ -38,6 +37,19 @@ const Sorter = ({
     onSortChange(update(sorting, { $splice: [[index, 1, value]] }));
   const deleteSelectedOption = index =>
     onSortChange(update(sorting, { $splice: [[index, 1]] }));
+
+  const dropdownHeader = () => (
+    <div
+      className="orange"
+    >
+      add sorting
+      {<Icon
+        type="caret-down"
+        size={16}
+        className="inline-block fa-lg pl1 gray-border-color"
+      />}
+    </div>
+  );
 
   return (
     <div className={classNames('flex flex-wrap items-center lh-21', className)}>
@@ -55,13 +67,14 @@ const Sorter = ({
       {filteredOptions.length > 0 && (
         <div>
           <CustomDropdown
-            label={dropdownText}
-            selectStyle={{ paddingTop: 0, paddingBottom: 0 }}
-            selectClasses="sandy-brown border-none px2 fs-14"
-            noIcon
-            value=""
+            headerComponent={dropdownHeader}
             onChange={index => onSelectOption(filteredOptions[index])}
             options={filteredOptions}
+            containerClassName="relative orange"
+            className="pointer"
+            optionsContainerClassName="ml1 py1/3 absolute border-bottom-shadow bg-white min-full-width flex flex-column z3 border border-gray gray-primary rounded max-height-1 overflow-scroll"
+            optionClassName="p1 nowrap custom-select-option pointer"
+            disabledOptionClassName="p1 nowrap gray"
           />
         </div>
       )}
@@ -86,7 +99,6 @@ SortChicklet.propTypes = {
 Sorter.displayName = 'Sorter';
 
 Sorter.defaultProps = {
-  dropdownText: 'add sorting',
   className: '',
   chickletClassName: '',
 };
@@ -98,8 +110,6 @@ Sorter.propTypes = {
   chickletClassName: PropTypes.string,
   /** Dropdown options */
   dropdownOptions: PropTypes.array.isRequired,
-  /** Dropdown label */
-  dropdownText: PropTypes.string,
   /** Current sorting items */
   sorting: PropTypes.array.isRequired,
   /** onSortChange callback function */

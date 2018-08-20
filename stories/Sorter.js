@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, array } from '@storybook/addon-knobs';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withState } from '@dump247/storybook-state';
 import Sorter from 'ui/Sorter';
 
@@ -31,7 +31,7 @@ stories.add(
       <Sorter
         className={text('className', '')}
         chickletClassName={text('chickletClassName', '')}
-        dropdownOptions={array('dropdownOptions', sortOptions)}
+        dropdownOptions={object('dropdownOptions', sortOptions)}
         dropdownText={text('dropdownText', 'add sorting')}
         sorting={text('sorting', store.state.sorting)}
         onSortChange={sort => store.set({ sorting: sort })}

@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import pick from 'lodash/pick';
 
 import Checkbox from './Checkbox';
-import Dropdown from './Dropdown';
+import CustomDropdown from '../CustomDropdown';
 import Input from './Input';
 import TextArea from './Textarea';
 import ToggleSwitch from './ToggleSwitch';
 
 const Types = {
-  select: Dropdown,
+  select: CustomDropdown,
   text: Input,
   textarea: TextArea,
   checkbox: Checkbox,

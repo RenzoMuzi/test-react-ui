@@ -53,14 +53,17 @@ stories.add(
 const dropdownOptions = [
   {
     name: 'Option 1',
+    value: 10,
     onSelect: () => console.log('Clicked On Option 1'),
   },
   {
     name: 'Option 2',
+    value: 20,
     onSelect: () => console.log('Clicked On Option 2'),
   },
   {
     name: 'Option 3',
+    value: 30,
     onSelect: () => console.log('Clicked On Option 3'),
   },
 ];
