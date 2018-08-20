@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'font-awesome/css/font-awesome.css';
+
 import Icon from './Icon';
 
 class DropdownHeader extends Component {

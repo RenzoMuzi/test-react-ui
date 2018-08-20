@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import update from 'immutability-helper';
 import find from 'lodash/find';
+
 import Icon from './Icon';
 import CustomDropdown from './CustomDropdown';
 

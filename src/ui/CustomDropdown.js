@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import PropTypes from 'prop-types';
 import find from 'lodash/find';
-import 'font-awesome/css/font-awesome.css';
+
 import { withPopover } from './Popover';
 import DropdownHeader from './DropdownHeader';
 import FloatingList from './FloatingList';

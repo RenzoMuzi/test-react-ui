@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-
 import React, { Component } from 'react';
-
 import * as validationsUtils from '../utils/validations';
 
 const MarginX = 20;
