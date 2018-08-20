@@ -1,7 +1,5 @@
 export Button from './Button';
 export Checkbox from './Checkbox';
-export EditAttributeModal from './EditAttributeModal';
-export EditTextAttribute from './EditTextAttribute';
 export EditableText from './EditableText';
 export Field from './Field';
 export Input from './Input';

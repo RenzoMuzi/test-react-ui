@@ -52,19 +52,19 @@ stories.add(
 
 const dropdownOptions = [
   {
-    name: 'Option 1',
+    label: 'Option 1',
     value: 10,
-    onSelect: () => console.log('Clicked On Option 1'),
+    handleItemSelect: () => console.log('Clicked On Option 1'),
   },
   {
-    name: 'Option 2',
+    label: 'Option 2',
     value: 20,
-    onSelect: () => console.log('Clicked On Option 2'),
+    handleItemSelect: () => console.log('Clicked On Option 2'),
   },
   {
-    name: 'Option 3',
+    label: 'Option 3',
     value: 30,
-    onSelect: () => console.log('Clicked On Option 3'),
+    handleItemSelect: () => console.log('Clicked On Option 3'),
   },
 ];
 

@@ -6,7 +6,8 @@ import valuesUtils from 'utils/values';
 import isEmpty from 'lodash/isEmpty';
 import { Checkbox } from './forms';
 import loadingGif from '../images/loading.gif';
-import ListDropdown from './ListDropdown';
+import Icon from './Icon';
+import CustomDropdown from './CustomDropdown';
 
 class List extends Component {
   render() {
@@ -33,12 +34,7 @@ class List extends Component {
 
     const value = values.join('/');
     if (columnIndex === 0 && showDropdown && dropdown.length > 0) {
-      return <ListDropdown
-        value={value}
-        dropdown={dropdown}
-        record={record}
-        url={options.generateUrl && options.generateUrl(record)}
-      />;
+      return this.renderDropdown(value, options, record, dropdown);
     }
 
     if (options.subtitleJoin === 'list') {
@@ -47,6 +43,30 @@ class List extends Component {
 
     return value;
   };
+
+  renderDropdown = (value, options, record, dropdown) => {
+    const dropdownHeader = () => <Icon className="inline-block fa-sm gray hover-orange-primary pl1" type="caret-down" size={20} />;
+    return (
+      <div className="no-wrap">
+        <a
+          className="a-link pointer"
+          href={options.generateUrl && options.generateUrl(record)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {value}
+        </a>
+        <div className="inline-block pointer">
+          <CustomDropdown
+            value={value}
+            headerComponent={dropdownHeader}
+            options={dropdown}
+            record={record}
+          />
+        </div>
+      </div>
+    );
+  }
 
   renderValue = (value, format, prefix, subKey) => {
     let valueToShow = value || '';

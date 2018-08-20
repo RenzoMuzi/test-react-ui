@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import loadingGif from 'images/loading.gif';
 
-const LoadingModal = ({ text, className }) => (
+const Loading = ({ text, className }) => (
   <div className={classNames('center', className)}>
     <img src={loadingGif} alt="loading" />
     <div className="weight-700 fs17 py1">
@@ -12,16 +12,16 @@ const LoadingModal = ({ text, className }) => (
   </div>
 );
 
-LoadingModal.displayName = 'LoadingModal';
+Loading.displayName = 'Loading';
 
-LoadingModal.defaultProps = {
+Loading.defaultProps = {
   text: 'Loading...',
   className: '',
 };
 
-LoadingModal.propTypes = {
+Loading.propTypes = {
   text: PropTypes.string,
   className: PropTypes.string,
 };
 
-export default LoadingModal;
+export default Loading;
