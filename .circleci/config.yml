@@ -32,34 +32,28 @@ jobs:
           name: Update Documentation
           shell: /bin/sh
           command: |
-              if [ "${CIRCLE_BRANCH}" != "develop" ];
+              if [ "${CIRCLE_BRANCH}" != "pages-fix" ];
                 then
                 echo "Only build documentation on develop branch"
                 exit 0;
               fi
 
-              git init
-              git config --global user.name "Mauricio Cousillas"
-              git config --global user.email "mauricio.cousillas@moove-it.com"
-              git remote add upstream "git@github.com:moove-it/pw-ui.git"
-              git fetch upstream && git reset --hard
               npm install
               npm run storybook:build
 
-              git add -f docs/*
-              git add .gitignore
-              git stash
-              git clean -fdx
-              git rm -rf .
-              git stash apply
-              git mv docs/* .
-              git clean -fdx
+              git init
+              git config --global user.name "Mauricio Cousillas"
+              git config --global user.email "mauricio.cousillas@moove-it.com"
 
-              touch .
-              git add -A -f .
+              git remote add upstream "git@github.com:moove-it/pw-ui.git"
+              git fetch upstream && git reset --hard
+
+              mv docs/* .
+              git add .
+              git stash
+              rm -rf ./*
+              git stash apply
+              git add .
+
               git commit -m "Updated documentation"
               git push -f upstream HEAD:gh-pages
-
-
-
-
