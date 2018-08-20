@@ -46,7 +46,7 @@ jobs:
               npm install
               npm run storybook:build
 
-              git add -f docs/
+              git add -f docs/*
               git add .gitignore
               git stash
               git clean -fdx
