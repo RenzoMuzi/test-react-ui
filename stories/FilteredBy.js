@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, array } from '@storybook/addon-knobs';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withState } from '@dump247/storybook-state';
 import FilteredBy from 'ui/FilteredBy';
 
@@ -21,7 +21,7 @@ const initialFilters = [
 ];
 
 stories.add(
-  'default',
+  'Default',
   withState({ filters: initialFilters })(
     withInfo(`
       ~~~js
@@ -29,10 +29,31 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <FilteredBy
-        className={text('className', '')}
+        className={text('className')}
         chickletClassName={text('chickletClassName', '')}
-        filters={array('filters', store.state.filters)}
-        onChange={filters => store.set({ filters })}
+        filters={object('filters', store.state.filters)}
+        onChange={(filters, i) => store.set(
+          { filters: store.state.filters.slice(0, i).concat(store.state.filters.slice(i + 1)) })}
+      />
+    )),
+  ),
+);
+
+
+stories.add(
+  'Custom',
+  withState({ filters: initialFilters })(
+    withInfo(`
+      ~~~js
+      import { FilteredBy } from 'pw-ui/ui';
+      ~~~
+    `)(({ store }) => (
+      <FilteredBy
+        className={text('className', 'sky-blue bold')}
+        chickletClassName={text('chickletClassName', 'bg-gray-highlight gray-primary ')}
+        filters={object('filters', store.state.filters)}
+        onChange={(filters, i) => store.set(
+          { filters: store.state.filters.slice(0, i).concat(store.state.filters.slice(i + 1)) })}
       />
     )),
   ),

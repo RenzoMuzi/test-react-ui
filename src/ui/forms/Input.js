@@ -37,12 +37,19 @@ class Input extends Component {
   }
 
   renderWithPrefix() {
-    const { prefix } = this.props;
+    const { prefix, prefixClassName } = this.props;
 
-    return [
-      <span className="center width-32px input-prefix">{prefix}</span>,
-      this.renderInput(),
-    ];
+    const prefixStyles = classNames(
+      'center width-32px input-prefix',
+      prefixClassName,
+    );
+
+    return (
+      <div className="flex flex-row">
+        <span className={prefixStyles}>{prefix}</span>
+        {this.renderInput()}
+      </div>
+    );
   }
 
   renderInput() {
@@ -59,12 +66,12 @@ class Input extends Component {
     } = this.props;
 
     const inputClassName = classNames(
-      'input col-12 mb0 field',
+      'input flex mb0 field',
       className,
       { 'with-prefix': !!prefix },
     );
 
-    const disabledClassName = 'input col-12 mb0 field bg-gray gray-secondary';
+    const disabledClassName = 'input flex mb0 field bg-gray gray-secondary';
 
     return (
       <input
@@ -90,6 +97,7 @@ Input.defaultProps = {
   type: 'text',
   autoFocus: false,
   className: '',
+  prefixClassName: '',
   inputRef: () => {},
   maxLength: null,
   placeholder: '',
@@ -129,6 +137,8 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   /** Renders a prefix */
   prefix: PropTypes.string,
+  /** Css class to customize the prefix */
+  prefixClassName: PropTypes.string,
 };
 
 export default Input;

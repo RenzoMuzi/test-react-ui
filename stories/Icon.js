@@ -8,7 +8,7 @@ const stories = storiesOf('ui|Icon', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { Icon } from 'pw-ui/ui';

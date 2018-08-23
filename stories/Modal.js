@@ -10,6 +10,30 @@ const stories = storiesOf('ui|Modal', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
+  'Basic Modal',
+  withState({ isOpen: false })(
+    withInfo(`
+      ~~~js
+      import { BasicModal } from 'pw-ui/ui';
+      ~~~
+    `)(({ store }) => (
+      <div>
+        <button type="button" onClick={() => store.set({ isOpen: true })}>
+          Open modal
+        </button>
+        <BasicModal
+          isOpen={boolean('isOpen', store.state.isOpen)}
+          title={text('title', 'Info')}
+          body={text('body', 'Some content')}
+          onClose={() => store.set({ isOpen: false })}
+          allowScrolling
+        />
+      </div>
+    )),
+  ),
+);
+
+stories.add(
   'Standard',
   withState({ isOpen: false })(
     withInfo(`
@@ -38,7 +62,7 @@ stories.add(
             </div>
             <img
               alt="Cats"
-              src="http://i0.kym-cdn.com/photos/images/newsfeed/000/191/645/d8d.jpg"
+              src="https://ih1.redbubble.net/image.420294057.8666/ap,550x550,16x12,1,transparent,t.u1.png"
               height="400"
             />
           </div>
@@ -46,30 +70,6 @@ stories.add(
             {text('Modal text', 'Modal content text')}
           </p>
         </Modal>
-      </div>
-    )),
-  ),
-);
-
-stories.add(
-  'Basic Modal',
-  withState({ isOpen: false })(
-    withInfo(`
-      ~~~js
-      import { BasicModal } from 'pw-ui/ui';
-      ~~~
-    `)(({ store }) => (
-      <div>
-        <button type="button" onClick={() => store.set({ isOpen: true })}>
-          Open modal
-        </button>
-        <BasicModal
-          isOpen={boolean('isOpen', store.state.isOpen)}
-          title={text('title', 'Info')}
-          body={text('body', 'Some content')}
-          onClose={() => store.set({ isOpen: false })}
-          allowScrolling
-        />
       </div>
     )),
   ),

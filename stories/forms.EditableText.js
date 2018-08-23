@@ -10,7 +10,7 @@ const stories = storiesOf('ui|forms/EditableText', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'with text',
+  'With text',
   withState({ text: 'Some text' })(
     withInfo(`
       ~~~js
@@ -23,12 +23,12 @@ stories.add(
         isEditable={boolean('isEditable', true)}
         onChange={(e) => store.set({ text: e })}
       />
-    ))
+    )),
   ),
 );
 
 stories.add(
-  'placeholder',
+  'Placeholder',
   withState({ text: '' })(
     withInfo(`
       ~~~js
@@ -41,12 +41,32 @@ stories.add(
         isEditable={boolean('isEditable', true)}
         onChange={(e) => store.set({ text: e })}
       />
-    ))
+    )),
   ),
 );
 
 stories.add(
-  'non editable',
+  'Custom Icon',
+  withState({ text: '' })(
+    withInfo(`
+      ~~~js
+      import { EditableText } from 'pw-ui/ui/forms';
+      ~~~
+    `)(({ store }) => (
+      <EditableText
+        text={text('text', store.state.text)}
+        placeholder={text('placeholder', 'Custom icon')}
+        icon={text('icon', 'edit')}
+        iconClassName={text('iconClassName', 'pl1')}
+        isEditable={boolean('isEditable', true)}
+        onChange={(e) => store.set({ text: e })}
+      />
+    )),
+  ),
+);
+
+stories.add(
+  'Non editable',
   withInfo(`
     ~~~js
     import { EditableText } from 'pw-ui/ui/forms';
@@ -59,4 +79,26 @@ stories.add(
       onChange={action('onChange')}
     />
   )),
+);
+
+
+stories.add(
+  'With save and cancel buttons',
+  withState({ text: 'Some text' })(
+    withInfo(`
+      ~~~js
+      import { EditableText } from 'pw-ui/ui/forms';
+      ~~~
+    `)(({ store }) => (
+      <EditableText
+        text={text('text', store.state.text)}
+        placeholder={text('placeholder', 'Some placeholder')}
+        isEditable={boolean('isEditable', true)}
+        onChange={(e) => store.set({ text: e })}
+        saveButtons
+        cancelBtnClassName={text('cancelBtnClassName', 'uppercase')}
+        saveBtnClassName={text('saveBtnClassName', 'uppercase orange-primary pointer')}
+      />
+    )),
+  ),
 );

@@ -24,16 +24,16 @@ class BasicTable extends Component {
   }
 
   renderLoading() {
-    const { columns } = this.props;
+    const { columns, loadingSrc, loadingClassName } = this.props;
 
     return (
       <tbody className="center p1">
         <tr>
           <td colSpan={columns.length}>
             <img
-              src={loadingGif}
+              src={loadingSrc}
               alt="loading"
-              className="align-center width-32px"
+              className={loadingClassName}
             />
           </td>
         </tr>
@@ -42,12 +42,14 @@ class BasicTable extends Component {
   }
 
   renderHeader() {
-    const { columns, removeAction, selectAction } = this.props;
+    const {
+      columns, removeAction, selectAction, headerClassName,
+    } = this.props;
 
     const tableFlexSize = this.calculateTableFlexSize();
 
     return (
-      <thead className="c-table__header">
+      <thead className={headerClassName}>
         <tr className="pl1">
           {selectAction && this.renderSelectAllHeader()}
           {columns.map((column, index) =>
@@ -164,13 +166,13 @@ class BasicTable extends Component {
   }
 
   renderDeleteActionCell(record, i) {
-    const { viewOnly, onDelete } = this.props;
+    const { viewOnly, onDelete, deleteClassName } = this.props;
 
     return (
       <td>
         {!viewOnly && (
           <i
-            className="fa fa-times orange-primary pointer"
+            className={deleteClassName}
             onClick={() => onDelete(record, i)}
           />
         )}
@@ -231,6 +233,10 @@ BasicTable.defaultProps = {
   highlightFunc: () => {},
   highlightClass: '',
   loading: false,
+  loadingSrc: loadingGif,
+  loadingClassName: 'align-center width-32px',
+  headerClassName: 'c-table__header',
+  deleteClassName: 'fa fa-times orange-primary pointer',
 };
 
 BasicTable.propTypes = {
@@ -268,6 +274,14 @@ BasicTable.propTypes = {
   modal: PropTypes.bool,
   /** Table content is loading or not */
   loading: PropTypes.bool,
+  /** Loading img src */
+  loadingSrc: PropTypes.string,
+  /** Loading icon style */
+  loadingClassName: PropTypes.string,
+  /** CSS class name for table header */
+  headerClassName: PropTypes.string,
+  /** CSS class name for delete icon */
+  deleteClassName: PropTypes.string,
 };
 
 export default BasicTable;

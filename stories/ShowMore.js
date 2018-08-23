@@ -8,7 +8,7 @@ const stories = storiesOf('ui|ShowMore', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { ShowMore } from 'pw-ui/ui';
@@ -17,8 +17,28 @@ stories.add(
     <ShowMore
       className={text('className')}
       iconClassName={text('iconClassName')}
-      showMoreText={text('showMore')}
-      showLessText={text('showLessText')}
+      showMoreText={text('showMoreText label')}
+      showLessText={text('showLessText lable')}
+    >
+      <div>
+        This is the content...
+      </div>
+    </ShowMore>
+  )),
+);
+
+stories.add(
+  'Custom',
+  withInfo(`
+    ~~~js
+    import { ShowMore } from 'pw-ui/ui';
+    ~~~
+  `)(() => (
+    <ShowMore
+      className={text('className', 'fs20 sky-blue')}
+      iconClassName={text('iconClassName', 'sky-blue')}
+      showMoreText={text('showMoreText label', 'This can show more info')}
+      showLessText={text('showLessText lable', 'Or less info')}
     >
       <div>
         This is the content...

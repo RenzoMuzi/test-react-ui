@@ -47,18 +47,17 @@ export const filterPropsForType = (props, type) =>
 export const getComponent = type => Types[type];
 
 const Field = ({
-  label, bold, subField, children,
+  label, bold, subField, children, contentClassName, fieldClassNames, labelClassNames,
 }) => {
-  const fieldClassNames = classNames(
+  const fieldClass = classNames(
     'py1',
     'flex',
     'flex-center',
     'justify-between',
-    {
-      'border-bottom border-gray-50': !subField && !bold,
-    },
+    { 'border-bottom border-gray-50': !subField && !bold },
+    fieldClassNames,
   );
-  const labelClassNames = classNames(
+  const labelClass = classNames(
     'lh3',
     'col',
     'col-4',
@@ -66,11 +65,12 @@ const Field = ({
     { pl2: !subField },
     { pl3: subField },
     { 'weight-700': bold },
+    labelClassNames,
   );
   return (
-    <div className={fieldClassNames}>
-      <div className={labelClassNames}>{label}</div>
-      <div className="col col-8 pr2">{children}</div>
+    <div className={fieldClass}>
+      <div className={labelClass}>{label}</div>
+      <div className={contentClassName}>{children}</div>
     </div>
   );
 };
@@ -81,6 +81,9 @@ Field.defaultProps = {
   bold: false,
   subField: false,
   children: null,
+  contentClassName: 'col col-8 lh3',
+  fieldClassNames: undefined,
+  labelClassNames: undefined,
 };
 
 Field.propTypes = {
@@ -92,6 +95,12 @@ Field.propTypes = {
   subField: PropTypes.bool,
   /** Field content */
   children: PropTypes.node,
+  /** Css for content div */
+  contentClassName: PropTypes.string,
+  /** Css for field container */
+  fieldClassNames: PropTypes.string,
+  /** Css for field label */
+  labelClassNames: PropTypes.string,
 };
 
 export default Field;

@@ -15,6 +15,10 @@
   background-color: var(--orange-primary);
 }
 
+.action-button-item-example:hover {
+  background-color: var(--gray);
+}
+
 .action-button-separator {
   height: 1px;
   background-color: var(--gray-border);

@@ -35,6 +35,8 @@ export class Textarea extends Component {
       viewOnly,
       autoFocus,
       showLimit,
+      limitClassName,
+      containerClassName,
     } = this.props;
 
     if (viewOnly) {
@@ -44,7 +46,7 @@ export class Textarea extends Component {
     const textAreaClassName = classNames('textarea', className);
 
     return (
-      <div className="full-width">
+      <div className={classNames('full-width', containerClassName)}>
         <textarea
           ref={inputRef}
           className={textAreaClassName}
@@ -57,7 +59,7 @@ export class Textarea extends Component {
         />
         {maxLength && !viewOnly && showLimit && (
           <div className="flex justify-end">
-            <span className="fs-12 red p1/2">{maxLength - value.length} characters remaining</span>
+            <span className={limitClassName}>{maxLength - value.length} characters remaining</span>
           </div>
         )}
       </div>
@@ -75,6 +77,8 @@ Textarea.displayName = 'Textarea';
 
 Textarea.defaultProps = {
   className: '',
+  containerClassName: '',
+  limitClassName: 'fs-12 red p1/2',
   maxLength: 120,
   placeholder: '',
   value: '',
@@ -90,6 +94,10 @@ Textarea.defaultProps = {
 Textarea.propTypes = {
   /** CSS class to customize the component */
   className: PropTypes.string,
+  /** CSS class to customize the container component */
+  containerClassName: PropTypes.string,
+  /** CSS class to customize the limit counter */
+  limitClassName: PropTypes.string,
   /** Reference to be handled from parent */
   inputRef: PropTypes.func,
   /** Maximum characters count */

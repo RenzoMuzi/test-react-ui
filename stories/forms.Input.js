@@ -10,7 +10,7 @@ const stories = storiesOf('ui|forms/Input', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withState({ value: 'Some text' })(
     withInfo(`
       ~~~js
@@ -30,13 +30,14 @@ stories.add(
         onSubmit={action('onSubmit')}
         autoFocus={boolean('autoFocus', false)}
         prefix={text('prefix', '')}
+        prefixClassName={text('prefixClassName', '')}
       />
     )),
   ),
 );
 
 stories.add(
-  'view only',
+  'View only',
   withState({ value: 'Some text' })(
     withInfo(`
       ~~~js
@@ -49,6 +50,27 @@ stories.add(
         value={store.state.value}
         viewOnly={boolean('viewOnly', true)}
         prefix={text('prefix', '')}
+        prefixClassName={text('prefixClassName', '')}
+      />
+    )),
+  ),
+);
+
+stories.add(
+  'With prefix',
+  withState({ value: 'Some text with prefix' })(
+    withInfo(`
+      ~~~js
+      import { Input } from 'pw-ui/ui/forms';
+      ~~~
+    `)(({ store }) => (
+      <Input
+        inputRef={() => {}}
+        placeholder={text('placeholder', 'Some placeholder')}
+        value={store.state.value}
+        viewOnly={boolean('viewOnly', false)}
+        prefix={text('prefix', '$')}
+        prefixClassName={text('prefixClassName', 'bold red')}
       />
     )),
   ),

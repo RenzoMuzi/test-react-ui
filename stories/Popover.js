@@ -9,7 +9,7 @@ const stories = storiesOf('ui|Popover', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { Popover } from 'pw-ui/ui';
@@ -24,7 +24,24 @@ stories.add(
 );
 
 stories.add(
-  'textarea with popover',
+  'Custom Popover',
+  withInfo(`
+    ~~~js
+    import { Popover } from 'pw-ui/ui';
+    ~~~
+  `)(() => (
+    <div style={{ height: '42px' }}>
+      <Popover
+        content={text('content', 'Custom content')}
+        popoverClassName={text('popoverClassName', 'c-popover-custom')}
+        containerClassName={text('containerClassName', 'black bold')}
+      />
+    </div>
+  )),
+);
+
+stories.add(
+  'Textarea with popover',
   withInfo(`
     ~~~js
     import { TextareaWithPopover } from 'pw-ui/ui/forms';

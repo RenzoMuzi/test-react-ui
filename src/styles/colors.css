@@ -58,6 +58,10 @@
   background: var(--orange-highlight);
 }
 
+.bg-gray-highlight {
+  background: var(--gray-background);
+}
+
 .bg-sky-blue {
   background: var(--sky-blue);
 }

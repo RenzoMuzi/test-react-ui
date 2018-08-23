@@ -6,13 +6,13 @@ import { action } from '@storybook/addon-actions';
 import { withState } from '@dump247/storybook-state';
 import Field from 'ui/forms/Field';
 import CustomDropdown from 'ui/CustomDropdown';
-import Textarea from 'ui/forms/Textarea';
+import TextArea from 'ui/forms/Textarea';
 
 const stories = storiesOf('ui|forms/Field', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { Field } from 'pw-ui/ui/forms';
@@ -20,16 +20,19 @@ stories.add(
   `)(() => (
     <Field
       label={text('label', 'Some label')}
+      contentClassName={text('contentClassName', 'col col-8 lh3')}
+      fieldClassNames={text('fieldClassNames', '')}
+      labelClassNames={text('labelClassNames', '')}
       bold={boolean('bold', false)}
       subField={boolean('subField', false)}
     >
-      Some content
+      ...Some content....
     </Field>
   )),
 );
 
 stories.add(
-  'field with dropdown',
+  'Field with dropdown',
   withInfo({
     text: `
       ~~~js
@@ -65,7 +68,7 @@ stories.add(
 );
 
 stories.add(
-  'field with textarea',
+  'Field with textarea',
   withState({ value: 'Some text' })(
     withInfo({
       text: `
@@ -73,17 +76,16 @@ stories.add(
         import { Field } from 'pw-ui/ui/forms';
         ~~~
       `,
-      propTablesExclude: [Textarea],
+      propTablesExclude: [TextArea],
     })(({ store }) => (
       <Field
         label={text('label', 'Some label')}
         bold={boolean('bold', false)}
         subField={boolean('subField', false)}
       >
-        <Textarea
+        <TextArea
           value={store.state.value}
           placeholder="Some placeholder"
-          autoFocus={'autoFocus', false}
           onChange={(e) => store.set({ value: e })}
         />
       </Field>

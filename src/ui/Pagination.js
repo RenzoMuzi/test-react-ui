@@ -24,24 +24,25 @@ class Pagination extends React.PureComponent {
 
   render() {
     const {
-      count, startIndex, pageSize, pageSizeOptions,
+      count, startIndex, pageSize, pageSizeOptions, text,
+      pageClassName, disabledColor, changePageClassName, selectClassName,
     } = this.props;
     const currentPageEnd = startIndex + pageSize;
     const decreasePageClassName = classNames(
+      startIndex === 0 ? disabledColor : '',
       'fs16 fa fa-caret-left px1',
-      { gray: startIndex === 0 },
-      { 'pointer hover-orange-primary gray-primary': startIndex !== 0 },
+      startIndex !== 0 ? `${changePageClassName} pointer` : '',
     );
     const increasePageClassName = classNames(
+      currentPageEnd >= count ? disabledColor : '',
       'fs16 fa fa-caret-right pl1',
-      { gray: currentPageEnd >= count },
-      { 'pointer hover-orange-primary gray-primary': currentPageEnd < count },
+      currentPageEnd < count ? `${changePageClassName} pointer` : '',
     );
 
     return (
-      <div className="flex items-center lh-21">
+      <div className={classNames('flex items-center lh-21', pageClassName)}>
         <select
-          className="px1 select-small"
+          className={selectClassName}
           value={pageSize}
           onChange={this.handleOnPageSizeChange}
         >
@@ -51,7 +52,7 @@ class Pagination extends React.PureComponent {
             </option>
           ))}
         </select>
-        <div className="px1">per page</div>
+        <div className="px1">{text}</div>
         <i
           className={decreasePageClassName}
           onClick={this.handleOnDecreasePage}
@@ -71,6 +72,11 @@ Pagination.defaultProps = {
   pageSizeOptions: [10, 100, 500, 1000, 5000],
   pageSize: 10,
   startIndex: 0,
+  pageClassName: '',
+  disabledColor: 'gray',
+  changePageClassName: 'hover-orange-primary',
+  selectClassName: 'px1 select-small',
+  text: 'per page',
 };
 
 Pagination.propTypes = {
@@ -84,6 +90,12 @@ Pagination.propTypes = {
   count: PropTypes.number,
   /** The index of item the pagination should start at */
   startIndex: PropTypes.number,
+
+  pageClassName: PropTypes.string,
+  disabledColor: PropTypes.string,
+  changePageClassName: PropTypes.string,
+  selectClassName: PropTypes.string,
+  text: PropTypes.string,
 };
 
 export default Pagination;

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import BasicTable from '../src/ui/BasicTable';
 
 const testColumns = [
@@ -59,10 +59,62 @@ stories.add(
       records={testRecords}
       columnHeader={columnHeader}
       cell={cell}
-      alignTop={boolean('alignTop', true)}
-      selectAction={boolean('selectAction', false)}
       onSelectChange={action('selected row')}
       onSelectAllChange={action('selected all')}
+    />
+  )),
+);
+
+stories.add(
+  'Custom table',
+  withInfo(`
+  ~~~js
+  import { BasicTable } from 'pw-ui/ui';
+  ~~~
+  `)(() => (
+    <BasicTable
+      columns={testColumns}
+      records={testRecords}
+      columnHeader={columnHeader}
+      cell={cell}
+      headerClassName={text('headerClassName', 'c-table__header')}
+      deleteClassName={text('deleteClassName', 'fa fa-times  pointer')}
+      selectAction={boolean('selectAction', true)}
+      removeAction={boolean('removeAction', true)}
+    />
+  )),
+);
+
+stories.add(
+  'Custom Loading',
+  withInfo(`
+  ~~~js
+  import { BasicTable } from 'pw-ui/ui';
+  ~~~
+  `)(() => (
+    <BasicTable
+      columns={testColumns}
+      records={testRecords}
+      columnHeader={columnHeader}
+      loading
+      loadingSrc={text('loadingSrc', 'https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif')}
+      loadingClassName={text('loadingClassName', '')}
+    />
+  )),
+);
+
+stories.add(
+  'Loading State',
+  withInfo(`
+  ~~~js
+  import { BasicTable } from 'pw-ui/ui';
+  ~~~
+  `)(() => (
+    <BasicTable
+      columns={testColumns}
+      records={testRecords}
+      columnHeader={columnHeader}
+      loading
     />
   )),
 );

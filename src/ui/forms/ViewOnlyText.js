@@ -4,7 +4,7 @@ import React from 'react';
 import valuesUtils from 'utils/values';
 
 const ViewOnlyText = ({ value }) => {
-  const className = classNames('pl1', {
+  const className = classNames({
     'gray-secondary': valuesUtils.isEmpty(value),
   });
 
