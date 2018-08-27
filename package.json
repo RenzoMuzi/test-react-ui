@@ -1,6 +1,6 @@
 {
   "name": "@mooveit-team/pw-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prescribe Wellness React UI",
   "main": "index.js",
   "scripts": {
