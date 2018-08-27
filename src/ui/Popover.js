@@ -229,7 +229,7 @@ Popover.propTypes = {
   content: PropTypes.string.isRequired,
   /** Popover's container CSS class */
   containerClassName: PropTypes.string,
-  /** Popover's container CSS class */
+  /** Popover's CSS class */
   popoverClassName: PropTypes.string,
 };
 

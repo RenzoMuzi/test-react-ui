@@ -53,7 +53,7 @@ DropdownHeader.propTypes = {
   containerClassName: PropTypes.string,
   /** Show select icon or not */
   selectIcon: PropTypes.bool,
-  /** Show select icon or not */
+  /** Dropdown is open or not */
   isOpen: PropTypes.bool,
 };
 

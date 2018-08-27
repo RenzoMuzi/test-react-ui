@@ -14,7 +14,7 @@ class Table extends Component {
   render() {
     return (
       <div>
-        <div className="xs-hide sm-hide flex items-center border-bottom-medium border-gray-50">
+        <div className={this.props.headerContainerClassName}>
           {this.renderHeader()}
         </div>
         {this.renderBody()}
@@ -26,7 +26,6 @@ class Table extends Component {
 
   renderSecondTitleHeader = title =>
     title.map(t => (t.headerName.length > 1 ? t.headerName[1] : ''))[0];
-
 
   renderColumnValues = (record, column, columnIndex, options = {}) => {
     const { dropdown, showDropdown } = this.props;
@@ -46,23 +45,28 @@ class Table extends Component {
   };
 
   renderDropdown = (value, options, record, dropdown) => {
-    const dropdownHeader = () => <Icon className="inline-block fa-sm gray hover-orange-primary pl1" type="caret-down" size={20} />;
+    const {
+      dropdownContainerClassName, linkClassName, dropdownProps, iconClassName,
+    } = this.props;
+
+    const dropdownHeader = () => <Icon className={iconClassName} type="caret-down" size={20} />;
     return (
       <div className="no-wrap">
         <a
-          className="a-link pointer"
+          className={linkClassName}
           href={options.generateUrl && options.generateUrl(record)}
           target="_blank"
           rel="noopener noreferrer"
         >
           {value}
         </a>
-        <div className="inline-block pointer">
+        <div className={dropdownContainerClassName}>
           <CustomDropdown
             value={value}
             headerComponent={dropdownHeader}
             options={dropdown}
             record={record}
+            {...dropdownProps}
           />
         </div>
       </div>
@@ -99,26 +103,32 @@ class Table extends Component {
 
   renderLoading = () => (
     <div className="center p3">
-      <img src={loadingGif} alt="loading" />
+      <img src={this.props.loadingSrc} alt="loading" />
     </div>
   );
 
   renderHeader = () => {
-    const { columns, allSelected, onAllChange } = this.props;
+    const {
+      columns, allSelected, onAllChange, highlightClassName,
+      headerTitleClassName, headerSubtitleClassName,
+    } = this.props;
     const patientColumns = columns.map((column, index) => (
       <div
-        className={classNames('sm-col sm-col-4 p1 fs11', {
+        className={classNames(
+          'sm-col sm-col-4 p1 fs11',
+          column.highlighted ? highlightClassName : '', {
           center: index !== 0,
           'sm-col-10': index === 0,
-          'bg-orange-highlight': column.highlighted,
         })}
         key={index}
       >
-        <div className="weight-700 uppercase" data-tip data-for={index.toString()} >
+        <div className={headerTitleClassName} data-tip data-for={index.toString()} >
           {this.renderHeaderText(column.title)}
-          <div className="weight-200 uppercase">{this.renderSecondTitleHeader(column.title)}</div>
+          <div className={headerSubtitleClassName}>
+            {this.renderSecondTitleHeader(column.title)}
+          </div>
         </div>
-        <div className="weight-200 uppercase">{this.renderHeaderText(column.subtitle)}</div>
+        <div className={headerSubtitleClassName}>{this.renderHeaderText(column.subtitle)}</div>
         {column.tooltip && this.renderTooltip(column, index)}
       </div>
     ));
@@ -147,6 +157,11 @@ class Table extends Component {
       selectedRecords,
       onRowChange,
       renderAdditionalInfo,
+      highlightClassName,
+      zeroStateClassName,
+      primaryValueClassName,
+      secondaryValueClassName,
+      tableBodyContainerClassName, // border-bottom border-gray-light fit px0
     } = this.props;
 
     if (isLoading) {
@@ -156,7 +171,7 @@ class Table extends Component {
     return records && records.length ? (
       records.map(record => (
         <div key={record.PatientId}>
-          <div className="border-bottom border-gray-light fit px0">
+          <div className={tableBodyContainerClassName}>
             <div className="md-flex flex-auto">
               <div>
                 <div className="sm-col p1 fs14">
@@ -168,10 +183,10 @@ class Table extends Component {
               </div>
               {columns.map((column, columnIndex) => (
                 <div
-                  className={classNames('p1', {
+                  className={classNames('p1',
+                  column.highlighted ? highlightClassName : '', {
                     'sm-col sm-col-4 center': columnIndex !== 0,
                     'md-col md-col-10': columnIndex === 0,
-                    'bg-orange-highlight': column.highlighted,
                   })}
                   key={columnIndex}
                 >
@@ -181,7 +196,7 @@ class Table extends Component {
                       {this.renderSecondTitleHeader(column.title)}
                     </div>
                   )}
-                  <div className="weight-300 fs18">
+                  <div className={primaryValueClassName}>
                     {this.renderColumnValues(
                       record,
                       column.title,
@@ -190,7 +205,7 @@ class Table extends Component {
                     )}
                   </div>
                   {column.subtitle.length > 0 && (
-                    <div className="weight-200 fs12">
+                    <div className={secondaryValueClassName}>
                       <div className="md-hide lg-hide weight-600 fs14 pt2 uppercase">
                         {this.renderHeaderText(column.subtitle)}
                       </div>
@@ -207,7 +222,7 @@ class Table extends Component {
         </div>
       ))
     ) : (
-      <div className="p2 center weight-300">{zeroStateText}</div>
+      <div className={zeroStateClassName}>{zeroStateText}</div>
     );
   };
 
@@ -259,6 +274,32 @@ Table.propTypes = {
   showDropdown: PropTypes.bool,
   /** Actions displayed in the first column */
   dropdown: PropTypes.array,
+  /** Css class name for zero state text */
+  zeroStateClassName: PropTypes.string,
+  /** Css class name for dropdown components */
+  dropdownContainerClassName: PropTypes.string,
+  /** Css class name for header title */
+  headerTitleClassName: PropTypes.string,
+  /** Css class name for table body container */
+  tableBodyContainerClassName: PropTypes.string,
+  /** Css class name for header subtitle */
+  headerSubtitleClassName: PropTypes.string,
+  /** Css class name for body values */
+  primaryValueClassName: PropTypes.string,
+  /** Css class name for body sub values */
+  secondaryValueClassName: PropTypes.string,
+  /** Css class name for header conainer */
+  headerContainerClassName: PropTypes.string,
+  /** Css class name for links */
+  linkClassName: PropTypes.string,
+  /** Css class name for highlight */
+  highlightClassName: PropTypes.string,
+  /** Css class name for Icon of dropdown */
+  iconClassName: PropTypes.string,
+  /** props forwarded to the CustomDropdown component used to display dropdown */
+  dropdownProps: PropTypes.object,
+  /** Loading icon */
+  loadingSrc: PropTypes.string,
 };
 
 Table.defaultProps = {
@@ -272,6 +313,19 @@ Table.defaultProps = {
   zeroStateText: 'No records',
   isLoading: false,
   showDropdown: false,
+  dropdownContainerClassName: 'inline-block pointer',
+  dropdownProps: {},
+  iconClassName: 'inline-block fa-sm gray hover-orange-primary pl1',
+  linkClassName: 'a-link pointer',
+  loadingSrc: loadingGif,
+  highlightClassName: 'bg-orange-highlight',
+  headerTitleClassName: 'weight-700 uppercase',
+  headerSubtitleClassName: 'weight-200 uppercase',
+  zeroStateClassName: 'p2 center weight-300',
+  tableBodyContainerClassName: 'border-bottom border-gray-light fit px0',
+  primaryValueClassName: 'weight-300 fs18',
+  secondaryValueClassName: 'weight-200 fs12',
+  headerContainerClassName: 'xs-hide sm-hide flex items-center border-bottom-medium border-gray-50',
 };
 
 export default Table;

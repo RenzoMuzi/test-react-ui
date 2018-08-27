@@ -61,6 +61,8 @@ stories.add(
       cell={cell}
       onSelectChange={action('selected row')}
       onSelectAllChange={action('selected all')}
+      headerClassName={text('headerClassName')}
+      deleteClassName={text('deleteClassName')}
     />
   )),
 );
@@ -77,8 +79,8 @@ stories.add(
       records={testRecords}
       columnHeader={columnHeader}
       cell={cell}
-      headerClassName={text('headerClassName', 'c-table__header')}
-      deleteClassName={text('deleteClassName', 'fa fa-times  pointer')}
+      headerClassName={text('headerClassName', 'c-table__header sky-blue')}
+      deleteClassName={text('deleteClassName', 'fa fa-times  pointer sky-blue')}
       selectAction={boolean('selectAction', true)}
       removeAction={boolean('removeAction', true)}
     />
@@ -115,6 +117,25 @@ stories.add(
       records={testRecords}
       columnHeader={columnHeader}
       loading
+    />
+  )),
+);
+
+const empty = () => (
+  <div className="center">There are no records</div>
+);
+
+stories.add(
+  'Empty State',
+  withInfo(`
+  ~~~js
+  import { BasicTable } from 'pw-ui/ui';
+  ~~~
+  `)(() => (
+    <BasicTable
+      columns={testColumns}
+      emptyState={empty}
+      columnHeader={columnHeader}
     />
   )),
 );

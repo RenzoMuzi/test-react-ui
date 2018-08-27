@@ -45,6 +45,8 @@ stories.add(
   withInfo(`
     ~~~js
     import { TextareaWithPopover } from 'pw-ui/ui/forms';
+
+    Same props from pw-ui/ui/forms/Textarea
     ~~~
   `)(() => (
     <div className="max-width-1">

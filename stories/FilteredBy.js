@@ -20,6 +20,15 @@ const initialFilters = [
   },
 ];
 
+const initialExcludedFilters = [
+  {
+    label: 'Excluded Label 1', value: 'exc', operator: 'Eq',
+  },
+  {
+    label: 'Excluded Label 2', value: 11, operator: 'Gte',
+  },
+];
+
 stories.add(
   'Default',
   withState({ filters: initialFilters })(
@@ -54,6 +63,24 @@ stories.add(
         filters={object('filters', store.state.filters)}
         onChange={(filters, i) => store.set(
           { filters: store.state.filters.slice(0, i).concat(store.state.filters.slice(i + 1)) })}
+      />
+    )),
+  ),
+);
+
+stories.add(
+  'With excluded filters',
+  withState({ filters: initialFilters, excluded: initialExcludedFilters })(
+    withInfo(`
+      ~~~js
+      import { FilteredBy } from 'pw-ui/ui';
+      ~~~
+    `)(({ store }) => (
+      <FilteredBy
+        className={text('className', 'sky-blue bold')}
+        chickletClassName={text('chickletClassName', 'bg-gray-highlight gray-primary ')}
+        filters={object('filters', store.state.filters)}
+        filtersExclude={object('filtersExclude', store.state.excluded)}
       />
     )),
   ),

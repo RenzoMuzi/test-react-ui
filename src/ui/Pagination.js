@@ -90,11 +90,15 @@ Pagination.propTypes = {
   count: PropTypes.number,
   /** The index of item the pagination should start at */
   startIndex: PropTypes.number,
-
+  /** CSS class name pagination container */
   pageClassName: PropTypes.string,
+  /** CSS class name for the disbale state of pagination arrows */
   disabledColor: PropTypes.string,
+  /** CSS class name for pagination arrows */
   changePageClassName: PropTypes.string,
+  /** CSS class name for the select component */
   selectClassName: PropTypes.string,
+  /** Text to be shown between select and pages */
   text: PropTypes.string,
 };
 

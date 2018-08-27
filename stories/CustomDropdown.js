@@ -277,13 +277,13 @@ stories.add(
           separator: true,
         },
         {
-          customItem: IconCustom()
+          customItem: IconCustom(),
         },
         {
           separator: true,
         },
         {
-          customItem: IconCustom2()
+          customItem: IconCustom2(),
         },
       ])}
       listContainerClassName={text('listContainerClassName', 'ml1 absolute border-bottom-shadow bg-white flex flex-column z3 border border-gray gray-primary max-height-5 overflow-y-scroll py1/3')}

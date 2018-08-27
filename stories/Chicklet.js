@@ -32,7 +32,7 @@ stories.add(
   ~~~
   `)(() => (
     <Chicklet
-      className={text('className', 'mr1 bold px1/3 sky-blue')}
+      className={text('className', 'mr1 bold px1/3 sky-blue pointer center')}
       onClick={action('clicked')}
     >
       Custom Chicklet
