@@ -31,5 +31,5 @@ npm run build:watch # If you want to try changes immediately
 PW-UI has [Storybook](https://github.com/storybooks/storybook) it allows you to browse a component library, view the different states of each component, and interactively develop and test components. You can use the public instance [available here](https://moove-it.github.io/pw-ui) or clone the project and run it locally with `npm run storybook`
 
 ## Contributing
-If you want to contribute, please check the [contributing guidelines](./CONTRIBUTING.MD)
+If you want to contribute, please check the [contributing guidelines](./CONTRIBUTING.md)
 
