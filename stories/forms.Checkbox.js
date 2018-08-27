@@ -9,7 +9,7 @@ const stories = storiesOf('ui|forms/Checkbox', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withState({ value: true })(
     withInfo(`
       ~~~js
@@ -26,7 +26,7 @@ stories.add(
 );
 
 stories.add(
-  'with custom className',
+  'With custom className',
   withState({ value: true })(
     withInfo(`
       ~~~js
@@ -37,26 +37,7 @@ stories.add(
         value={boolean('value', store.state.value)}
         onChange={() => store.set({ value: !store.state.value })}
         viewOnly={boolean('viewOnly', false)}
-        blackCheckbox
-        className={text('className', 'some-class')}
-      />
-    )),
-  ),
-);
-
-stories.add(
-  'With the black checkbox className',
-  withState({ value: true })(
-    withInfo(`
-      ~~~js
-      import { Checkbox } from 'pw-ui/ui/forms';
-      ~~~
-    `)(({ store }) => (
-      <Checkbox
-        value={boolean('value', store.state.value)}
-        onChange={() => store.set({ value: !store.state.value })}
-        viewOnly={boolean('viewOnly', false)}
-        className="black-checkbox"
+        className={text('className', 'black-checkbox')}
       />
     )),
   ),

@@ -58,6 +58,14 @@
   background: var(--orange-highlight);
 }
 
+.bg-sky-blue-highlight {
+  background: var(--sky-blue-highlight);
+}
+
+.bg-gray-highlight {
+  background: var(--gray-background);
+}
+
 .bg-sky-blue {
   background: var(--sky-blue);
 }

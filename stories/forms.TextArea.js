@@ -14,7 +14,7 @@ const onSubmit = () => {
 };
 
 stories.add(
-  'default',
+  'Default',
   withState({ value: 'This is the value' })(
     withInfo(`
     ~~~js
@@ -30,13 +30,39 @@ stories.add(
         validRegex={object('validRegex', null)}
         autoFocus={boolean('autoFocus', false)}
         onChange={(e) => store.set({ value: e })}
-        showLimit={boolean('showLimit', true)}
+        showLimit={boolean('showLimit', false)}
+        containerClassName={text('containerClassName')}
+        limitClassName={text('limitClassName')}
       />
     ))),
 );
 
 stories.add(
-  'view only',
+  'With limit',
+  withState({ value: 'This TextArea has a limit! And we can show it!' })(
+    withInfo(`
+    ~~~js
+    import { Textarea } from 'pw-ui/ui/forms';
+    ~~~
+    `)(({ store }) => (
+      <Textarea
+        {...store.state}
+        viewOnly={boolean('viewOnly', false)}
+        className={text('className', '')}
+        maxLength={number('maxLength', 120)}
+        placeholder={text('placeholder', '')}
+        validRegex={object('validRegex', null)}
+        autoFocus={boolean('autoFocus', false)}
+        onChange={(e) => store.set({ value: e })}
+        showLimit={boolean('showLimit', true)}
+        containerClassName={text('containerClassName')}
+        limitClassName={text('limitClassName', 'bold p1/2')}
+      />
+    ))),
+);
+
+stories.add(
+  'View only',
   withState({ value: 'This is the value' })(
     withInfo(`
     ~~~js
@@ -54,6 +80,8 @@ stories.add(
         autoFocus={boolean('autoFocus', false)}
         onSubmit={onSubmit}
         showLimit={boolean('showLimit', true)}
+        limitClassName={text('limitClassName')}
+        containerClassName={text('containerClassName')}
       />
     ))),
 );

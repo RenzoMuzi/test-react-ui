@@ -1,7 +1,9 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { IgnorePlugin } = require('webpack');
 const WebpackCleanPlugin = require('webpack-clean');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: 'production',
@@ -27,6 +29,11 @@ module.exports = {
       path.resolve('./public'),
       path.resolve('./node_modules'),
     ],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
@@ -97,6 +104,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new IgnorePlugin(/^\.\/locale$/, /moment$/),
     new CopyWebpackPlugin([
       { from: 'package.json', to: 'package.json' },
       { from: 'variables.css', to: 'variables.css' },
@@ -106,5 +114,6 @@ module.exports = {
       'dist/styles-font-awesome',
       'dist/kd-styles',
     ]),
+    new BundleAnalyzerPlugin(),
   ],
 };

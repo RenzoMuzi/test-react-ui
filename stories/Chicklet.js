@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import Chicklet from 'ui/Chicklet';
 
 const stories = storiesOf('ui|Chicklet', module);
@@ -20,6 +20,22 @@ stories.add(
       onClick={action('clicked')}
     >
       Chicklet content
+    </Chicklet>
+  )),
+);
+
+stories.add(
+  'Custom Chicklet',
+  withInfo(`
+  ~~~js
+  import { Chicklet } from 'pw-ui/ui';
+  ~~~
+  `)(() => (
+    <Chicklet
+      className={text('className', 'mr1 bold px1/3 sky-blue pointer center')}
+      onClick={action('clicked')}
+    >
+      Custom Chicklet
     </Chicklet>
   )),
 );

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import ViewOnlyInput from './ViewOnlyInput';
-
 export const IntegerRegex = /^\d{0,9}$/;
 
 class Input extends Component {
@@ -33,22 +31,25 @@ class Input extends Component {
   };
 
   render() {
-    const { viewOnly, prefix } = this.props;
-
-    if (viewOnly) {
-      return this.renderAsViewOnly();
-    }
+    const { prefix } = this.props;
 
     return prefix ? this.renderWithPrefix() : this.renderInput();
   }
 
   renderWithPrefix() {
-    const { prefix } = this.props;
+    const { prefix, prefixClassName } = this.props;
 
-    return [
-      <span className="center width-32px input-prefix">{prefix}</span>,
-      this.renderInput(),
-    ];
+    const prefixStyles = classNames(
+      'center width-32px input-prefix',
+      prefixClassName,
+    );
+
+    return (
+      <div className="flex flex-row">
+        <span className={prefixStyles}>{prefix}</span>
+        {this.renderInput()}
+      </div>
+    );
   }
 
   renderInput() {
@@ -61,19 +62,22 @@ class Input extends Component {
       autoFocus,
       prefix,
       type,
+      viewOnly,
     } = this.props;
 
     const inputClassName = classNames(
-      'input col-12 mb0 field',
+      'input flex mb0 field',
       className,
       { 'with-prefix': !!prefix },
     );
+
+    const disabledClassName = 'input flex mb0 field bg-gray gray-secondary';
 
     return (
       <input
         type={type}
         ref={inputRef}
-        className={inputClassName}
+        className={viewOnly ? disabledClassName : inputClassName}
         maxLength={maxLength}
         onBlur={this.handleOnBlur}
         onKeyDown={this.handleOnKeyDown}
@@ -81,14 +85,9 @@ class Input extends Component {
         placeholder={placeholder}
         value={value || ''}
         autoFocus={autoFocus}
+        disabled={viewOnly}
       />
     );
-  }
-
-  renderAsViewOnly() {
-    const { value } = this.props;
-
-    return <ViewOnlyInput value={value} />;
   }
 }
 
@@ -98,6 +97,7 @@ Input.defaultProps = {
   type: 'text',
   autoFocus: false,
   className: '',
+  prefixClassName: '',
   inputRef: () => {},
   maxLength: null,
   placeholder: '',
@@ -137,6 +137,8 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   /** Renders a prefix */
   prefix: PropTypes.string,
+  /** Css class to customize the prefix */
+  prefixClassName: PropTypes.string,
 };
 
 export default Input;

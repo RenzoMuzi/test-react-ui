@@ -140,10 +140,15 @@ const filtersPropTypes = PropTypes.arrayOf(
 );
 
 FilteredBy.propTypes = {
+  /** CSS class name for the filter label */
   className: PropTypes.string,
+  /** CSS class name for each chicklet */
   chickletClassName: PropTypes.string,
+  /** Function called when filter is removed */
   onChange: PropTypes.func,
+  /** Items to be render in filter chicklets */
   filters: filtersPropTypes,
+  /** Items to be render in exclud chicklets */
   filtersExclude: filtersPropTypes,
 };
 

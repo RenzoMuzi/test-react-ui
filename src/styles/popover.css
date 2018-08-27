@@ -62,3 +62,11 @@
 .c-popover__shadow {
   box-shadow: 0 0 6px 0px var(--gray-secondary);
 }
+
+.c-popover-custom::after {
+    border-right-color: var(--gray);
+}
+
+.c-popover-custom {
+    background-color: var(--gray);
+}

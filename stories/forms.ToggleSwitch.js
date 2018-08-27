@@ -9,7 +9,7 @@ const stories = storiesOf('ui|forms/ToggleSwitch', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withState({ value: false })(
     withInfo(`
     ~~~js
@@ -25,7 +25,7 @@ stories.add(
 );
 
 stories.add(
-  'view only',
+  'View only',
   withState({ value: true })(
     withInfo(`
     ~~~js

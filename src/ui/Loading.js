@@ -3,25 +3,35 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import loadingGif from 'images/loading.gif';
 
-const LoadingModal = ({ text, className }) => (
-  <div className={classNames('center', className)}>
-    <img src={loadingGif} alt="loading" />
-    <div className="weight-700 fs17 py1">
+const Loading = ({
+  text, containerClassName, textClassName, srcGif,
+}) => (
+  <div className={classNames('center', containerClassName)}>
+    <img src={srcGif} alt="loading" />
+    <div className={classNames('center', textClassName)}>
       {text}
     </div>
   </div>
 );
 
-LoadingModal.displayName = 'LoadingModal';
+Loading.displayName = 'Loading';
 
-LoadingModal.defaultProps = {
+Loading.defaultProps = {
   text: 'Loading...',
-  className: '',
+  containerClassName: '',
+  textClassName: 'weight-700 fs17 py1',
+  srcGif: loadingGif,
 };
 
-LoadingModal.propTypes = {
+Loading.propTypes = {
+  /** Text to be shown under image/gift */
   text: PropTypes.string,
-  className: PropTypes.string,
+  /** CSS class name of container */
+  containerClassName: PropTypes.string,
+  /** CSS class name of text */
+  textClassName: PropTypes.string,
+  /** Source to image/gift to be shown */
+  srcGif: PropTypes.string,
 };
 
-export default LoadingModal;
+export default Loading;

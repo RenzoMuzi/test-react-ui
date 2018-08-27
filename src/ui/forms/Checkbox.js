@@ -10,7 +10,7 @@ const Checkbox = ({
 }) => (
   <input
     type="checkbox"
-    className={classNames('checkbox', 'inline', className)}
+    className={classNames('checkbox', className)}
     checked={value}
     disabled={viewOnly}
     onChange={({ target: { checked } }) => onChange(checked)}
@@ -23,7 +23,7 @@ Checkbox.defaultProps = {
   value: false,
   viewOnly: false,
   onChange: () => {},
-  className: '',
+  className: 'inline',
 };
 
 Checkbox.propTypes = {

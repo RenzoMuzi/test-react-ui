@@ -8,7 +8,7 @@ const stories = storiesOf('ui|Icon', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { Icon } from 'pw-ui/ui';
@@ -17,7 +17,7 @@ stories.add(
     <Icon
       type={text('type', 'plus-circle')}
       size={number('size', 20)}
-      className={text('className', '')}
+      className={text('className', 'pointer')}
     />
   )),
 );

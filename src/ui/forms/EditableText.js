@@ -10,7 +10,6 @@ const Modes = {
 class EditableText extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       mode: Modes.Display,
       localText: null,
@@ -70,18 +69,18 @@ class EditableText extends Component {
   }
 
   renderSaveButtons = () => {
-    const { saveButtons } = this.props;
+    const { saveButtons, cancelBtnClassName, saveBtnClassName } = this.props;
 
     return saveButtons && (
       <div className="right">
         <div
-          className="inline weight-400 uppercase pointer"
+          className={classNames('inline weight-400 pointer', cancelBtnClassName)}
           onClick={this.handleOnCancel}
         >
           Cancel
         </div>
         <div
-          className="pl1 inline weight-700 uppercase orange-primary pointer"
+          className={classNames('pl1 inline weight-700 pointer', saveBtnClassName)}
           onClick={this.handleOnSave}
         >
           Save
@@ -110,18 +109,19 @@ class EditableText extends Component {
   }
 
   displayText(placeholder) {
-    const { isEditable, text, displayClassName } = this.props;
+    const {
+      isEditable, text, displayClassName, icon, iconClassName,
+    } = this.props;
 
     const textClassName = classNames({ 'opacity-60': !text });
+
 
     return (
       <div className={classNames('edit-text', displayClassName)} onClick={this.handleOnClick}>
         <span className={textClassName}>{text || placeholder}</span>
 
         {isEditable && (
-          <span className="fs18 pl1 edit-pencil pointer">
-            <i className="fa fa-pencil" />
-          </span>
+          <i className={classNames(`fa fa-${icon} pointer`, iconClassName)} />
         )}
       </div>
     );
@@ -161,6 +161,10 @@ EditableText.defaultProps = {
   onChange: () => { },
   saveButtons: false,
   displayClassName: '',
+  icon: 'pencil',
+  iconClassName: 'pl1',
+  cancelBtnClassName: '',
+  saveBtnClassName: '',
 };
 
 EditableText.propTypes = {
@@ -174,6 +178,14 @@ EditableText.propTypes = {
   onChange: PropTypes.func,
   /** CSS class for display mode */
   displayClassName: PropTypes.string,
+  /** CSS class for the icon */
+  iconClassName: PropTypes.string,
+  /** CSS class for cancel button */
+  cancelBtnClassName: PropTypes.string,
+  /** CSS class for save button */
+  saveBtnClassName: PropTypes.string,
+  /** Icon to be shown */
+  icon: PropTypes.string,
   /** Show save/cancel links below the field */
   saveButtons: PropTypes.bool,
 };

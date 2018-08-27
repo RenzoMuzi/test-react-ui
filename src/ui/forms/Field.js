@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import pick from 'lodash/pick';
 
 import Checkbox from './Checkbox';
-import Dropdown from './Dropdown';
+import CustomDropdown from '../CustomDropdown';
 import Input from './Input';
 import TextArea from './Textarea';
 import ToggleSwitch from './ToggleSwitch';
 
 const Types = {
-  select: Dropdown,
+  select: CustomDropdown,
   text: Input,
   textarea: TextArea,
   checkbox: Checkbox,
@@ -46,37 +46,34 @@ export const filterPropsForType = (props, type) =>
 
 export const getComponent = type => Types[type];
 
-class Field extends Component {
-  render() {
-    const {
-      label, bold, subField, children,
-    } = this.props;
-    const fieldClassNames = classNames(
-      'py1',
-      'flex',
-      'flex-center',
-      'justify-between',
-      {
-        'border-bottom border-gray-50': !subField && !bold,
-      },
-    );
-    const labelClassNames = classNames(
-      'lh3',
-      'col',
-      'col-4',
-      'pr1',
-      { pl2: !subField },
-      { pl3: subField },
-      { 'weight-700': bold },
-    );
-    return (
-      <div className={fieldClassNames}>
-        <div className={labelClassNames}>{label}</div>
-        <div className="col col-8 pr2">{children}</div>
-      </div>
-    );
-  }
-}
+const Field = ({
+  label, bold, subField, children, contentClassName, fieldClassNames, labelClassNames,
+}) => {
+  const fieldClass = classNames(
+    'py1',
+    'flex',
+    'flex-center',
+    'justify-between',
+    { 'border-bottom border-gray-50': !subField && !bold },
+    fieldClassNames,
+  );
+  const labelClass = classNames(
+    'lh3',
+    'col',
+    'col-4',
+    'pr1',
+    { pl2: !subField },
+    { pl3: subField },
+    { 'weight-700': bold },
+    labelClassNames,
+  );
+  return (
+    <div className={fieldClass}>
+      <div className={labelClass}>{label}</div>
+      <div className={contentClassName}>{children}</div>
+    </div>
+  );
+};
 
 Field.displayName = 'Field';
 
@@ -84,6 +81,9 @@ Field.defaultProps = {
   bold: false,
   subField: false,
   children: null,
+  contentClassName: 'col col-8 lh3',
+  fieldClassNames: undefined,
+  labelClassNames: undefined,
 };
 
 Field.propTypes = {
@@ -95,6 +95,12 @@ Field.propTypes = {
   subField: PropTypes.bool,
   /** Field content */
   children: PropTypes.node,
+  /** Css for content div */
+  contentClassName: PropTypes.string,
+  /** Css for field container */
+  fieldClassNames: PropTypes.string,
+  /** Css for field label */
+  labelClassNames: PropTypes.string,
 };
 
 export default Field;

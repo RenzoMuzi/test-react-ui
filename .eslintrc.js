@@ -24,6 +24,7 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'import/extensions': ['off'],
+    'no-console': ['off'],
     'no-mixed-operators': ['error', { allowSamePrecedence: true }],
     'no-param-reassign': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^__' }],

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import React, { Component } from 'react';
-
 import * as validationsUtils from '../utils/validations';
 
 const MarginX = 20;
@@ -31,15 +30,18 @@ class Popover extends Component {
   };
 
   render() {
-    const { content } = this.props;
+    const { content, containerClassName, popoverClassName } = this.props;
+
+    const containerStyles = classNames(containerClassName, 'c-popover__container');
+    const popoverStyles = classNames(popoverClassName, 'c-popover');
 
     return (
-      <div className="c-popover__container">
+      <div className={containerStyles}>
         <div
           ref={ref => {
             this.$popover = ref;
           }}
-          className="c-popover"
+          className={popoverStyles}
         >
           <div>{content}</div>
         </div>
@@ -225,6 +227,15 @@ Popover.displayName = 'Popover';
 Popover.propTypes = {
   /** Popover's content */
   content: PropTypes.string.isRequired,
+  /** Popover's container CSS class */
+  containerClassName: PropTypes.string,
+  /** Popover's CSS class */
+  popoverClassName: PropTypes.string,
+};
+
+Popover.defaultProps = {
+  containerClassName: '',
+  popoverClassName: '',
 };
 
 export default Popover;

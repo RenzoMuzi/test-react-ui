@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, array } from '@storybook/addon-knobs';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withState } from '@dump247/storybook-state';
 import Sorter from 'ui/Sorter';
 
@@ -21,7 +21,7 @@ const sortOptions = [
 ];
 
 stories.add(
-  'default',
+  'Default',
   withState({ sorting: [] })(
     withInfo(`
       ~~~js
@@ -29,11 +29,35 @@ stories.add(
       ~~~
     `)(({ store }) => (
       <Sorter
-        className={text('className', '')}
         chickletClassName={text('chickletClassName', '')}
-        dropdownOptions={array('dropdownOptions', sortOptions)}
+        dropdownOptions={object('dropdownOptions', sortOptions)}
         dropdownText={text('dropdownText', 'add sorting')}
         sorting={text('sorting', store.state.sorting)}
+        onSortChange={sort => store.set({ sorting: sort })}
+      />
+    )),
+  ),
+);
+
+const dropdownProps = {
+  labelClassName: 'bold fs12 p1 pointer action-button-item-example',
+};
+
+stories.add(
+  'Custom',
+  withState({ sorting: [] })(
+    withInfo(`
+      ~~~js
+      import { Sorter } from 'pw-ui/ui';
+      ~~~
+    `)(({ store }) => (
+      <Sorter
+        chickletClassName={text('chickletClassName', '')}
+        dropdownOptions={object('dropdownOptions', sortOptions)}
+        dropdownText={text('dropdownText', 'add sorting')}
+        sorting={text('sorting', store.state.sorting)}
+        addSortingClassName={text('addSortingClassName', 'gray')}
+        dropdownProps={object('dropdownProps', dropdownProps)}
         onSortChange={sort => store.set({ sorting: sort })}
       />
     )),

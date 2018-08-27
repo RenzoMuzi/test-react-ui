@@ -3,20 +3,28 @@ jobs:
   build:
     docker:
       - image: circleci/node:7.10
+    branches:
+      ignore:
+        - gh-pages
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "b6:df:26:dd:c7:a0:73:64:f6:98:81:c9:cc:1f:5d:df"
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-      - run: npm install
-      - run: npm build
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run lint
-      - run: npm test
-
-
+      - run:
+          name: Run Lint
+          command: npm run lint
+      - run:
+          name: Run tests
+          command: npm test

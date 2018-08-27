@@ -8,7 +8,7 @@ const stories = storiesOf('ui|Loading', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'default',
+  'Default',
   withInfo(`
     ~~~js
     import { Loading } from 'pw-ui/ui';
@@ -16,7 +16,25 @@ stories.add(
   `)(() => (
     <Loading
       text={text('text')}
-      className={text('className')}
+      containerClassName={text('containerClassName')}
+      textClassName={text('textClassName')}
+      srcGif={text('srcGif')}
+    />
+  )),
+);
+
+stories.add(
+  'Custom Loader',
+  withInfo(`
+    ~~~js
+    import { Loading } from 'pw-ui/ui';
+    ~~~
+  `)(() => (
+    <Loading
+      text={text('text', 'Another spinner')}
+      containerClassName={text('containerClassName', 'bg-orange-highlight')}
+      textClassName={text('textClassName', 'red bold pb1')}
+      srcGif={text('srcGif', 'https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif')}
     />
   )),
 );

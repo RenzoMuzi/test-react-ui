@@ -1,3 +1,5 @@
+const generateUrlRedirect = (record) => (`/Patient/Details?patientId=${record.PatientId}`);
+
 export default [
   {
     title: [{ headerName: ['Patient'], key: 'KdLabel' }],
@@ -6,7 +8,7 @@ export default [
       { headerName: [''], key: 'PatientGroupName', prefix: 'Groups: ' },
     ],
     highlighted: true,
-    options: { subtitleJoin: 'list', redirect: '/Patient/Details?patientId=' },
+    options: { subtitleJoin: 'list', generateUrl: (record) => generateUrlRedirect(record) },
   },
   {
     title: [{ headerName: ['Rdc', 'Maint.'], key: 'RdcMaint', format: 'percent' }],

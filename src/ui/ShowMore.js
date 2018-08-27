@@ -42,9 +42,14 @@ ShowMore.defaultProps = {
   children: null,
 };
 ShowMore.propTypes = {
+  /** CSS class name for container */
   className: PropTypes.string,
+  /** CSS class name for Icon */
   iconClassName: PropTypes.string,
+  /** Text to be shown before show */
   showMoreText: PropTypes.string,
+  /** Text to be shown after show */
   showLessText: PropTypes.string,
+  /** Element to be shown */
   children: PropTypes.node,
 };
