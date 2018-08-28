@@ -48,7 +48,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../node_modules/pw-ui/',
+              publicPath: '../../node_modules/@mooveit-team/pw-ui/',
             },
           },
           { loader: 'css-loader' },
@@ -61,7 +61,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../node_modules/pw-ui/',
+              publicPath: '../../node_modules/@mooveit-team/pw-ui/',
             },
           },
           { loader: 'css-loader' },
@@ -80,7 +80,7 @@ module.exports = {
             options: {
               limit: 10000,
               name: 'public/fonts/[name].[ext]',
-              publicPath: '../../node_modules/pw-ui',
+              publicPath: '../../node_modules/@mooveit-team/pw-ui',
             },
           },
         ],
