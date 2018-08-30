@@ -14,11 +14,11 @@ class DropdownHeader extends Component {
       <div
         className={containerClassName}
       >
-        {this.renderText()}
+        <span className="inline-block fa-lg">{this.renderText()}</span>
         {selectIcon && <Icon
           type={isOpen ? 'caret-up' : 'caret-down'}
           size={16}
-          className="inline-block fa-lg pl1 gray-border-color"
+          className="inline-block fa-lg gray-border-color"
         />}
       </div>
     );
@@ -39,7 +39,7 @@ class DropdownHeader extends Component {
 DropdownHeader.defaultProps = {
   placeholder: 'Select',
   label: null,
-  containerClassName: 'flex justify-between border border-silver rounded pointer fs12 p1 pointer',
+  containerClassName: 'flex justify-between border border-silver rounded pointer fs12 pointer p1',
   selectIcon: true,
   isOpen: false,
 };

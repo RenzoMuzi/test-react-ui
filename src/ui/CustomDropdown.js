@@ -31,6 +31,7 @@ class CustomDropdown extends Component {
       labelClassName,
       customItemClassName,
       placeholder,
+      headerContainerClassName,
     } = this.props;
     const { isOpen } = this.state;
 
@@ -41,7 +42,12 @@ class CustomDropdown extends Component {
         className={containerClassName}
         onClick={() => (!viewOnly ? this.setState({ isOpen: !isOpen }) : null)}
       >
-        <Header placeholder={placeholder} isOpen={isOpen} label={this.getSelectedLabel()} />
+        <Header
+          placeholder={placeholder}
+          isOpen={isOpen}
+          label={this.getSelectedLabel()}
+          containerClassName={headerContainerClassName}
+        />
         {isOpen && (
           <FloatingList
             items={options}
@@ -89,6 +95,7 @@ CustomDropdown.defaultProps = {
   separatorClassName: undefined,
   labelClassName: undefined,
   customItemClassName: undefined,
+  headerContainerClassName: undefined,
   handleSelect: () => { },
   viewOnly: false,
   headerComponent: DropdownHeader,
@@ -130,6 +137,8 @@ CustomDropdown.propTypes = {
   itemClassName: PropTypes.string,
   /** CSS Class names for each item of the floating list */
   optionsContainerClassName: PropTypes.string,
+  /** CSS Class names for default header container */
+  headerContainerClassName: PropTypes.string,
   /** CSS Class names for each option item */
   optionClassName: PropTypes.string,
   /** CSS Class names for each disabled option item */

@@ -17,6 +17,15 @@ The following modules are available:
 - `pw-ui/ui/forms`: Subset of `ui` with form components.
 - `pw-ui/utils`: Collection of helpers used for formatting, parsing data, etc.
 
+In order to use pw-ui style you will need to add them to your project:
+
+```
+@import 'pw-ui/kd-styles';
+@import 'pw-ui/variables';
+@import 'pw-ui/styles';
+@import 'pw-ui/styles-font-awesome';
+```
+
 ## Building the project locally
 If you want to make changes to the library (maybe even contribute!). You can clone the project and get it up and running with the following steps:
 ```
@@ -32,4 +41,3 @@ PW-UI has [Storybook](https://github.com/storybooks/storybook) it allows you to 
 
 ## Contributing
 If you want to contribute, please check the [contributing guidelines](./CONTRIBUTING.md)
-

@@ -21,3 +21,18 @@ stories.add(
     />
   )),
 );
+
+stories.add(
+  'Custom color',
+  withInfo(`
+    ~~~js
+    import { Icon } from 'pw-ui/ui';
+    ~~~
+  `)(() => (
+    <Icon
+      type={text('type', 'plus-circle')}
+      size={number('size', 20)}
+      className={text('className', 'pointer orange')}
+    />
+  )),
+);

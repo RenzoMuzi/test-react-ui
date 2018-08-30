@@ -18,6 +18,7 @@ stories.add(
       placeholder={text('placeholder', 'Select')}
       label={text('label', '')}
       selectIcon={boolean('selectIcon', true)}
+      isOpen={boolean('isOpen', false)}
     />
   )),
 );
@@ -34,6 +35,7 @@ stories.add(
       label={text('label', 'Selected option')}
       selectIcon={boolean('selectIcon', true)}
       containerClassName={text('containerClassName', 'flex justify-between border border-silver rounded pointer fs12 p1 pointer')}
+      isOpen={boolean('isOpen', false)}
     />
   )),
 );
