@@ -49,6 +49,12 @@ stories.add(
     <CustomDropdown
       viewOnly={boolean('viewOnly', true)}
       placeholder={text('placeholder', 'Select')}
+      options={object('options', [
+        { label: 'First option', value: 7 },
+        { label: 'Second Option', value: 14 },
+        { label: 'Third Option', value: 21 },
+        { label: 'Last Option', value: 28 },
+      ])}
     />
   )),
 );

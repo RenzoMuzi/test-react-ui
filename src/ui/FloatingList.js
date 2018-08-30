@@ -131,7 +131,7 @@ FloatingList.defaultProps = {
   labelClassName: 'p1 nowrap fs12 pl1 py1/2 pointer action-button-item',
   itemClassName: '',
   customItemClassName: '',
-  containerClassName: 'ml1 absolute border-bottom-shadow bg-white flex flex-column z3 border border-gray gray-primary max-height-5 overflow-y-scroll py1/3',
+  containerClassName: 'ml1 absolute border-bottom-shadow bg-white flex flex-column z3 border border-gray gray-primary max-height-5 overflow-y-scroll ',
 };
 
 export default FloatingList;
