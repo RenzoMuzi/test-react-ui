@@ -1,4 +1,11 @@
-export safeGet from './safeGet';
-export validations from './validations';
-export values from './values';
-export karmadata from './karmadata';
+import safeGet from './safeGet';
+import validations from './validations';
+import values from './values';
+import karmadata from './karmadata';
+
+export default {
+  safeGet,
+  validations,
+  values,
+  karmadata,
+};

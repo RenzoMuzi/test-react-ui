@@ -1,2 +1,7 @@
-export ui from './ui';
-export utils from './utils';
+import ui from './ui';
+import utils from './utils';
+
+export {
+  ui,
+  utils,
+};

@@ -2,6 +2,7 @@ src
 node_modules
 stories
 docs
+/dist
 .circleci
 .babelrc
 .eslintignore
@@ -12,3 +13,5 @@ postcss.config.js
 .storybook
 webpack.config.js
 .package-lock.json
+.vscode
+/mooveit-pw-ui*.tgz

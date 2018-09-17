@@ -2,37 +2,51 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { IgnorePlugin } = require('webpack');
 const WebpackCleanPlugin = require('webpack-clean');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: 'production',
   entry: {
-    'ui/index.js': './src/ui/index.js',
-    'ui/forms/index.js': './src/ui/forms/index.js',
-    'utils/index.js': './src/utils/index.js',
+    'index.js': './src/index.js',
+    'ui.js': './src/ui/index.js',
+    'forms.js': './src/ui/forms/index.js',
+    'utils.js': './src/utils/index.js',
     styles: './src/styles/index.css',
     'kd-styles': './src/styles/kd-themes/pw.css',
     'styles-font-awesome': './src/styles/font-awesome-fonts.scss',
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, ''),
+    publicPath: '/',
     filename: '[name]',
-    library: 'index',
+    library: 'pw-ui',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
-  devtool: 'source-map',
   resolve: {
     modules: [
       path.resolve('./src'),
       path.resolve('./public'),
       path.resolve('./node_modules'),
     ],
+    alias: {
+      react: path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+    },
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
+  externals: {
+    // Don't bundle react or react-dom
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM',
     },
   },
   module: {
@@ -105,15 +119,7 @@ module.exports = {
       filename: '[name].css',
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new CopyWebpackPlugin([
-      { from: 'package.json', to: 'package.json' },
-      { from: 'variables.css', to: 'variables.css' },
-    ]),
-    new WebpackCleanPlugin([
-      'dist/styles',
-      'dist/styles-font-awesome',
-      'dist/kd-styles',
-    ]),
+    new WebpackCleanPlugin(['styles', 'styles-font-awesome', 'kd-styles']),
     new BundleAnalyzerPlugin(),
   ],
 };

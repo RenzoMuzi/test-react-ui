@@ -1,7 +1,8 @@
 /ui/
 /utils/
-node_modules/
+/node_modules
 /dist
+/build
 .env
 .DS_Store
 *.log
@@ -13,3 +14,15 @@ kd-styles.css.map
 styles-font-awesome.css
 styles-font-awesome.css.map
 .vscode
+index.js
+index.js.map
+index.css
+index.css.map
+index.js.css
+index.js.css.map
+/mooveit-team-pw-ui*.tgz
+forms.js
+forms.js.map
+ui.js
+ui.js.map
+ui.js.css

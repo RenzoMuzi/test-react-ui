@@ -1,12 +1,27 @@
-export Button from './Button';
-export Checkbox from './Checkbox';
-export EditableText from './EditableText';
-export Field from './Field';
-export Input from './Input';
-export TextArea from './Textarea';
-export ToggleSwitch from './ToggleSwitch';
-export ViewOnlyText from './ViewOnlyText';
-export DatePicker from './DatePicker';
+import Button from './Button';
+import Checkbox from './Checkbox';
+import EditableText from './EditableText';
+import Field from './Field';
+import Input from './Input';
+import TextArea from './Textarea';
+import ToggleSwitch from './ToggleSwitch';
+import ViewOnlyText from './ViewOnlyText';
+import DatePicker from './DatePicker';
 
 // For Backwards Compatibilty until dependencies update
-export CustomCalendar from './DatePicker';
+import CustomCalendar from './DatePicker';
+
+export {
+  Button,
+  Checkbox,
+  EditableText,
+  Field,
+  Input,
+  TextArea,
+  ToggleSwitch,
+  ViewOnlyText,
+  DatePicker,
+  // For Backwards Compatibilty until dependencies update
+  CustomCalendar,
+};
+
