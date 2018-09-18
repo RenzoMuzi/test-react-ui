@@ -14,7 +14,7 @@ npm i @mooveit-team/react-ui
 The following modules are available:
 
 - `@mooveit-team/react-ui/ui`: Contains all the UI components available.
-- `@mooveit-team/react-ui/ui/forms`: Subset of `ui` with form components.
+- `@mooveit-team/react-ui/forms`: Subset of `ui` with form components.
 - `@mooveit-team/react-ui/utils`: Collection of helpers used for formatting, parsing data, etc.
 
 In order to use @mooveit-team/react-ui style you will need to add them to your project:
@@ -80,7 +80,7 @@ npm run build:watch # If you want to try changes immediately
 ```
 
 ## Storybook
-@mooveit-team/react-ui has [Storybook](https://github.com/storybooks/storybook) it allows you to browse a component library, view the different states of each component, and interactively develop and test components. You can use the public instance [available here](https://moove-it.github.io/@mooveit-team/react-ui) or clone the project and run it locally with `npm run storybook`
+@mooveit-team/react-ui has [Storybook](https://github.com/storybooks/storybook) it allows you to browse a component library, view the different states of each component, and interactively develop and test components. You can use the public instance [available here](https://moove-it.github.io/react-ui) or clone the project and run it locally with `npm run storybook`
 
 ## Contributing
 If you want to contribute, please check the [contributing guidelines](./CONTRIBUTING.md)
