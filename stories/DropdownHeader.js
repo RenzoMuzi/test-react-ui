@@ -11,7 +11,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { DropdownHeader } from 'pw-ui/ui';
+    import { DropdownHeader } from 'react-ui/ui';
     ~~~
   `)(() => (
     <DropdownHeader
@@ -27,7 +27,7 @@ stories.add(
   'With selected option',
   withInfo(`
     ~~~js
-    import { DropdownHeader } from 'pw-ui/ui';
+    import { DropdownHeader } from 'react-ui/ui';
     ~~~
   `)(() => (
     <DropdownHeader

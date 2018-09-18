@@ -15,7 +15,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { Field } from 'pw-ui/ui/forms';
+    import { Field } from 'react-ui/ui/forms';
     ~~~
   `)(() => (
     <Field
@@ -36,7 +36,7 @@ stories.add(
   withInfo({
     text: `
       ~~~js
-      import CustomDropdown from 'pw-ui/ui/CustomDropdown';
+      import CustomDropdown from 'react-ui/ui/CustomDropdown';
       ~~~
     `,
     propTablesExclude: [CustomDropdown],
@@ -73,7 +73,7 @@ stories.add(
     withInfo({
       text: `
         ~~~js
-        import { Field } from 'pw-ui/ui/forms';
+        import { Field } from 'react-ui/ui/forms';
         ~~~
       `,
       propTablesExclude: [TextArea],

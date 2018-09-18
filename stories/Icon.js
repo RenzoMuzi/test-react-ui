@@ -11,7 +11,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { Icon } from 'pw-ui/ui';
+    import { Icon } from 'react-ui/ui';
     ~~~
   `)(() => (
     <Icon
@@ -26,7 +26,7 @@ stories.add(
   'Custom color',
   withInfo(`
     ~~~js
-    import { Icon } from 'pw-ui/ui';
+    import { Icon } from 'react-ui/ui';
     ~~~
   `)(() => (
     <Icon

@@ -11,7 +11,7 @@
   box-sizing: border-box;
 
   &:focus {
-    outline-color: var(--orange-primary);
+    outline-color: var(--primary);
   }
 }
 
@@ -84,11 +84,11 @@ input[type='checkbox'].checkbox {
 }
 
 input:checked + .slider {
-  background-color: var(--orange-primary);
+  background-color: var(--primary);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px var(--orange-primary-hover);
+  box-shadow: 0 0 1px var(--primary-hover);
 }
 
 input:checked + .slider:before {
@@ -97,5 +97,5 @@ input:checked + .slider:before {
 
 .custom-select-option.active {
   color: white;
-  background-color: var(--orange-primary);
+  background-color: var(--primary);
 }

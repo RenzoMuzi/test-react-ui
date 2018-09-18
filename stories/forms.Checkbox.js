@@ -13,7 +13,7 @@ stories.add(
   withState({ value: true })(
     withInfo(`
       ~~~js
-      import { Checkbox } from 'pw-ui/ui/forms';
+      import { Checkbox } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <Checkbox
@@ -30,7 +30,7 @@ stories.add(
   withState({ value: true })(
     withInfo(`
       ~~~js
-      import { Checkbox } from 'pw-ui/ui/forms';
+      import { Checkbox } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <Checkbox

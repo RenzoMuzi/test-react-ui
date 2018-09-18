@@ -43,8 +43,6 @@
 @import './line-heights.css';
 @import './checkbox.css';
 
-/* Fonts */
-@import './gilroy-font-family';
 
 :root {
   --button-font-weight: normal;
@@ -56,7 +54,7 @@
 
 
 #root {
-  font-family: 'Gilroy', Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   color: var(--gray-primary);
   line-height: normal;
 }

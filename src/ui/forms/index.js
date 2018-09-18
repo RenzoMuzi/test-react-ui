@@ -6,10 +6,10 @@ import Input from './Input';
 import TextArea from './Textarea';
 import ToggleSwitch from './ToggleSwitch';
 import ViewOnlyText from './ViewOnlyText';
-import DatePicker from './DatePicker';
+import DatePicker from './DatePicker'; // eslint-disable-line
 
 // For Backwards Compatibilty until dependencies update
-import CustomCalendar from './DatePicker';
+import CustomCalendar from './DatePicker'; // eslint-disable-line
 
 export {
   Button,

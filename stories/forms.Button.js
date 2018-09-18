@@ -12,7 +12,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { Button } from 'pw-ui/ui/forms';
+    import { Button } from 'react-ui/ui/forms';
     ~~~
   `)(() => (
     <Button
@@ -27,7 +27,7 @@ stories.add(
   'Disabled',
   withInfo(`
     ~~~js
-    import { Button } from 'pw-ui/ui/forms';
+    import { Button } from 'react-ui/ui/forms';
     ~~~
   `)(() => (
     <Button
@@ -42,7 +42,7 @@ stories.add(
   'Primary Styles',
   withInfo(`
     ~~~js
-    import { Button } from 'pw-ui/ui/forms';
+    import { Button } from 'react-ui/ui/forms';
     ~~~
   `)(() => (
     <Button
@@ -59,7 +59,7 @@ stories.add(
   'Secondary Styles',
   withInfo(`
     ~~~js
-    import { Button } from 'pw-ui/ui/forms';
+    import { Button } from 'react-ui/ui/forms';
     ~~~
   `)(() => (
     <Button

@@ -51,7 +51,7 @@ stories.add(
   'Standard',
   withInfo(`
   ~~~js
-  import { BasicTable } from 'pw-ui/ui';
+  import { BasicTable } from 'react-ui/ui';
   ~~~
   `)(() => (
     <BasicTable
@@ -71,7 +71,7 @@ stories.add(
   'Custom table',
   withInfo(`
   ~~~js
-  import { BasicTable } from 'pw-ui/ui';
+  import { BasicTable } from 'react-ui/ui';
   ~~~
   `)(() => (
     <BasicTable
@@ -91,7 +91,7 @@ stories.add(
   'Custom Loading',
   withInfo(`
   ~~~js
-  import { BasicTable } from 'pw-ui/ui';
+  import { BasicTable } from 'react-ui/ui';
   ~~~
   `)(() => (
     <BasicTable
@@ -109,7 +109,7 @@ stories.add(
   'Loading State',
   withInfo(`
   ~~~js
-  import { BasicTable } from 'pw-ui/ui';
+  import { BasicTable } from 'react-ui/ui';
   ~~~
   `)(() => (
     <BasicTable
@@ -129,7 +129,7 @@ stories.add(
   'Empty State',
   withInfo(`
   ~~~js
-  import { BasicTable } from 'pw-ui/ui';
+  import { BasicTable } from 'react-ui/ui';
   ~~~
   `)(() => (
     <BasicTable

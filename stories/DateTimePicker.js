@@ -14,7 +14,7 @@ stories.add(
   withState({ value: moment().format() })(
     withInfo(`
       ~~~js
-      import { DateTimePicker } from 'pw-ui/ui';
+      import { DateTimePicker } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <DateTimePicker
@@ -37,7 +37,7 @@ stories.add(
   withState({ value: moment().format() })(
     withInfo(`
       ~~~js
-      import { DateTimePicker } from 'pw-ui/ui';
+      import { DateTimePicker } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <DateTimePicker
@@ -84,7 +84,7 @@ stories.add(
   withState({ value: moment().format() })(
     withInfo(`
       ~~~js
-      import { DateTimePicker } from 'pw-ui/ui';
+      import { DateTimePicker } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <DateTimePicker
@@ -132,7 +132,7 @@ stories.add(
   withState({ value: moment().format() })(
     withInfo(`
       ~~~js
-      import { DateTimePicker } from 'pw-ui/ui';
+      import { DateTimePicker } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <DateTimePicker

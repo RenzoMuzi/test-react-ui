@@ -14,7 +14,7 @@ stories.add(
   withState({ activeTab: [] })(
     withInfo(`
       ~~~js
-      import { Tabs,  Tab } from 'pw-ui/ui';
+      import { Tabs,  Tab } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Tabs
@@ -47,7 +47,7 @@ stories.add(
   withState({ activeTab: [] })(
     withInfo(`
       ~~~js
-      import { Tabs,  Tab } from 'pw-ui/ui';
+      import { Tabs,  Tab } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Tabs
@@ -82,7 +82,7 @@ stories.add(
   withState({ activeTab: [] })(
     withInfo(`
       ~~~js
-      import { Tabs,  Tab } from 'pw-ui/ui';
+      import { Tabs,  Tab } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Tabs

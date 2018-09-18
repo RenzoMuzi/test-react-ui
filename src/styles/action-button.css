@@ -12,7 +12,7 @@
 
 .action-button-item:hover {
   color: white;
-  background-color: var(--orange-primary);
+  background-color: var(--primary);
 }
 
 .action-button-item-example:hover {

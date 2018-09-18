@@ -6,8 +6,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(../../node_modules/@mooveit-team/pw-ui/public/fonts/fontawesome-webfont.eot);
-  src: url(../../node_modules/@mooveit-team/pw-ui/public/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'), url(../../node_modules/@mooveit-team/pw-ui/public/fonts/fontawesome-webfont.woff2) format('woff2'), url(../../node_modules/@mooveit-team/pw-ui/public/fonts/fontawesome-webfont.woff) format('woff'), url(../../node_modules/@mooveit-team/pw-ui/public/fonts/fontawesome-webfont.ttf) format('truetype'), url(../../node_modules/@mooveit-team/pw-ui/public/fonts/fontawesome-webfont.svg#fontawesomeregular) format('svg');
+  src: url(../../node_modules/@mooveit-team/react-ui/public/fonts/fontawesome-webfont.eot);
+  src: url(../../node_modules/@mooveit-team/react-ui/public/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'), url(../../node_modules/@mooveit-team/react-ui/public/fonts/fontawesome-webfont.woff2) format('woff2'), url(../../node_modules/@mooveit-team/react-ui/public/fonts/fontawesome-webfont.woff) format('woff'), url(../../node_modules/@mooveit-team/react-ui/public/fonts/fontawesome-webfont.ttf) format('truetype'), url(../../node_modules/@mooveit-team/react-ui/public/fonts/fontawesome-webfont.svg#fontawesomeregular) format('svg');
   font-weight: normal;
   font-style: normal;
 }

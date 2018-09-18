@@ -11,11 +11,11 @@
     --green-success: #85CCB8;
     --green-primary: #369f31;
 
-    --orange-primary: #F7956F;
-    --orange-primary-active: #F66834;
-    --orange-primary-hover: #f67f54;
-    --orange-primary-hover-muted: #f67f54cc;
-    --orange-highlight: #FFEFE4;
+    --primary: #0a0a36;
+    --primary-active: #18189b;
+    --primary-hover: #2c2cb1;
+    --primary-hover-muted: #2c2cb1cc;
+    --primary-highlight: #f0f0fc;
 
     --crimson: #FD0808;
 
@@ -28,3 +28,4 @@
     --white-muted: #FFFFFF90;
     --transparent: #FFFFFF00;
   }
+

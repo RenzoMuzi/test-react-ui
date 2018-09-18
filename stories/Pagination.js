@@ -16,7 +16,7 @@ stories.add(
   })(
     withInfo(`
     ~~~js
-    import { Pagination } from 'pw-ui/ui';
+    import { Pagination } from 'react-ui/ui';
     ~~~
     `)(({ store }) => (
       <Pagination
@@ -42,7 +42,7 @@ stories.add(
   })(
     withInfo(`
     ~~~js
-    import { Pagination } from 'pw-ui/ui';
+    import { Pagination } from 'react-ui/ui';
     ~~~
     `)(({ store }) => (
       <Pagination

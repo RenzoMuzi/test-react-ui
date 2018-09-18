@@ -1,4 +1,4 @@
-# Contributing to PW-UI
+# Contributing to React-UI
 We are open project and welcome contributions of all kinds: from discussion to documentation to bugfixes to feature improvements.
 
 Please review this document to help to streamline the process and save everyone's precious time.
@@ -7,7 +7,7 @@ Please review this document to help to streamline the process and save everyone'
 
 No software is bug-free. So, if you got an issue, follow these steps:
 
--   Search the [issue list](https://github.com/moove-it/pw=ui/issues?utf8=%E2%9C%93&q=) for current and old issues.
+-   Search the [issue list](https://github.com/moove-it/react-ui/issues?utf8=%E2%9C%93&q=) for current and old issues.
     -   If you find an existing issue, please UPVOTE the issue by adding a "thumbs-up reaction". We use this to help prioritize issues!
 -   If none of that is helping, create an issue with the following information:
     -   Clear title (shorter is better).

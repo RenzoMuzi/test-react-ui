@@ -14,7 +14,7 @@ stories.add(
   withState({ value: 'Some text' })(
     withInfo(`
       ~~~js
-      import { Input } from 'pw-ui/ui/forms';
+      import { Input } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <Input
@@ -41,7 +41,7 @@ stories.add(
   withState({ value: 'Some text' })(
     withInfo(`
       ~~~js
-      import { Input } from 'pw-ui/ui/forms';
+      import { Input } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <Input
@@ -61,7 +61,7 @@ stories.add(
   withState({ value: 'Some text with prefix' })(
     withInfo(`
       ~~~js
-      import { Input } from 'pw-ui/ui/forms';
+      import { Input } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <Input

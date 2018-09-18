@@ -21,11 +21,11 @@
 }
 
 .border-orange {
-  border-color: var(--orange-primary);
+  border-color: var(--primary);
 }
 
 .border-bottom-orange {
-  border-bottom-color: var(--orange-primary);
+  border-bottom-color: var(--primary);
 }
 
 .border-bottom-white {

@@ -4,12 +4,12 @@
 }
 
 .a-link:hover {
-  color: var(--orange-primary);
+  color: var(--primary);
   text-decoration: underline;
 }
 
 .link-primary {
-  color: var(--orange-primary);
+  color: var(--primary);
   text-decoration: none;
   cursor: pointer;
 }

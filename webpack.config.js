@@ -19,7 +19,7 @@ module.exports = {
     path: path.join(__dirname, ''),
     publicPath: '/',
     filename: '[name]',
-    library: 'pw-ui',
+    library: 'react-ui',
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },
@@ -62,7 +62,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../node_modules/@mooveit-team/pw-ui/',
+              publicPath: '../../node_modules/@mooveit-team/react-ui/',
             },
           },
           { loader: 'css-loader' },
@@ -75,7 +75,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../node_modules/@mooveit-team/pw-ui/',
+              publicPath: '../../node_modules/@mooveit-team/react-ui/',
             },
           },
           { loader: 'css-loader' },
@@ -94,7 +94,7 @@ module.exports = {
             options: {
               limit: 10000,
               name: 'public/fonts/[name].[ext]',
-              publicPath: '../../node_modules/@mooveit-team/pw-ui',
+              publicPath: '../../node_modules/@mooveit-team/react-ui',
             },
           },
         ],

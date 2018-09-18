@@ -39,7 +39,7 @@ input[type='color']:focus,
   border: 1px solid #DDDDDD;
   border-radius: 3px;
   box-sizing: border-box;
-  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
   margin-bottom: 1rem;
   -webkit-appearance: none;
@@ -82,7 +82,7 @@ input[type='color']:focus,
 .o-kd-autocomplete-input,
 .c-kd__input,
 .o-kd-select-string {
-  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
   color: #686865;
   display: block;
@@ -184,7 +184,7 @@ input[type='text']::-ms-clear {
 .react-datepicker-popper .react-datepicker {
   border-radius: 2px;
   padding: 13px;
-  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   background: #ffffff;
   border: none;
@@ -256,7 +256,7 @@ input[type='text']::-ms-clear {
   border: none;
   background: #ffffff;
   color: #686865;
-  font-family: Gilroy, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 13px
 }

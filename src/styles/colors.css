@@ -1,5 +1,5 @@
-.orange-primary {
-  color: var(--orange-primary);
+.primary {
+  color: var(--primary);
 }
 
 .gray-primary {
@@ -43,7 +43,7 @@
 }
 
 .bg-orange {
-  background-color: var(--orange-primary);
+  background-color: var(--primary);
 }
 
 .bg-gray {
@@ -54,8 +54,8 @@
   background-color: var(--gray-background-muted);
 }
 
-.bg-orange-highlight {
-  background: var(--orange-highlight);
+.bg-primary-highlight {
+  background: var(--primary-highlight);
 }
 
 .bg-sky-blue-highlight {
@@ -90,8 +90,8 @@
   color: inherit;
 }
 
-.hover-orange-primary:hover {
-  color: var(--orange-primary);
+.hover-primary:hover {
+  color: var(--primary);
 }
 
 .hover-white:hover {
@@ -99,5 +99,5 @@
 }
 
 .hover-bg-orange:hover {
-  background: var(--orange-primary);
+  background: var(--primary);
 }

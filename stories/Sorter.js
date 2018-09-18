@@ -25,7 +25,7 @@ stories.add(
   withState({ sorting: [] })(
     withInfo(`
       ~~~js
-      import { Sorter } from 'pw-ui/ui';
+      import { Sorter } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Sorter
@@ -48,7 +48,7 @@ stories.add(
   withState({ sorting: [] })(
     withInfo(`
       ~~~js
-      import { Sorter } from 'pw-ui/ui';
+      import { Sorter } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Sorter

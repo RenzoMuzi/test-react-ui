@@ -14,4 +14,4 @@ postcss.config.js
 webpack.config.js
 .package-lock.json
 .vscode
-/mooveit-pw-ui*.tgz
+/mooveit-react-ui*.tgz

@@ -18,7 +18,7 @@ stories.add(
   withState({ value: 'This is the value' })(
     withInfo(`
     ~~~js
-    import { Textarea } from 'pw-ui/ui/forms';
+    import { Textarea } from 'react-ui/ui/forms';
     ~~~
     `)(({ store }) => (
       <Textarea
@@ -42,7 +42,7 @@ stories.add(
   withState({ value: 'This TextArea has a limit! And we can show it!' })(
     withInfo(`
     ~~~js
-    import { Textarea } from 'pw-ui/ui/forms';
+    import { Textarea } from 'react-ui/ui/forms';
     ~~~
     `)(({ store }) => (
       <Textarea
@@ -66,7 +66,7 @@ stories.add(
   withState({ value: 'This is the value' })(
     withInfo(`
     ~~~js
-    import { Textarea } from 'pw-ui/ui/forms';
+    import { Textarea } from 'react-ui/ui/forms';
     ~~~
     `)(({ store }) => (
       <Textarea

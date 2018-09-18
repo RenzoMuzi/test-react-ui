@@ -13,7 +13,7 @@ stories.add(
   withState({ value: false })(
     withInfo(`
     ~~~js
-    import { ToggleSwitch } from 'pw-ui/ui/forms';
+    import { ToggleSwitch } from 'react-ui/ui/forms';
     ~~~
     `)(({ store }) => (
       <ToggleSwitch
@@ -29,7 +29,7 @@ stories.add(
   withState({ value: true })(
     withInfo(`
     ~~~js
-    import { ToggleSwitch } from 'pw-ui/ui/forms';
+    import { ToggleSwitch } from 'react-ui/ui/forms';
     ~~~
     `)(({ store }) => (
       <ToggleSwitch

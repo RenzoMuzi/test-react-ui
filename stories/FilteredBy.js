@@ -34,7 +34,7 @@ stories.add(
   withState({ filters: initialFilters })(
     withInfo(`
       ~~~js
-      import { FilteredBy } from 'pw-ui/ui';
+      import { FilteredBy } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <FilteredBy
@@ -54,7 +54,7 @@ stories.add(
   withState({ filters: initialFilters })(
     withInfo(`
       ~~~js
-      import { FilteredBy } from 'pw-ui/ui';
+      import { FilteredBy } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <FilteredBy
@@ -73,7 +73,7 @@ stories.add(
   withState({ filters: initialFilters, excluded: initialExcludedFilters })(
     withInfo(`
       ~~~js
-      import { FilteredBy } from 'pw-ui/ui';
+      import { FilteredBy } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <FilteredBy

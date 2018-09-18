@@ -74,7 +74,7 @@ Pagination.defaultProps = {
   startIndex: 0,
   pageClassName: '',
   disabledColor: 'gray',
-  changePageClassName: 'hover-orange-primary',
+  changePageClassName: 'hover-primary',
   selectClassName: 'px1 select-small',
   text: 'per page',
 };

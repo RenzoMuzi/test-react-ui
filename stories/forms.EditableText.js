@@ -14,7 +14,7 @@ stories.add(
   withState({ text: 'Some text' })(
     withInfo(`
       ~~~js
-      import { EditableText } from 'pw-ui/ui/forms';
+      import { EditableText } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <EditableText
@@ -32,7 +32,7 @@ stories.add(
   withState({ text: '' })(
     withInfo(`
       ~~~js
-      import { EditableText } from 'pw-ui/ui/forms';
+      import { EditableText } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <EditableText
@@ -50,7 +50,7 @@ stories.add(
   withState({ text: '' })(
     withInfo(`
       ~~~js
-      import { EditableText } from 'pw-ui/ui/forms';
+      import { EditableText } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <EditableText
@@ -69,7 +69,7 @@ stories.add(
   'Non editable',
   withInfo(`
     ~~~js
-    import { EditableText } from 'pw-ui/ui/forms';
+    import { EditableText } from 'react-ui/ui/forms';
     ~~~
   `)(() => (
     <EditableText
@@ -87,7 +87,7 @@ stories.add(
   withState({ text: 'Some text' })(
     withInfo(`
       ~~~js
-      import { EditableText } from 'pw-ui/ui/forms';
+      import { EditableText } from 'react-ui/ui/forms';
       ~~~
     `)(({ store }) => (
       <EditableText
@@ -97,7 +97,7 @@ stories.add(
         onChange={(e) => store.set({ text: e })}
         saveButtons
         cancelBtnClassName={text('cancelBtnClassName', 'uppercase')}
-        saveBtnClassName={text('saveBtnClassName', 'uppercase orange-primary pointer')}
+        saveBtnClassName={text('saveBtnClassName', 'uppercase primary pointer')}
       />
     )),
   ),

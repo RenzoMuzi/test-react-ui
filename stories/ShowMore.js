@@ -11,7 +11,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { ShowMore } from 'pw-ui/ui';
+    import { ShowMore } from 'react-ui/ui';
     ~~~
   `)(() => (
     <ShowMore
@@ -31,7 +31,7 @@ stories.add(
   'Custom',
   withInfo(`
     ~~~js
-    import { ShowMore } from 'pw-ui/ui';
+    import { ShowMore } from 'react-ui/ui';
     ~~~
   `)(() => (
     <ShowMore

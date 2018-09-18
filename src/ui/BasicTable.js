@@ -236,7 +236,7 @@ BasicTable.defaultProps = {
   loadingSrc: loadingGif,
   loadingClassName: 'align-center width-32px',
   headerClassName: 'c-table__header',
-  deleteClassName: 'fa fa-times orange-primary pointer',
+  deleteClassName: 'fa fa-times primary pointer',
 };
 
 BasicTable.propTypes = {

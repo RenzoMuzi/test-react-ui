@@ -12,7 +12,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { Popover } from 'pw-ui/ui';
+    import { Popover } from 'react-ui/ui';
     ~~~
   `)(() => (
     <div style={{ height: '42px' }}>
@@ -27,7 +27,7 @@ stories.add(
   'Custom Popover',
   withInfo(`
     ~~~js
-    import { Popover } from 'pw-ui/ui';
+    import { Popover } from 'react-ui/ui';
     ~~~
   `)(() => (
     <div style={{ height: '42px' }}>
@@ -44,9 +44,9 @@ stories.add(
   'Textarea with popover',
   withInfo(`
     ~~~js
-    import { TextareaWithPopover } from 'pw-ui/ui/forms';
+    import { TextareaWithPopover } from 'react-ui/ui/forms';
 
-    Same props from pw-ui/ui/forms/Textarea
+    Same props from react-ui/ui/forms/Textarea
     ~~~
   `)(() => (
     <div className="max-width-1">

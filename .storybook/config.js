@@ -4,8 +4,8 @@ import { setDefaults } from '@storybook/addon-info';
 import '../src/styles/index.css';
 
 setOptions({
-  name: 'Prescribewellness UI',
-  url: 'https://github.com/prescribe-wellness/ui',
+  name: 'React UI',
+  url: 'https://github.com/moove-it/react-ui',
   hierarchyRootSeparator: /\|/,
   addonPanelInRight: true,
 });

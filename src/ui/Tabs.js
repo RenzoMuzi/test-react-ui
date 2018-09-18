@@ -7,7 +7,7 @@ const SubtabTitle = ({ title, active, onClick }) => (
     onClick={onClick}
     className={classNames(
       'flex flex-center mr1 pc-px2 pt2 py1 inline-block fs13 pointer',
-      { 'border-bottom-medium border-bottom-orange orange-primary': active },
+      { 'border-bottom-medium border-bottom-orange primary': active },
     )}
   >
     {title}

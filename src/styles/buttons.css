@@ -5,7 +5,7 @@
   outline: none;
   box-shadow: none;
   transition: all 0.1s ease-in;
-  font-family: 'Gilroy', Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .pc-btn-primary {
-  background-color: var(--orange-primary);
+  background-color: var(--primary);
   color: var(--white);
   border: 0px;
   box-shadow: none;
@@ -31,14 +31,14 @@
 
 .pc-btn-primary:hover:enabled,
 .pc-btn-primary:focus:enabled {
-  background-color: var(--orange-primary-hover);
-  border-color: var(--orange-primary-hover);
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
 }
 
 .pc-btn-primary:active:enabled {
   box-shadow: 0 0 6px 0px var(--gray-secondary);
-  background-color: var(--orange-primary-active);
-  border-color: var(--orange-primary-active);
+  background-color: var(--primary-active);
+  border-color: var(--primary-active);
 }
 
 .pc-btn-secondary {

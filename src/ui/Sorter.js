@@ -99,7 +99,7 @@ Sorter.displayName = 'Sorter';
 Sorter.defaultProps = {
   sortByClassName: 'pr1 nowrap',
   className: 'flex flex-wrap items-center lh-21',
-  chickletClassName: 'mr1 mb1 mt1 rounded orange-primary bg-orange-highlight nowrap',
+  chickletClassName: 'mr1 mb1 mt1 rounded primary bg-primary-highlight nowrap',
   addSortingClassName: 'orange',
   addSortingIconClassName: 'inline-block fa-lg pl1 gray-border-color',
   addSortingIconType: 'caret-down',

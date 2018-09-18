@@ -14,7 +14,7 @@ stories.add(
   withState({ isOpen: false })(
     withInfo(`
       ~~~js
-      import { BasicModal } from 'pw-ui/ui';
+      import { BasicModal } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <div className="center">
@@ -38,7 +38,7 @@ stories.add(
   withState({ isOpen: false })(
     withInfo(`
       ~~~js
-      import { BasicModal } from 'pw-ui/ui';
+      import { BasicModal } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <div className="center">
@@ -68,7 +68,7 @@ stories.add(
   withState({ isOpen: false })(
     withInfo(`
       ~~~js
-      import { Modal } from 'pw-ui/ui';
+      import { Modal } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <div className="center">
@@ -110,7 +110,7 @@ stories.add(
   withState({ isOpen: false })(
     withInfo(`
       ~~~js
-      import { Modal } from 'pw-ui/ui';
+      import { Modal } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <div className="center">

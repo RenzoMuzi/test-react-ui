@@ -12,7 +12,7 @@ stories.add(
   'Default',
   withInfo(`
     ~~~js
-    import { CustomDropdown } from 'pw-ui/ui';
+    import { CustomDropdown } from 'react-ui/ui';
     ~~~
   `)(() => (
     <CustomDropdown
@@ -43,7 +43,7 @@ stories.add(
   'View Only',
   withInfo(`
     ~~~js
-    import { CustomDropdown } from 'pw-ui/ui';
+    import { CustomDropdown } from 'react-ui/ui';
     ~~~
   `)(() => (
     <CustomDropdown
@@ -63,7 +63,7 @@ stories.add(
   'Action Dropdown',
   withInfo(`
     ~~~js
-    import { CustomDropdown } from 'pw-ui/ui';
+    import { CustomDropdown } from 'react-ui/ui';
     ~~~
   `)(() => (
     <CustomDropdown
@@ -136,7 +136,7 @@ stories.add(
   'Action Icon (Custom Header)',
   withInfo(`
     ~~~js
-    import { CustomDropdown } from 'pw-ui/ui';
+    import { CustomDropdown } from 'react-ui/ui';
 
     const IconHeader = () => (
       <Icon
@@ -213,7 +213,7 @@ stories.add(
   'Custom Header',
   withInfo(`
     ~~~js
-    import { CustomDropdown } from 'pw-ui/ui';
+    import { CustomDropdown } from 'react-ui/ui';
 
     const CustomHeader = () => (<div className="orange pointer"> This is a custom header </div>);
     ~~~
@@ -264,7 +264,7 @@ stories.add(
   'Custom Item on options',
   withInfo(`
     ~~~js
-    import { CustomDropdown } from 'pw-ui/ui';
+    import { CustomDropdown } from 'react-ui/ui';
 
     const IconCustom1 = () => <Icon
       className="pointer inline-block fa-sm gray pl1"

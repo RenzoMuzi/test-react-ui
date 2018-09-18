@@ -12,11 +12,11 @@ stories.add(
   'Standard',
   withInfo(`
   ~~~js
-  import { Chicklet } from 'pw-ui/ui';
+  import { Chicklet } from 'react-ui/ui';
   ~~~
   `)(() => (
     <Chicklet
-      className="mr1 rounded orange-primary nowrap bg-orange-highlight inline-block my1x3 px1/3"
+      className="mr1 rounded primary nowrap bg-primary-highlight inline-block my1x3 px1/3"
       onClick={action('clicked')}
     >
       Chicklet content
@@ -28,7 +28,7 @@ stories.add(
   'Custom Chicklet',
   withInfo(`
   ~~~js
-  import { Chicklet } from 'pw-ui/ui';
+  import { Chicklet } from 'react-ui/ui';
   ~~~
   `)(() => (
     <Chicklet

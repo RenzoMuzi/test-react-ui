@@ -16,7 +16,7 @@ stories.add(
   withState({ selectedRecords: [], allSelected: false })(
     withInfo(`
       ~~~js
-      import { Table } from 'pw-ui/ui';
+      import { Table } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Table
@@ -75,7 +75,7 @@ stories.add(
   withState({ selectedRecords: [], allSelected: false })(
     withInfo(`
       ~~~js
-      import { Table } from 'pw-ui/ui';
+      import { Table } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Table
@@ -84,7 +84,7 @@ stories.add(
         dropdown={dropdownOptions}
         highlightClassName={text('highlightClassName', 'bg-sky-blue-highlight')}
         dropdownContainerClassName={text('dropdownContainerClassName', 'inline-block pointer')}
-        iconClassName={text('iconClassName', 'inline-block fa-sm blue hover-orange-primary pl1')}
+        iconClassName={text('iconClassName', 'inline-block fa-sm blue hover-primary pl1')}
         linkClassName={text('linkClassName')}
         headerTitleClassName={text('headerTitleClassName', 'weight-700 uppercase orange')}
         headerSubtitleClassName={text('headerSubtitleClassName', 'weight-300 uppercase orange')}
@@ -130,7 +130,7 @@ stories.add(
   withState({ selectedRecords: [], allSelected: false })(
     withInfo(`
       ~~~js
-      import { Table } from 'pw-ui/ui';
+      import { Table } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Table
@@ -176,7 +176,7 @@ stories.add(
   withState({ selectedRecords: [], allSelected: false })(
     withInfo(`
       ~~~js
-      import { Table } from 'pw-ui/ui';
+      import { Table } from 'react-ui/ui';
       ~~~
     `)(({ store }) => (
       <Table
