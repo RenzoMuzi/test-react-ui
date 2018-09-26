@@ -3,7 +3,7 @@ import validations from './validations';
 import values from './values';
 import karmadata from './karmadata';
 
-export default {
+export {
   safeGet,
   validations,
   values,

@@ -14,7 +14,7 @@ class DropdownHeader extends Component {
       <div
         className={containerClassName}
       >
-        <span className="inline-block fa-lg">{this.renderText()}</span>
+        <span className="inline-block">{this.renderText()}</span>
         {selectIcon && <Icon
           type={isOpen ? 'caret-up' : 'caret-down'}
           size={16}

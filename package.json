@@ -1,6 +1,6 @@
 {
   "name": "@mooveit-team/react-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Mooveit React UI",
   "main": "index.js",
   "scripts": {
