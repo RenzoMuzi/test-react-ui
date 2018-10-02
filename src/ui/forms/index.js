@@ -7,6 +7,7 @@ import TextArea from './Textarea';
 import ToggleSwitch from './ToggleSwitch';
 import ViewOnlyText from './ViewOnlyText';
 import DatePicker from './DatePicker'; // eslint-disable-line
+import DateTimePicker from './DateTimePicker';
 
 // For Backwards Compatibilty until dependencies update
 import CustomCalendar from './DatePicker'; // eslint-disable-line
@@ -23,5 +24,5 @@ export {
   DatePicker,
   // For Backwards Compatibilty until dependencies update
   CustomCalendar,
+  DateTimePicker,
 };
-
