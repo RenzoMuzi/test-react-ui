@@ -157,7 +157,7 @@ class DatePicker extends PureComponent {
       value: (props.date ? moment(props.date).format(props.format) : ''),
       showCalendar: false,
       selectedDate: (props.date ? new Date(props.date) : null),
-      pickerYearMonth: props.date,
+      pickerYearMonth: (props.date ? new Date(props.date) : new Date()),
       hoveredDate: null,
     };
   }
@@ -200,7 +200,7 @@ class DatePicker extends PureComponent {
     this.setState({
       value: date ? moment(date).format(format) : '',
       selectedDate: date ? new Date(date) : null,
-      pickerYearMonth: date,
+      pickerYearMonth: date ? new Date(date) : new Date(),
       showCalendar: this.props.closeCalendarOnSelect ? false : this.state.showCalendar,
     });
     this.props.onChange(date);
@@ -255,7 +255,7 @@ DatePicker.defaultProps = {
   disabledDays: [],
   placeholder: null,
   inputClassName: 'input',
-  date: new Date(),
+  date: null,
   closeCalendarOnSelect: true,
   modifiersStyles: modifiersStylesDefault,
   showYearMonthForm: true,
