@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import * as validationsUtils from '../utils/validations';
+import get from 'lodash/get';
+
+const getId = errorMessage => get(errorMessage, 'id');
+
+const hasId = errorMessage => !!getId(errorMessage);
+
+const errorChanged = (errorMessage, nextErrorMessage) => (
+  hasId(nextErrorMessage) && getId(errorMessage) !== getId(nextErrorMessage)
+);
 
 const MarginX = 20;
 
@@ -120,12 +128,12 @@ export const withPopover = WrappedComponent => {
       const { errorMessage: nextErrorMessage } = nextProps;
       const { currentErrorMessage } = this.state;
 
-      if (!validationsUtils.hasId(nextErrorMessage)) {
+      if (!hasId(nextErrorMessage)) {
         this.destroyPopover();
       }
 
       if (
-        validationsUtils.errorChanged(currentErrorMessage, nextErrorMessage)
+        errorChanged(currentErrorMessage, nextErrorMessage)
       ) {
         this.attachNewPopover(nextProps);
       }
@@ -152,7 +160,7 @@ export const withPopover = WrappedComponent => {
       const { currentErrorMessage, isPopoverDismissed } = this.state;
 
       const popover =
-        validationsUtils.hasId(currentErrorMessage) && !isPopoverDismissed ? (
+        hasId(currentErrorMessage) && !isPopoverDismissed ? (
           <Popover
             ref={ref => {
               this.$popover = ref;
@@ -196,7 +204,7 @@ export const withPopover = WrappedComponent => {
     positionPopover() {
       let { currentErrorMessage, isPopoverDismissed } = this.state;
 
-      if (validationsUtils.hasId(currentErrorMessage) && !isPopoverDismissed) {
+      if (hasId(currentErrorMessage) && !isPopoverDismissed) {
         this.$popover.adjust(this.$root);
       }
     }
