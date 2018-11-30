@@ -1,14 +1,15 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import valuesUtils from 'utils/values';
+
+const isEmpty = value => value === null || value === undefined || Number.isNaN(value) || value === '';
 
 const ViewOnlyText = ({ value }) => {
   const className = classNames({
-    'gray-secondary': valuesUtils.isEmpty(value),
+    'gray-secondary': isEmpty(value),
   });
 
-  const text = valuesUtils.isEmpty(value) ? 'N/A' : value;
+  const text = isEmpty(value) ? 'N/A' : value;
 
   return <div className={className}>{text}</div>;
 };
