@@ -11,7 +11,6 @@ module.exports = {
     'ui.js': './src/ui/index.js',
     'forms.js': './src/ui/forms/index.js',
     styles: './src/styles/index.css',
-    'kd-styles': './src/styles/kd-themes/pw.css',
     'styles-font-awesome': './src/styles/font-awesome-fonts.scss',
   },
   output: {
