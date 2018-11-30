@@ -15,3 +15,4 @@ webpack.config.js
 .package-lock.json
 .vscode
 /mooveit-react-ui*.tgz
+/mooveit-team-react-ui*.tgz
