@@ -74,7 +74,7 @@ class Table extends Component {
     );
   }
 
-  renderValue = (value, format, prefix, subKey) => {
+  renderValue = (value, prefix, subKey) => {
     let valueToShow = value || '';
     if (subKey && !isEmpty(value)) {
       valueToShow = value[0][subKey];
@@ -234,7 +234,6 @@ Table.propTypes = {
    * {
    *  title: [{ headerName: ['name'], key: 'recordKey' }],
    *  subtitle: [{ headerName: [''], key: 'anotherRecordKey',
-   *  format: 'currency', prefix: 'Amount:' }],
    *  highlighted: true
    * }
   */
