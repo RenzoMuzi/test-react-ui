@@ -112,7 +112,7 @@ class Table extends Component {
       columns, allSelected, onAllChange, highlightClassName,
       headerTitleClassName, headerSubtitleClassName,
     } = this.props;
-    const patientColumns = columns.map((column, index) => (
+    const tableColumns = columns.map((column, index) => (
       <div
         className={classNames(
           'sm-col sm-col-4 p1 fs11',
@@ -139,7 +139,7 @@ class Table extends Component {
       </div>
     );
 
-    return [checkboxColumn, ...patientColumns];
+    return [checkboxColumn, ...tableColumns];
   };
 
   renderTooltip = (column, index) => (
