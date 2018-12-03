@@ -152,6 +152,7 @@ class Table extends Component {
     const {
       columns,
       records,
+      entityId,
       zeroStateText,
       isLoading,
       selectedRecords,
@@ -170,14 +171,14 @@ class Table extends Component {
 
     return records && records.length ? (
       records.map(record => (
-        <div key={record.PatientId}>
+        <div key={record[entityId]}>
           <div className={tableBodyContainerClassName}>
             <div className="md-flex flex-auto">
               <div>
                 <div className="sm-col p1 fs14">
                   <Checkbox
-                    value={selectedRecords.includes(record.PatientId)}
-                    onChange={value => onRowChange({ value, PatientId: record.PatientId })}
+                    value={selectedRecords.includes(record[entityId])}
+                    onChange={value => onRowChange({ value, [entityId]: record[entityId] })}
                   />
                 </div>
               </div>
@@ -254,9 +255,11 @@ Table.propTypes = {
    * }
   */
   columns: PropTypes.array.isRequired,
-  /** Table of Patient records to populate the table */
+  /** Table of Entity records to populate the table */
   records: PropTypes.array,
-  /** Table of selected patientIDs */
+  /** Table of selected entityId */
+  entityId: PropTypes.string.isRequired,
+  /** Id name of the entities passed */
   selectedRecords: PropTypes.arrayOf(PropTypes.string),
   /** All records all selected or not */
   allSelected: PropTypes.bool,
