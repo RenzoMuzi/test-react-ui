@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import classNames from 'classnames';
-import valuesUtils from 'utils/values';
 import isEmpty from 'lodash/isEmpty';
 import { Checkbox } from './forms';
 import loadingGif from '../images/loading.gif';
 
 import Icon from './Icon';
 import CustomDropdown from './CustomDropdown';
+
+const emptyValue = '-';
 
 class Table extends Component {
   render() {
@@ -29,8 +30,8 @@ class Table extends Component {
 
   renderColumnValues = (record, column, columnIndex, options = {}) => {
     const { dropdown, showDropdown } = this.props;
-    let values = column.map(c => this.renderValue(record[c.key], c.format, c.prefix, c.subKey));
-    values = options.skipBlank ? values.filter(value => value !== valuesUtils.emptyValue) : values;
+    let values = column.map(c => this.renderValue(record[c.key], c.prefix, c.subKey));
+    values = options.skipBlank ? values.filter(value => value !== emptyValue) : values;
 
     const value = values.join('/');
     if (columnIndex === 0 && showDropdown && dropdown.length > 0) {
@@ -77,23 +78,6 @@ class Table extends Component {
     let valueToShow = value || '';
     if (subKey && !isEmpty(value)) {
       valueToShow = value[0][subKey];
-    }
-    switch (format) {
-      case 'percent':
-        valueToShow = valuesUtils.formatPercent(valueToShow);
-        break;
-      case 'currency':
-        valueToShow = valuesUtils.formatCurrency(valueToShow);
-        break;
-      case 'date':
-        valueToShow = valuesUtils.formatDate(valueToShow);
-        break;
-      case 'phone':
-        valueToShow = valuesUtils.formatPhoneNumber(valueToShow);
-        break;
-      default:
-        valueToShow = valuesUtils.formatDefault(valueToShow);
-        break;
     }
     if (prefix) {
       return isEmpty(valueToShow) || valueToShow === '-' ? '' : `${prefix}${valueToShow}`;
