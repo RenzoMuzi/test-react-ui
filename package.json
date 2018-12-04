@@ -1,7 +1,7 @@
 {
-  "name": "@mooveit-team/react-ui",
-  "version": "1.0.12",
-  "description": "Mooveit React UI",
+  "name": "rui-renzo-test",
+  "version": "1.0.0",
+  "description": "test",
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --colors",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moove-it/react-ui.git"
+    "url": "git+https://github.com/RenzoMuzi/test-react-ui.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moove-it/react-ui/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/moove-it/react-ui#readme",
+  "homepage": "",
   "dependencies": {
     "basscss": "^8.0.4",
     "basscss-background-colors": "^2.1.0",
