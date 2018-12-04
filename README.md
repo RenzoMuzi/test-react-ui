@@ -15,12 +15,10 @@ The following modules are available:
 
 - `@mooveit-team/react-ui/ui`: Contains all the UI components available.
 - `@mooveit-team/react-ui/forms`: Subset of `ui` with form components.
-- `@mooveit-team/react-ui/utils`: Collection of helpers used for formatting, parsing data, etc.
 
 In order to use @mooveit-team/react-ui style you will need to add them to your project:
 
 ```
-@import '@mooveit-team/react-ui/kd-styles';
 @import '@mooveit-team/react-ui/variables';
 @import '@mooveit-team/react-ui/styles';
 @import '@mooveit-team/react-ui/styles-font-awesome';
@@ -28,10 +26,9 @@ In order to use @mooveit-team/react-ui style you will need to add them to your p
 ### Color Customization
 if you want to change the colors of the default styles of the component you have two options:
 
-####  1. Using one of the default color palletes
-Currently we have two options in separate files, you can import the one that you want to override the styles:
+####  1. Using the default color pallete
+Currently we have an option in a separate file, you can import it to override the styles:
  1. `variables.css`: Default styling
- 2. `variables-pw-ui.css`: pw-ui color pallete.
 
 ####  2. Overriding the css variables by hand
 The following variables are used to define the colors of the default styles:
