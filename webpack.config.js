@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, ''),
-    publicPath: '/',
+    publicPath: '',
     filename: '[name]',
     library: 'react-ui',
     libraryTarget: 'umd',
