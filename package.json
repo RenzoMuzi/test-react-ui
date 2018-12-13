@@ -3,6 +3,7 @@
   "version": "1.3.0",
   "description": "test",
   "main": "lib/",
+  "files": ["lib"],
   "scripts": {
     "build": "webpack --progress --colors",
     "build:watch": "webpack --watch --progress --colors",
