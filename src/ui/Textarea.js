@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { withPopover } from '../Popover';
+import { withPopover } from './Popover';
 
 import ViewOnlyText from './ViewOnlyText';
 

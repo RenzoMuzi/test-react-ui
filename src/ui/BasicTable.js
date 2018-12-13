@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import loadingGif from 'images/loading.gif';
 
-import Checkbox from './forms/Checkbox';
+import Checkbox from './Checkbox';
 
 class BasicTable extends Component {
   render() {

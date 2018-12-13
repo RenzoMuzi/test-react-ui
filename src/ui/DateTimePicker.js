@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import classNames from 'classnames';
 
-import { Button, DatePicker } from './';
-import CustomDropdown from '../CustomDropdown';
+import Button from './Button';
+import DatePicker from './DatePicker';
+import CustomDropdown from './CustomDropdown';
 
 const HOURS = [...Array(12).keys()].map(i => `${i + 1}`);
 const MINUTES = [...Array(60).keys()].map(i => (i < 10 ? `0${i}` : `${i}`));

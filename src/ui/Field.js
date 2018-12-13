@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import pick from 'lodash/pick';
 
 import Checkbox from './Checkbox';
-import CustomDropdown from '../CustomDropdown';
+import CustomDropdown from './CustomDropdown';
 import Input from './Input';
 import TextArea from './Textarea';
 import ToggleSwitch from './ToggleSwitch';

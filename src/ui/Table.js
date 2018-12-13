@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
-import { Checkbox } from './forms';
+import Checkbox from './Checkbox';
 import loadingGif from '../images/loading.gif';
 
 import Icon from './Icon';

@@ -1,0 +1,925 @@
+import { uglify } from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import image from 'rollup-plugin-image';
+import commonjs from 'rollup-plugin-commonjs';
+import postcss from 'rollup-plugin-postcss';
+
+const config = [
+  {
+    input: 'src/ui/BasicModal.js',
+    external: [
+      'react',
+      'react-proptypes',
+      'react-dom',
+    ],
+    output: {
+      file: 'lib/BasicModal.js',
+      name: 'BasicModal',
+      format: 'umd',
+      globals: {
+        react: 'React',
+        proptypes: 'react-proptypes',
+        reactDom: 'react-dom',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/BasicTable.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/BasicTable.js',
+      name: 'BasicTable',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Button.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Button.js',
+      name: 'Button',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Checkbox.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Checkbox.js',
+      name: 'Checkbox',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Chicklet.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Chicklet.js',
+      name: 'Chicklet',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/CustomDropdown.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/CustomDropdown.js',
+      name: 'CustomDropdown',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/DatePicker.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/DatePicker.js',
+      name: 'DatePicker',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/DateTimePicker.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/DateTimePicker.js',
+      name: 'DateTimePicker',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/DropdownHeader.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/DropdownHeader.js',
+      name: 'DropdownHeader',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/EditableText.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/EditableText.js',
+      name: 'EditableText',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Field.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Field.js',
+      name: 'Field',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/FilteredBy.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/FilteredBy.js',
+      name: 'FilteredBy',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/FloatingList.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/FloatingList.js',
+      name: 'FloatingList',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Icon.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Icon.js',
+      name: 'Icon',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Input.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Input.js',
+      name: 'Input',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Loading.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Loading.js',
+      name: 'Loading',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Modal.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Modal.js',
+      name: 'Modal',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Pagination.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Pagination.js',
+      name: 'Pagination',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Popover.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Popover.js',
+      name: 'Popover',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/ShowMore.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/ShowMore.js',
+      name: 'ShowMore',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Sorter.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Sorter.js',
+      name: 'Sorter',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Table.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Table.js',
+      name: 'Table',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Tabs.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Tabs.js',
+      name: 'Tabs',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/Textarea.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/Textarea.js',
+      name: 'Textarea',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/ToggleSwitch.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/ToggleSwitch.js',
+      name: 'ToggleSwitch',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+  {
+    input: 'src/ui/ViewOnlyText.js',
+    external: [
+      'react',
+      'react-proptypes',
+    ],
+    output: {
+      file: 'lib/ViewOnlyText.js',
+      name: 'ViewOnlyText',
+      format: 'umd',
+      globals: {
+        react: 'React',
+      },
+    },
+    plugins: [
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs({
+        namedExports: {
+          'node_modules/prop-types/index.js': ['PropTypes'],
+          'node_modules/classnames/index.js': ['classNames'],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+        },
+      }),
+      postcss({
+        plugins: [],
+      }),
+      resolve({
+        jsnext: true,
+      }),
+      image(),
+      
+    ],
+  },
+
+];
+
+export default config;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from './Modal';
-import Button from './forms/Button';
+import Button from './Button';
 
 const BasicModal = ({
   isOpen,

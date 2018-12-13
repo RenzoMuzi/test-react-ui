@@ -9,7 +9,6 @@ module.exports = {
   entry: {
     'index.js': './src/index.js',
     'ui.js': './src/ui/index.js',
-    'forms.js': './src/ui/forms/index.js',
     styles: './src/styles/index.css',
     'styles-font-awesome': './src/styles/font-awesome-fonts.scss',
   },
