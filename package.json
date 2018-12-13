@@ -2,7 +2,7 @@
   "name": "rui-renzo-test",
   "version": "1.2.0",
   "description": "test",
-  "main": "lib",
+  "main": "lib/",
   "scripts": {
     "build": "webpack --progress --colors",
     "build:watch": "webpack --watch --progress --colors",
