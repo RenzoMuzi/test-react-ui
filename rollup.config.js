@@ -6,6 +6,10 @@ import external from 'rollup-plugin-peer-deps-external';
 // import url from 'rollup-plugin-url';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
+// import copy from 'rollup-plugin-copy';
+import copy from 'rollup-plugin-cpy'
+
+
 
 const bundles = [
   'index',
@@ -56,6 +60,17 @@ const config = bundles.map(component => ({
     external(),
     postcss({
       modules: true,
+    }),
+    // copy({
+    //   "src/images/loading.gif": "lib/images/loading.gif",
+    //   verbose: true
+    // }),
+    copy({
+      files: ['src/images/*.gif'],
+      dest: 'lib/images',
+      options: {
+        verbose: true,
+      },
     }),
     image(),
     // url(),
