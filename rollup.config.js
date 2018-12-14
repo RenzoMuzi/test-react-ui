@@ -7,7 +7,7 @@ import url from 'rollup-plugin-url';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 // import copy from 'rollup-plugin-copy';
-import copy from 'rollup-plugin-cpy'
+// import copy from 'rollup-plugin-cpy'
 
 
 
@@ -65,13 +65,13 @@ const config = bundles.map(component => ({
     //   "src/images/loading.gif": "lib/images/loading.gif",
     //   verbose: true
     // }),
-    copy({
-      files: ['src/ui/images/*.gif'],
-      dest: 'images',
-      options: {
-        verbose: true,
-      },
-    }),
+    // copy({
+    //   files: ['src/ui/images/*.gif'],
+    //   dest: 'images',
+    //   options: {
+    //     verbose: true,
+    //   },
+    // }),
     // image(),
     url(),
     babel({

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import loadingGif from './images/loading.gif';
+import loadingGif from '../images/loading.gif';
 
 const Loading = ({
   text, containerClassName, textClassName, srcGif,
