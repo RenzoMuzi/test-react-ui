@@ -1,9 +1,9 @@
-import image from 'rollup-plugin-image';
+// import image from 'rollup-plugin-image';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import external from 'rollup-plugin-peer-deps-external';
-// import url from 'rollup-plugin-url';
+import url from 'rollup-plugin-url';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 // import copy from 'rollup-plugin-copy';
@@ -72,8 +72,8 @@ const config = bundles.map(component => ({
         verbose: true,
       },
     }),
-    image(),
-    // url(),
+    // image(),
+    url(),
     babel({
       exclude: 'node_modules/**',
       plugins: ['external-helpers'],
