@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import isNil from 'lodash/isNil';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import loadingGif from '../images/loading.gif';
+import loadingGif from './images/loading.gif';
 
 import Checkbox from './Checkbox';
 

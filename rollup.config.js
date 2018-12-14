@@ -66,7 +66,7 @@ const config = bundles.map(component => ({
     //   verbose: true
     // }),
     copy({
-      files: ['src/images/*.gif'],
+      files: ['src/ui/images/*.gif'],
       dest: 'images',
       options: {
         verbose: true,
