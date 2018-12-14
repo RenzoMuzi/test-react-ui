@@ -3,7 +3,7 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import external from 'rollup-plugin-peer-deps-external';
-import url from 'rollup-plugin-url';
+// import url from 'rollup-plugin-url';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 
@@ -50,7 +50,7 @@ const config = bundles.map(component => ({
     'react',
     'classnames',
     'prop-types',
-    'react-dom'
+    'react-dom',
   ],
   plugins: [
     external(),
@@ -58,12 +58,16 @@ const config = bundles.map(component => ({
       modules: true,
     }),
     image(),
-    url(),
+    // url(),
     babel({
       exclude: 'node_modules/**',
       plugins: ['external-helpers'],
     }),
-    resolve(),
+    resolve({
+      customResolveOptions: {
+        moduleDirectory: ['src/images', 'node_modules']
+      }
+    }),
     commonjs(),
     uglify()
   ],

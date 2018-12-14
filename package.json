@@ -13,7 +13,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o docs",
     "test": "echo No tests found",
-    "rollup-build": "rollup -c -w"
+    "rollup-build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -93,6 +93,7 @@
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-image-base64": "^1.0.0",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
