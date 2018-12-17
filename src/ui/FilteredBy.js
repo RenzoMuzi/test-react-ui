@@ -64,7 +64,7 @@ const FilterChicklet = ({
 }) => (
   <div
     className={classNames(
-      'mr1 my1/3 ounded primary bg-primary-highlight nowrap',
+      'mr1 my1/3 rounded primary bg-primary-highlight nowrap',
       className,
     )}
   >
