@@ -73,7 +73,9 @@ const config = bundles.map(component => ({
     //   },
     // }),
     // image(),
-    url(),
+    url({
+      limit: 1024, // inline files < 10k, copy files > 10k
+    }),
     babel({
       exclude: 'node_modules/**',
       plugins: ['external-helpers'],
