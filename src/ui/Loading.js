@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import loadingGif from '../images/loading.gif';
 
 const Loading = ({
   text, containerClassName, textClassName, srcGif,
@@ -20,7 +19,6 @@ Loading.defaultProps = {
   text: 'Loading...',
   containerClassName: '',
   textClassName: 'weight-700 fs17 py1',
-  srcGif: loadingGif,
 };
 
 Loading.propTypes = {
@@ -31,7 +29,7 @@ Loading.propTypes = {
   /** CSS class name of text */
   textClassName: PropTypes.string,
   /** Source to image/gift to be shown */
-  srcGif: PropTypes.string,
+  srcGif: PropTypes.string.isRequired,
 };
 
 export default Loading;

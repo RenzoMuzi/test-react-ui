@@ -10,7 +10,6 @@ import uglify from 'rollup-plugin-uglify';
 // import copy from 'rollup-plugin-cpy'
 
 
-
 const bundles = [
   'index',
   'BasicModal',
@@ -73,21 +72,23 @@ const config = bundles.map(component => ({
     //   },
     // }),
     // image(),
-    url({
-      limit: 1024,
-      publicPath: "node_modules/rui-renzo-test/lib/",
-    }),
+    // url({
+    //   limit: 1024,
+    //   publicPath: "node_modules/rui-renzo-test/lib/",
+    //   // emitFiles: true,
+    //   // fileName: "loading.gif",
+    // }),
     babel({
       exclude: 'node_modules/**',
       plugins: ['external-helpers'],
     }),
     resolve({
       customResolveOptions: {
-        moduleDirectory: ['src/images', 'node_modules']
-      }
+        moduleDirectory: ['src/images', 'node_modules'],
+      },
     }),
     commonjs(),
-    uglify()
+    uglify(),
   ],
 }));
 

@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import isNil from 'lodash/isNil';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import loadingGif from '../images/loading.gif';
+
 
 import Checkbox from './Checkbox';
 
@@ -233,7 +233,6 @@ BasicTable.defaultProps = {
   highlightFunc: () => {},
   highlightClass: '',
   loading: false,
-  loadingSrc: loadingGif,
   loadingClassName: 'align-center width-32px',
   headerClassName: 'c-table__header',
   deleteClassName: 'fa fa-times primary pointer',
@@ -275,7 +274,7 @@ BasicTable.propTypes = {
   /** Table content is loading or not */
   loading: PropTypes.bool,
   /** Loading img src */
-  loadingSrc: PropTypes.string,
+  loadingSrc: PropTypes.string.isRequired,
   /** Loading icon style */
   loadingClassName: PropTypes.string,
   /** CSS class name for table header */

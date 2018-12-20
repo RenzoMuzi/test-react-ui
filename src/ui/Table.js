@@ -4,7 +4,6 @@ import ReactTooltip from 'react-tooltip';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import Checkbox from './Checkbox';
-import loadingGif from '../images/loading.gif';
 
 import Icon from './Icon';
 import CustomDropdown from './CustomDropdown';
@@ -285,7 +284,7 @@ Table.propTypes = {
   /** props forwarded to the CustomDropdown component used to display dropdown */
   dropdownProps: PropTypes.object,
   /** Loading icon */
-  loadingSrc: PropTypes.string,
+  loadingSrc: PropTypes.string.isRequired,
 };
 
 Table.defaultProps = {
@@ -303,7 +302,6 @@ Table.defaultProps = {
   dropdownProps: {},
   iconClassName: 'inline-block fa-sm gray hover-primary pl1',
   linkClassName: 'a-link pointer',
-  loadingSrc: loadingGif,
   highlightClassName: 'bg-primary-highlight',
   headerTitleClassName: 'weight-700 uppercase',
   headerSubtitleClassName: 'weight-200 uppercase',
