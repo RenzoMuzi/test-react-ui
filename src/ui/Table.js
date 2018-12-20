@@ -86,7 +86,7 @@ class Table extends Component {
 
   renderLoading = () => (
     <div className="center p3">
-      <img src={this.props.loadingSrc} alt="loading" />
+      {this.props.loadingSrc && <img src={this.props.loadingSrc} alt="loading" />}
     </div>
   );
 
@@ -284,7 +284,7 @@ Table.propTypes = {
   /** props forwarded to the CustomDropdown component used to display dropdown */
   dropdownProps: PropTypes.object,
   /** Loading icon */
-  loadingSrc: PropTypes.string.isRequired,
+  loadingSrc: PropTypes.string,
 };
 
 Table.defaultProps = {

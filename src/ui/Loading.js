@@ -6,7 +6,7 @@ const Loading = ({
   text, containerClassName, textClassName, srcGif,
 }) => (
   <div className={classNames('center', containerClassName)}>
-    <img src={srcGif} alt="loading" />
+    {srcGif && <img src={srcGif} alt="loading" />}
     <div className={classNames('center', textClassName)}>
       {text}
     </div>
@@ -19,6 +19,7 @@ Loading.defaultProps = {
   text: 'Loading...',
   containerClassName: '',
   textClassName: 'weight-700 fs17 py1',
+  srcGif: null,
 };
 
 Loading.propTypes = {
@@ -29,7 +30,7 @@ Loading.propTypes = {
   /** CSS class name of text */
   textClassName: PropTypes.string,
   /** Source to image/gift to be shown */
-  srcGif: PropTypes.string.isRequired,
+  srcGif: PropTypes.string,
 };
 
 export default Loading;
