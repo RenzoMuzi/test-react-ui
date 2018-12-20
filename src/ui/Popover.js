@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import get from 'lodash/get';
 
-const getId = errorMessage => get(errorMessage, 'id');
+const getId = errorMessage => errorMessage && errorMessage.id;
 
 const hasId = errorMessage => !!getId(errorMessage);
 
