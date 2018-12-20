@@ -310,6 +310,7 @@ Table.defaultProps = {
   primaryValueClassName: 'weight-300 fs18',
   secondaryValueClassName: 'weight-200 fs12',
   headerContainerClassName: 'xs-hide sm-hide flex items-center border-bottom-medium border-gray-50',
+  loadingSrc: null,
 };
 
 export default Table;
