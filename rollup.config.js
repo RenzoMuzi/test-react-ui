@@ -75,7 +75,7 @@ const config = bundles.map(component => ({
     // image(),
     url({
       limit: 1024,
-      // publicPath: "publicImages",
+      publicPath: "node_modules/rui-renzo-test/lib/",
     }),
     babel({
       exclude: 'node_modules/**',
