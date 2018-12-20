@@ -74,7 +74,8 @@ const config = bundles.map(component => ({
     // }),
     // image(),
     url({
-      limit: 1024, // inline files < 10k, copy files > 10k
+      limit: 1024,
+      // publicPath: "publicImages",
     }),
     babel({
       exclude: 'node_modules/**',

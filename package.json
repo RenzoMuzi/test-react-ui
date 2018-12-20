@@ -4,8 +4,7 @@
   "description": "test",
   "main": "lib/",
   "files": [
-    "lib",
-    "images"
+    "lib"
   ],
   "scripts": {
     "build": "webpack --progress --colors",
