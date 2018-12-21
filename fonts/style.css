@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('node_modules/rui-renzo-test/fonts/icomoon.eot?5np8hz');
-  src:  url('node_modules/rui-renzo-test/fonts/icomoon.eot?5np8hz#iefix') format('embedded-opentype'),
-    url('node_modules/rui-renzo-test/fonts/icomoon.ttf?5np8hz') format('truetype'),
-    url('node_modules/rui-renzo-test/fonts/icomoon.woff?5np8hz') format('woff'),
-    url('node_modules/rui-renzo-test/fonts/icomoon.svg?5np8hz#icomoon') format('svg');
+  src:  url('/node_modules/rui-renzo-test/fonts/icomoon.eot?5np8hz');
+  src:  url('/node_modules/rui-renzo-test/fonts/icomoon.eot?5np8hz#iefix') format('embedded-opentype'),
+    url('/node_modules/rui-renzo-test/fonts/icomoon.ttf?5np8hz') format('truetype'),
+    url('/node_modules/rui-renzo-test/fonts/icomoon.woff?5np8hz') format('woff'),
+    url('/node_modules/rui-renzo-test/fonts/icomoon.svg?5np8hz#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
