@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import isNil from 'lodash/isNil';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-
+import '../fonts/style.css';
 
 import Checkbox from './Checkbox';
 
