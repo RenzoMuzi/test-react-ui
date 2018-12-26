@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import '../fonts/style.css';
+// import '../fonts/style.css';
 
 const Icon = ({
   type, size, className, style = {}, ...otherProps

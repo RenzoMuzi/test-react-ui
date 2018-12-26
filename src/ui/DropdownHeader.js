@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../fonts/style.css';
+// import '../fonts/style.css';
 import Icon from './Icon';
 
 class DropdownHeader extends Component {
