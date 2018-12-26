@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
-import isNil from 'lodash/isNil';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 // import '../fonts/style.css';
@@ -118,7 +116,7 @@ class BasicTable extends Component {
             </tr>
           );
         })}
-        {isEmpty(records) && this.renderEmptyState()}
+        {records.length > 0 && this.renderEmptyState()}
       </tbody>
     );
   }
@@ -199,9 +197,9 @@ class BasicTable extends Component {
   }
 
   calculateColumnWidthStyle(columnFlexSize, tableFlexSize) {
-    return isNil(columnFlexSize)
-      ? 'auto'
-      : `${100 * columnFlexSize / tableFlexSize}%`;
+    return columnFlexSize
+      ? `${100 * columnFlexSize / tableFlexSize}%`
+      : 'auto';
   }
 
   isAllChecked() {
