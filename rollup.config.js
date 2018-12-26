@@ -58,7 +58,7 @@ const config = bundles.map(component => ({
   plugins: [
     external(),
     postcss({
-      modules: true,
+      modules: false,
     }),
     // copy({
     //   "src/images/loading.gif": "lib/images/loading.gif",

@@ -28,3 +28,5 @@ ui.js
 ui.js.map
 ui.js.css
 images/
+/lib
+lib/
